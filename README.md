@@ -34,6 +34,7 @@ VolunteerHub es una plataforma revolucionaria diseñada para cerrar la brecha en
 | Nélida Suárez | Front-End | [GitHub](https://github.com/NelidaSuarez) | neessu2023@gmail.com |
 | Manuel Moscoloni | Diseñador UX/UI | - | manumoscoloni@gmail.com |
 | Ilan Angeles | Back-End | [GitHub](https://github.com/ilanangelesrodriguez) | ilanangelesrodriguez@gmail.com |
+| Gisele Ortiz| Back-End | [GitHub](https://github.com/giseleortiz) | giseleortizuriel@gmail.com |
 
 ## 🌈 Cómo Contribuir
 
