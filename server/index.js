@@ -2,10 +2,12 @@ import express from 'express';
 import connectDB from './src/config/connection.js';
 import dotenv from 'dotenv';
 import routes from './src/routes/index.js';
+import swaggerConfig from './src/config/swagger.util.js';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
+app.use(express.json());
 
 connectDB()
     .then(async () => {
@@ -17,6 +19,7 @@ connectDB()
         process.exit(1); // Salir del proceso con fallo
     });
 
+swaggerConfig(app);
 
 app.get('/', (req, res) => {
     res.json({

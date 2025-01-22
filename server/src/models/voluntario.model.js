@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const VoluntarioSchema = new mongoose.Schema({
     voluntario_id: {
         type: mongoose.Schema.Types.ObjectId,
-        default: mongoose.Types.ObjectId,
+        default: () => new mongoose.Types.ObjectId(),
     },
     nombre: {
         type: String,
