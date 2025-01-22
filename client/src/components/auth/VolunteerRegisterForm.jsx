@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { registerSchema } from "../../schemas/auth/registerSchema.js";
+import { volunteerRegisterSchema } from "../../schemas/auth/registerSchema.js";
 
 const initialValues = {
   name: "",
@@ -16,7 +16,7 @@ function VolunteerRegisterForm() {
   const { handleChange, errors, handleSubmit } = useFormik({
     initialValues: initialValues,
     onSubmit: handleRegister,
-    validationSchema: registerSchema,
+    validationSchema: volunteerRegisterSchema,
     validateOnMount: false,
     validateOnBlur: true,
     validateOnChange: false,
@@ -131,9 +131,11 @@ function VolunteerRegisterForm() {
         </span>{" "}
         {errors.confirmPassword}
       </small>
-      <button className="w-full mt-6 btn btn-neutral btn-sm min-h-10">
-        Registrarme como voluntario
-      </button>
+      <div>
+        <button className="w-full mt-3 btn btn-neutral btn-sm min-h-10">
+          Registrarme como voluntario
+        </button>
+      </div>
     </form>
   );
 }
