@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import LoginButton from "../auth/LoginButton.jsx";
 
 const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <a className="text-xl btn btn-ghost" href="/">
+        <Link className="text-xl btn btn-ghost" to="/">
           daisyUI
-        </a>
+        </Link>
       </div>
       <div className="hidden navbar-center lg:flex">
         <ul className="px-1 menu menu-horizontal">

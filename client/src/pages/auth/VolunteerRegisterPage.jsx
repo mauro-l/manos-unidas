@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import VolunteerRegisterForm from "../../components/auth/VolunteerRegisterForm.jsx";
 import Banner from "../../components/common/Banner.jsx";
 
@@ -18,12 +19,13 @@ function VolunteerRegisterPage() {
           </p>
         </div>
         <VolunteerRegisterForm />
-        <a
+        <Link
+          to={"/foundation/register"}
           role="button"
           className="w-full my-4 text-center text-black btn btn-link"
         >
           Quiero registar mi fundacion
-        </a>
+        </Link>
       </div>
     </div>
   );

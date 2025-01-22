@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { loginSchema } from "../../schemas/auth/loginSchema.js";
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 
 const LoginModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
@@ -147,12 +148,20 @@ const LoginModal = ({ isOpen, onClose }) => {
             ¿Aún no tienes cuenta? ¡Creala a continuación!
           </h4>
           <div className="flex justify-center w-full gap-2">
-            <a role="button" className="w-1/2 btn btn-outline btn-xs">
+            <Link
+              to={"/register"}
+              role="button"
+              className="w-1/2 btn btn-outline btn-xs"
+            >
               Quiero ser voluntario
-            </a>
-            <a role="button" className="w-1/2 btn btn-outline btn-xs">
+            </Link>
+            <Link
+              to={"/foundation/register"}
+              role="button"
+              className="w-1/2 btn btn-outline btn-xs"
+            >
               Soy una fundacion
-            </a>
+            </Link>
           </div>
         </div>
       </div>
