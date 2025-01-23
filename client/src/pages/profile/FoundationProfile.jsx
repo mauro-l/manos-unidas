@@ -8,6 +8,8 @@ import {
   HiOutlineUserCircle,
   HiOutlineBellAlert,
 } from "react-icons/hi2";
+import CardInfo from "../../components/common/CardInfo.jsx";
+import TitleAction from "../../components/common/TitleAction.jsx";
 
 function FoundationProfile() {
   return (
@@ -42,7 +44,7 @@ function FoundationProfile() {
         </div>
       </Banner>
       <div className="p-4">
-        <div className="w-full p-6 mb-4 -mt-16 bg-white border-[#D1D5DB] border rounded-lg">
+        <CardInfo>
           <p className="text-sm">
             Deberás completar la siguiente información sobre la fundación para
             comenzar a publicar actividades:
@@ -76,13 +78,10 @@ function FoundationProfile() {
               </tbody>
             </table>
           </div>
-        </div>
-        <div>
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xl font-bold">Sobre la fundacion</h3>
-            <ButtonEdit>Editar</ButtonEdit>
-          </div>
-          <div className="relative">
+        </CardInfo>
+        <div className="mt-6">
+          <TitleAction>Sobre la fundacion</TitleAction>
+          <div className="relative mt-3">
             <span className="before:content-[' '] before:block before:h-16"></span>
             <div className="absolute border-t border-[#D1D5DB] btm-nav btm-nav-md">
               <button>
@@ -103,16 +102,10 @@ function FoundationProfile() {
           </div>
         </div>
         <div className="border-t border-[#D1D5DB] my-4">
-          <div className="flex items-center justify-between mt-4">
-            <h3 className="text-xl font-bold">Datos de contacto</h3>
-            <ButtonEdit>Editar</ButtonEdit>
-          </div>
+          <TitleAction>Datos de contacto</TitleAction>
         </div>
         <div className="border-t border-[#D1D5DB] my-6">
-          <div className="flex items-center justify-between mt-4">
-            <h3 className="text-xl font-bold">Datos para donaciones</h3>
-            <ButtonEdit>Editar</ButtonEdit>
-          </div>
+          <TitleAction>Datos para donaciones</TitleAction>
         </div>
       </div>
     </>
