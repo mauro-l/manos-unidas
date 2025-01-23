@@ -1,0 +1,20 @@
+import FoundationRegisterForm from "../../components/auth/FoundationRegisterForm.jsx";
+import Banner from "../../components/common/Banner.jsx";
+import BtnBackProfile from "../../components/common/BtnBackProfile.jsx";
+
+function EditFoundationInfo() {
+  return (
+    <div>
+      <Banner>
+        <BtnBackProfile />
+        <h3>Completa o edita la informacion</h3>
+      </Banner>
+      <div className="p-4">
+        <h3 className="py-6 text-2xl font-semibold">Información básica</h3>
+        <FoundationRegisterForm />
+      </div>
+    </div>
+  );
+}
+
+export default EditFoundationInfo;

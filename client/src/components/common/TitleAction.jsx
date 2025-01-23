@@ -1,10 +1,10 @@
 import ButtonEdit from "./ButtonEdit.jsx";
 
-function TitleAction({ children }) {
+function TitleAction({ href, children }) {
   return (
     <div className="flex items-center justify-between mt-4">
       <h3 className="text-xl font-bold">{children}</h3>
-      <ButtonEdit>Editar</ButtonEdit>
+      <ButtonEdit href={href}>Editar</ButtonEdit>
     </div>
   );
 }
