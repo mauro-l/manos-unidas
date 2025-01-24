@@ -7,10 +7,9 @@ const Card = ({ activity }) => {
     fundacion,
     ubicacion,
     categoria,
-    /* tareas, */
   } = activity;
 
- /*  const tareasList = tareas ? tareas.split("\n") : []; */
+ 
 
   return (
     <div className="card bg-base-100 shadow-xl mx-auto">
@@ -26,18 +25,14 @@ const Card = ({ activity }) => {
           <div className="badge badge-outline">{categoria}</div>
         </div>
         <h2 className="card-title font-bold text-2xl leading-6">{titulo}</h2>
-        <div className="inline-flex gap-2 text-[#515151] text-sm">
-          <a className="link font-bold text-nowrap">{fundacion}</a>
-          <p className="border-l border-[#D1D5DB] ps-2 ">{ubicacion.pais}, {ubicacion.ciudad}  </p>
+        <div className="inline-flex gap-2 text-[#515151] text-sm w-full ">
+          <Link  className="link font-bold text-balance w-1/2">{fundacion}</Link>
+          <p className="border-l border-[#D1D5DB] ps-2 w-1/2 ">{ubicacion.pais}, {ubicacion.ciudad}  </p>
         </div>
         <p>{descripcion}</p>
-       {/*  <ul className="list-disc list-inside mt-4 text-[#515151]">
-          {tareasList.map((tar, index) => (
-            <li key={index}>{tar}</li>
-          ))}
-        </ul> */}
+      
         <div className="card-actions justify-end"></div>
-        <Link role="button" className="btn btn-outline font-bold border-[#D1D5DB]">
+        <Link  role="button" className="btn btn-outline font-bold border-[#D1D5DB]">
           Conocer más
         </Link>
       </div>
