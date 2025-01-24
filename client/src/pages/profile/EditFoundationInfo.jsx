@@ -1,6 +1,6 @@
-import FoundationRegisterForm from "../../components/auth/FoundationRegisterForm.jsx";
 import Banner from "../../components/common/Banner.jsx";
 import BtnBackProfile from "../../components/common/BtnBackProfile.jsx";
+import EditFoundInfo from "../../components/features/profile/EditFoundInfo.jsx";
 
 function EditFoundationInfo() {
   return (
@@ -11,7 +11,7 @@ function EditFoundationInfo() {
       </Banner>
       <div className="p-4">
         <h3 className="py-6 text-2xl font-semibold">Información básica</h3>
-        <FoundationRegisterForm />
+        <EditFoundInfo />
       </div>
     </div>
   );
