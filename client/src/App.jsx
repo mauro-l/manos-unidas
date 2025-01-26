@@ -5,6 +5,7 @@ import FoundationRegisterPage from "./pages/auth/FoundationRegisterPage.jsx";
 import VolunteerRegisterPage from "./pages/auth/VolunteerRegisterPage.jsx";
 import FoundationProfile from "./pages/profile/FoundationProfile.jsx";
 import Activities from "./pages/volunteering/Activities.jsx";
+import ActivitiesDetail from "./components/features/activities/ActivitiesDetail.jsx";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/register" element={<VolunteerRegisterPage />} />
         <Route path="/profile" element={<FoundationProfile />} />
         <Route path="/volunteering" element={<Activities/>} />
+        <Route path="/detai/:id" element={<ActivitiesDetail/>} />
+        <Route path="/activities/:id" element={<ActivitiesDetail/>} />
       </Routes>
     </Router>
   );
