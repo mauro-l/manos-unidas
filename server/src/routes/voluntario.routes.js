@@ -12,6 +12,13 @@ const router = express.Router();
 
 /**
  * @swagger
+ * tags:
+ *   name: Voluntarios
+ *   description: Gestión de voluntarios
+ */
+
+/**
+ * @swagger
  * components:
  *   schemas:
  *     Voluntario:
@@ -71,17 +78,19 @@ const router = express.Router();
  *           type: array
  *           items:
  *             type: string
- *           description: Habilidades del voluntario
+ *             format: ObjectId
+ *           description: IDs de las habilidades del voluntario (referencia a la colección Habilidad)
  *         ubicacion:
  *           type: string
- *           description: Ubicación del voluntario
+ *           format: ObjectId
+ *           description: ID de la ubicación del voluntario (referencia a la colección Ubicacion)
  *         profesion:
  *           type: string
  *           description: Profesión del voluntario
  *         foto_perfil:
  *           type: string
  *           format: binary
- *           description: Foto de perfil del voluntario
+ *           description: Foto de perfil del voluntario (formato binario)
  *       example:
  *         nombre: Juan
  *         apellido: Pérez
@@ -93,17 +102,10 @@ const router = express.Router();
  *         intereses: ["Educación", "Salud"]
  *         fecha_registro: "2023-10-01"
  *         estudios: "Licenciatura en Educación"
- *         habilidades: ["Docencia", "Primeros auxilios"]
- *         ubicacion: "Madrid, España"
+ *         habilidades: ["605c72ef153207001f73a45", "605c72ef153207001f73a46"]  # Ejemplo de IDs de habilidades (referencias a documentos existentes)
+ *         ubicacion: "605c72ef153207001f73a47"  # Ejemplo de ID de ubicación (referencia a documento existente)
  *         profesion: "Profesor"
- *         foto_perfil: "binary data"
- */
-
-/**
- * @swagger
- * tags:
- *   name: Voluntarios
- *   description: Gestión de voluntarios
+ *         foto_perfil: "binary data"  # Datos binarios para la foto de perfil
  */
 
 /**

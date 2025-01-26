@@ -47,12 +47,14 @@ const VoluntarioSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    habilidades: {
-        type: [String],
+    habilidades: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Habilidad',
         required: true,
-    },
+    }],
     ubicacion: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Ubicacion',
         required: true,
     },
     profesion: {

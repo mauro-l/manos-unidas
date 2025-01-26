@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginVoluntario } from '../controllers/auth.controller.js';
+import { login } from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ const router = express.Router();
  * @swagger
  * /auth/login:
  *   post:
- *     summary: Iniciar sesión como voluntario
+ *     summary: Iniciar sesión
  *     tags: [Autenticación]
  *     requestBody:
  *       required: true
@@ -28,12 +28,12 @@ const router = express.Router();
  *             properties:
  *               email:
  *                 type: string
- *                 description: Email del voluntario
+ *                 description: Email del usuario
  *               contrasena:
  *                 type: string
- *                 description: Contraseña del voluntario
+ *                 description: Contraseña del usuario
  *             example:
- *               email: juan.perez@example.com
+ *               email: usuario@example.com
  *               contrasena: password123
  *     responses:
  *       200:
@@ -46,13 +46,17 @@ const router = express.Router();
  *                 token:
  *                   type: string
  *                   description: Token JWT
- *                 voluntario:
- *                   $ref: '#/components/schemas/Voluntario'
+ *                 user:
+ *                   type: object
+ *                   description: Información del usuario
+ *                 role:
+ *                   type: string
+ *                   description: Rol del usuario (voluntario o fundación)
  *       400:
  *         description: Credenciales inválidas
  *       500:
- *         description: Error del servidor
+ *         description: Error en el servidor
  */
-router.post('/login', loginVoluntario);
+router.post('/login', login);
 
 export default router;

@@ -1,10 +1,39 @@
 import Voluntario from '../models/voluntario.model.js';
+import Habilidad from '../models/habilidad.model.js';
+import Ubicacion from '../models/ubicacion.model.js';
 
 // Crear un nuevo voluntario
 export const createVoluntario = async (req, res) => {
     try {
-        const newVoluntario = new Voluntario(req.body);
+        const { habilidades, ubicacion, ...voluntarioData } = req.body;
+
+        // Comprobar y crear habilidades
+        const habilidadesDocs = [];
+        for (const habilidad of habilidades) {
+            let habilidadExistente = await Habilidad.findOne({ nombre: habilidad });
+            if (!habilidadExistente) {
+                // Si no existe, se crea una nueva habilidad
+                habilidadExistente = await Habilidad.create({ nombre: habilidad });
+            }
+            habilidadesDocs.push(habilidadExistente);
+        }
+
+        // Comprobar y crear ubicación
+        let ubicacionDoc = await Ubicacion.findOne({ nombre: ubicacion.nombre });
+        if (!ubicacionDoc) {
+            // Si no existe, se crea una nueva ubicación
+            ubicacionDoc = new Ubicacion(ubicacion);
+            await ubicacionDoc.save();
+        }
+
+        // Crear voluntario
+        const newVoluntario = new Voluntario({
+            ...voluntarioData,
+            habilidades: habilidadesDocs.map(habilidad => habilidad._id),
+            ubicacion: ubicacionDoc._id,
+        });
         await newVoluntario.save();
+
         res.status(201).json(newVoluntario);
     } catch (error) {
         res.status(400).json({ message: error.message });
