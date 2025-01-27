@@ -2,7 +2,7 @@ import Banner from "../../components/common/Banner.jsx";
 import BtnBackProfile from "../../components/common/BtnBackProfile.jsx";
 import EditFoundInfo from "../../components/features/profile/EditFoundInfo.jsx";
 
-function EditFoundationInfo() {
+function EditFoundInfoPage() {
   return (
     <div>
       <Banner>
@@ -17,4 +17,4 @@ function EditFoundationInfo() {
   );
 }
 
-export default EditFoundationInfo;
+export default EditFoundInfoPage;

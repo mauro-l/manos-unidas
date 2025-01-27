@@ -1,6 +1,6 @@
 import { useField } from "formik";
 
-function InputForm({ label, name, type = "text", ...props }) {
+function InputForm({ label, name, type = "text", disabled, ...props }) {
   const [field, meta] = useField(name);
   return (
     <>
@@ -11,18 +11,23 @@ function InputForm({ label, name, type = "text", ...props }) {
         <input
           {...field}
           type={type}
-          className={`w-full input input-bordered ${
-            meta.error ? "input-error" : " "
-          }`}
+          disabled={disabled}
+          className={`w-full input ${
+            disabled ? "border-red-500 border text-yellow-400" : ""
+          } input-bordered ${meta.touched && meta.error ? "input-error" : " "}`}
           {...props}
         />
       </label>
       <small className="text-red-500">
         {" "}
-        <span className={`${meta.error ? "opacitiy-100" : "opacity-0"}`}>
+        <span
+          className={`${
+            meta.touched && meta.error ? "opacitiy-100" : "opacity-0"
+          }`}
+        >
           ❌
         </span>{" "}
-        {meta.error}
+        {meta.touched && meta.error}
       </small>
     </>
   );
