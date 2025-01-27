@@ -128,7 +128,7 @@ function FoundationRegisterForm() {
         {errors.confirmPassword}
       </small>
       <div>
-        <button className="w-full mt-3 btn btn-neutral btn-sm min-h-10">
+        <button className="w-full mt-3 text-white btn btn-primary btn-sm min-h-10">
           Registrar fundación
         </button>
       </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import FoundationRegisterForm from "../../components/auth/FoundationRegisterForm.jsx";
 import Banner from "../../components/common/Banner.jsx";
+import CardWhite from "../../components/common/CardWhite.jsx";
 
 function FoundationRegisterPage() {
   return (
@@ -11,7 +12,7 @@ function FoundationRegisterPage() {
         </p>
       </Banner>
       <div className="p-4">
-        <div className="w-full p-6 mb-4 -mt-8 bg-white rounded-lg">
+        <CardWhite>
           <p className="text-sm text-center">
             Para el registro de tu organización, necesitaremos el nombre y
             número de registro para realizar una validación.
@@ -21,7 +22,7 @@ function FoundationRegisterPage() {
             El correo electrónico y contraseña serán necesarios para acceder a
             tu cuenta.
           </p>
-        </div>
+        </CardWhite>
         <FoundationRegisterForm />
         <Link
           to={"/register"}
