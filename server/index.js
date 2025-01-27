@@ -3,11 +3,14 @@ import connectDB from './src/config/connection.js';
 import dotenv from 'dotenv';
 import routes from './src/routes/index.js';
 import swaggerConfig from './src/config/swagger.util.js';
+import corsMiddleware from './src/config/cors.middleware.js';
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 app.use(express.json());
+
+app.use(corsMiddleware);
 
 connectDB()
     .then(async () => {
@@ -29,6 +32,9 @@ app.get('/', (req, res) => {
         documentation: "/api-docs",
         endpoints: [
             "/v1/api/login",
+            "/v1/api/fundaciones",
+            "/v1/api/habilidades",
+            "/v1/api/ubicaciones",
             "/v1/api/voluntarios"
         ]
     });

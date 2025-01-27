@@ -1,5 +1,5 @@
 import express from 'express';
-import { loginVoluntario } from '../controllers/auth.controller.js';
+import { login } from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /auth/login:
+ * /v1/api/auth/login:
  *   post:
  *     summary: Iniciar sesión como voluntario
  *     tags: [Autenticación]
@@ -53,6 +53,6 @@ const router = express.Router();
  *       500:
  *         description: Error del servidor
  */
-router.post('/login', loginVoluntario);
+router.post('/login', login);
 
 export default router;
