@@ -13,21 +13,22 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/foundation/register"
-            element={<FoundationRegisterPage />}
-          />
-          <Route path="/register" element={<VolunteerRegisterPage />} />
-          <Route path="/profile" element={<FoundationProfile />} />
-          <Route path="/volunteering" element={<Activities />} />
-          <Route path="/edit/info" element={<EditFoundInfoPage />} />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/foundation/register"
+              element={<FoundationRegisterPage />}
+            />
+            <Route path="/register" element={<VolunteerRegisterPage />} />
+            <Route path="/profile" element={<FoundationProfile />} />
+            <Route path="/volunteering" element={<Activities />} />
+          <Route path="/edit/info" element={<EditFoundInfoPage  />} />
           <Route path="/activities/:id" element={<ActivitiesDetail/>}/>
-        </Routes>
-      </Router>
+          </Routes>
+        </Router>
     </AuthProvider>
+    
     
   );
 }
