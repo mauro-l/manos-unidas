@@ -20,7 +20,7 @@ function App() {
         <Route path="/register" element={<VolunteerRegisterPage />} />
         <Route path="/profile" element={<FoundationProfile />} />
         <Route path="/volunteering" element={<Activities/>} />
-        <Route path="/detai/:id" element={<ActivitiesDetail/>} />
+        <Route path="/detail/:id" element={<ActivitiesDetail/>} />
         <Route path="/activities/:id" element={<ActivitiesDetail/>} />
       </Routes>
     </Router>

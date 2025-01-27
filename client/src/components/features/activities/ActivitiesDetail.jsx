@@ -63,13 +63,13 @@ const ActivitiesDetail = () => {
   return (
     <div className="w-full">
       
-      <div className="p-4 pt-20 pb-24 bg-black">
+      <div className="p-4 pt-20 pb-24 bg-[#1F2937] ">
         <div className="flex flex-col space-y-6 text-white">
           <div className="inline-flex text-base font-bold gap-2">
             <HiMiniArrowSmallLeft className="text-xl font-bold " />
             <h2>Volver al listado</h2>
           </div>
-          <div className="badge badge-outline">{categoria}</div>
+          <div className="badge badge-outline bg-[#0891B2] text-xs ">{categoria}</div>
           <h2 className="card-title font-bold text-2xl leading-6">{titulo}</h2>
           <p>{descripcion}</p>
           <div className="inline-flex gap-2 text-sm w-full text-gray-400">
