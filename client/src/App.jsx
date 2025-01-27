@@ -1,10 +1,11 @@
 import Navbar from "./components/layout/Navbar.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from './contexts/authContext.jsx';
+import { AuthProvider } from "./contexts/authContext.jsx";
 import HomePage from "./pages/home/HomePage.jsx";
 import FoundationRegisterPage from "./pages/auth/FoundationRegisterPage.jsx";
 import VolunteerRegisterPage from "./pages/auth/VolunteerRegisterPage.jsx";
 import FoundationProfile from "./pages/profile/FoundationProfile.jsx";
+import EditFoundInfoPage from "./pages/profile/EditFoundInfoPage.jsx";
 import Activities from "./pages/volunteering/Activities.jsx";
 
 function App() {
@@ -20,11 +21,11 @@ function App() {
           />
           <Route path="/register" element={<VolunteerRegisterPage />} />
           <Route path="/profile" element={<FoundationProfile />} />
-          <Route path="/volunteering" element={<Activities/>} />
+          <Route path="/volunteering" element={<Activities />} />
+          <Route path="/edit/info" element={<EditFoundInfoPage />} />
         </Routes>
       </Router>
     </AuthProvider>
-
   );
 }
 

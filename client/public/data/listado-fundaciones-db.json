@@ -1,0 +1,57 @@
+[
+  {
+    "fundacion_id": "FND001",
+    "nombre": "Fundación Esperanza",
+    "email": "contacto@esperanza.org",
+    "contrasena": "password123",
+    "telefono": "123456789",
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Buenos Aires",
+      "ciudad": "La Plata",
+      "direccion": "Calle 50 N°123"
+    },
+    "descripcion": "Promovemos el acceso a la educación en comunidades rurales.",
+    "fecha_registro": "2025-01-20",
+    "logo": "https://example.com/logo_esperanza.png",
+    "web": "https://esperanza.org",
+    "email_contacto": "info@esperanza.org",
+    "area_principal": "Educación",
+    "nro_registro": 123456
+  },
+  {
+    "fundacion_id": "FND002",
+    "nombre": "Fundación Vida",
+    "email": "info@fundacionvida.org",
+    "contrasena": "securePass2025",
+    "telefono": "987654321",
+    "ubicacion": {
+      "pais": "Chile",
+      "provincia": "Santiago",
+      "ciudad": "Providencia",
+      "direccion": "Avenida Providencia 1234"
+    },
+    "descripcion": "Dedicados a la preservación del medio ambiente.",
+    "fecha_registro": "2024-12-15",
+    "logo": "https://example.com/logo_vida.png",
+    "web": "https://fundacionvida.org",
+    "email_contacto": "contacto@fundacionvida.org",
+    "area_principal": "Medio Ambiente",
+    "nro_registro": 789101
+  },
+  {
+    "fundacion_id": "FND003",
+    "nombre": "Fundación Básica",
+    "email": "basica@correo.org",
+    "contrasena": "basicPass",
+    "telefono": "",
+    "direccion": "",
+    "descripcion": "",
+    "fecha_registro": "",
+    "logo": "",
+    "web": "",
+    "email_contacto": "",
+    "area_principal": "",
+    "nro_registro": 111213
+  }
+]
