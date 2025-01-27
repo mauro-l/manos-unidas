@@ -2,17 +2,25 @@ import { useEffect, useRef } from "react";
 import { loginSchema } from "../../schemas/auth/loginSchema.js";
 import { useFormik } from "formik";
 import { Link } from "react-router-dom";
+import useAuth from '../../hooks/useAuth.js';
 
 const LoginModal = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
+  const { login, loading } = useAuth();
 
   const closeModal = () => {
     onClose();
     resetForm();
   };
 
-  const submitForm = (values) => {
-    console.log(values);
+  const submitForm = async (values) => {
+    try {
+      await login(values.email, values.password);
+      alert("Login exitoso");
+      closeModal();
+    } catch (error) {
+      alert(`Error en el login: ${error}`);
+    }
   };
 
   const { handleChange, errors, handleSubmit, values, resetForm } = useFormik({
@@ -87,13 +95,6 @@ const LoginModal = ({ isOpen, onClose }) => {
               value={values.email}
             />
           </label>
-          {/* <small className="text-red-500">
-            {" "}
-            <span className={`${errors.email ? "opacitiy-100" : "opacity-0"}`}>
-              ❌
-            </span>{" "}
-            {errors.email}
-          </small> */}
           <small className="text-red-500">{errors.email}</small>
           <label
             className={`flex items-center gap-2 mt-3 input input-bordered ${
