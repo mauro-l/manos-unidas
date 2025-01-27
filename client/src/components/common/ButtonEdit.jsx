@@ -1,11 +1,12 @@
 import { HiOutlinePencil } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
-function ButtonEdit({ children }) {
+function ButtonEdit({ href, children }) {
   return (
-    <button className="bg-white border-black btn btn-sm">
+    <Link to={href} role="button" className="bg-white border-black btn btn-sm">
       <HiOutlinePencil />
       {children}
-    </button>
+    </Link>
   );
 }
 

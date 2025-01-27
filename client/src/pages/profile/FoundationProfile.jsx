@@ -40,7 +40,7 @@ function FoundationProfile() {
           </li>
         </ul>
         <div className="px-3 ">
-          <ButtonEdit>Editar información</ButtonEdit>
+          <ButtonEdit href={"/edit/info"}>Editar información</ButtonEdit>
         </div>
       </Banner>
       <div className="p-4">
@@ -80,7 +80,7 @@ function FoundationProfile() {
           </div>
         </CardInfo>
         <div className="mt-6">
-          <TitleAction>Sobre la fundacion</TitleAction>
+          <TitleAction href={"#"}>Sobre la fundacion</TitleAction>
           <div className="relative mt-3">
             <span className="before:content-[' '] before:block before:h-16"></span>
             <div className="absolute border-t border-[#D1D5DB] btm-nav btm-nav-md">
@@ -102,10 +102,10 @@ function FoundationProfile() {
           </div>
         </div>
         <div className="border-t border-[#D1D5DB] my-4">
-          <TitleAction>Datos de contacto</TitleAction>
+          <TitleAction href={"#"}>Datos de contacto</TitleAction>
         </div>
         <div className="border-t border-[#D1D5DB] my-6">
-          <TitleAction>Datos para donaciones</TitleAction>
+          <TitleAction href={"#"}>Datos para donaciones</TitleAction>
         </div>
       </div>
     </>
