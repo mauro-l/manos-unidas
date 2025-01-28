@@ -8,6 +8,9 @@ export default {
       fontFamily: {
         sans: ["Albert Sans", "sans-serif"],
       },
+      lineHeight: {
+        tree: "30px",
+      },
       colors: {
         "primary-focus": "#155E75",
         "primary-content": "#ECFEFF",
