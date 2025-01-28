@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { HiArrowLeft } from "react-icons/hi2";
+import { HiMiniArrowLeft } from "react-icons/hi2";
 
 function BtnBackProfile() {
   return (
@@ -8,7 +8,7 @@ function BtnBackProfile() {
       role="button"
       className="font-bold btn btn-ghost -ms-4"
     >
-      <HiArrowLeft className="font-black" />
+      <HiMiniArrowLeft className="font-black" />
       Volver al perfil
     </Link>
   );

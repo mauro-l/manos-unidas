@@ -7,8 +7,9 @@ const Navbar = () => {
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <Link className="text-xl btn btn-ghost" to="/">
-          LOGO
+          <img src="/Hand-In-Hand.ico" alt="" />
         </Link>
+        <h2 className="text-base-neutral text-2xl">Manos unidas</h2>
       </div>
       <div className="hidden navbar-center lg:flex">
         <ul className="px-1 menu menu-horizontal">

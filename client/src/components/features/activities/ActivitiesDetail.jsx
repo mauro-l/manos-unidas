@@ -2,11 +2,15 @@ import axios from "axios";
 import {
   HiOutlineClipboardDocumentCheck,
   HiOutlineUsers,
-  HiMiniCalendarDays,
-  HiMiniArrowSmallLeft,
+  HiCalendarDays,
 } from "react-icons/hi2";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import TitleDoubleXL from "../../common/TitleDoubleXL.jsx";
+import BtnBack from "../../common/BtnBack.jsx";
+import imgActivity from "../../../assets/imagen-actividad.png";
+import Banner from "../../common/Banner.jsx";
+import MiniCard from "../../common/MiniCard.jsx";
 
 const ActivitiesDetail = () => {
   const [detail, setDetail] = useState(null);
@@ -19,9 +23,8 @@ const ActivitiesDetail = () => {
       try {
         setLoading(true);
         const res = await axios.get(`/data/actividades-voluntariado-db.json`);
-        console.log(res.data);
-        console.log(id);
-        const actividad = res.data.find((item) => item.id === Number(id)); 
+
+        const actividad = res.data.find((item) => item.id === Number(id));
         console.log(actividad);
 
         if (!actividad) {
@@ -61,65 +64,122 @@ const ActivitiesDetail = () => {
   const tareasList = tareas ? tareas.split("\n") : [];
 
   return (
-    <div className="w-full">
-      
-      <div className="p-4 pt-20 pb-24 bg-[#1F2937] ">
-        <div className="flex flex-col space-y-6 text-white">
-          <div className="inline-flex text-base font-bold gap-2">
-            <HiMiniArrowSmallLeft className="text-xl font-bold " />
-            <h2>Volver al listado</h2>
-          </div>
-          <div className="badge badge-outline bg-[#0891B2] text-xs ">{categoria}</div>
-          <h2 className="card-title font-bold text-2xl leading-6">{titulo}</h2>
-          <p>{descripcion}</p>
-          <div className="inline-flex gap-2 text-sm w-full text-gray-400">
-            <h2 className="link font-bold w-1/2">{fundacion}</h2>
-            <p className="border-l border-gray-500 pl-2 w-1/2">
-              {ubicacion.direccion || "No especificada"},{" "}
-              {ubicacion.provincia || "No especificada"},{" "}
-              {ubicacion.ciudad || "No especificada"},{" "}
-              {ubicacion.pais || "No especificado"}
+    <div className="w-full ">
+      <div>
+        <Banner>
+          <div className="flex flex-col space-y-4 ">
+            <div className="flex flex-col">
+              <BtnBack> Volver </BtnBack>
+              <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
+                {categoria}
+              </div>
+            </div>
+            <h2 className="card-title font-bold text-2xl leading-6">
+              {titulo}
+            </h2>
+            <p className="font-normal text-base text-neutral-content  ">
+              {descripcion}
             </p>
+
+            <div className="inline-flex gap-2 text-sm w-full ">
+              <div className="w-1/3">
+                <p className="text-xs text-neutral-content font-normal ">
+                  Organizado por
+                </p>
+                <Link className="link font-semibold  text-primary text-pretty">
+                  {fundacion}
+                </Link>
+              </div>
+
+              <div className="divider divider-neutral divider-horizontal"></div>
+
+              <div className="w-1/2 text-neutral-content font-semibold ">
+                <p className="text-xs font-normal ">Ubicación</p>
+                <p>
+                  {ubicacion.direccion || "No especificada"},{" "}
+                  {ubicacion.provincia || "No especificada"},{" "}
+                  {ubicacion.ciudad || "No especificada"},{" "}
+                  {ubicacion.pais || "No especificado"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </Banner>
+      </div>
+
+      <div className="-mt-8 ">
+        <img className="mx-auto" src={imgActivity} alt="Imagen de actividad" />
+      </div>
+
+      <div className="p-4 pb-10 ">
+        <div className="flex flex-col gap-2 w-96 ">
+          <div className="flex w-full h-20 gap-2">
+            <MiniCard className="w-60 text-xs"
+              icon={HiOutlineClipboardDocumentCheck}
+              title={"Inscripción abierta hasta"}
+              text={inscripcion}
+            />
+            <MiniCard className="w-36"
+              icon={HiOutlineUsers}
+              title={"Quedan"}
+              text={cupo_disponible}
+            />
+          </div>
+
+          <div className="flex w-full h-20 gap-2">
+            <MiniCard className="w-48"
+              icon={HiCalendarDays}
+              title={"Inicio de actividad"}
+              text={fecha_inicio}
+            />
+            <MiniCard className="w-48"
+              icon={HiCalendarDays}
+              title={"Fin de actividad"}
+              text={fecha_fin}
+            />
           </div>
         </div>
-      </div>
 
-      
-      <div>
         <div>
-          <HiOutlineClipboardDocumentCheck />
-          <p>Inscripción abierta hasta {inscripcion}</p>
+          <TitleDoubleXL className="mt-6 mb-4">
+            Tareas a realizar:
+          </TitleDoubleXL>
+          <ul className="list-disc list-inside mt-4 text-gray-700">
+            {tareasList.length > 0 ? (
+              tareasList.map((tar, index) => <li key={index}>{tar}</li>)
+            ) : (
+              <li>No hay tareas especificadas.</li>
+            )}
+          </ul>
         </div>
+
+        <div className="divider my-6"></div>
+
         <div>
-          <HiOutlineUsers />
-          <p>Quedan {cupo_disponible} cupos</p>
+          <TitleDoubleXL className="pb-4">Perfil buscado</TitleDoubleXL>
+          <p>{perfil_buscado}</p>
         </div>
+
+        <div className="divider my-6"></div>
+
         <div>
-          <HiMiniCalendarDays />
-          <p>Inicio: {fecha_inicio}</p>
+          <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
+          <p>{habilidades}</p>
         </div>
+
+        <div className="divider my-6 "></div>
+
         <div>
-          <HiMiniCalendarDays />
-          <p>Fin: {fecha_fin}</p>
+          <TitleDoubleXL className="pb-4">Disponibilidad</TitleDoubleXL>
+          <p>{disponibilidad}</p>
+        </div>
+        <div className="divider my-6 "></div>
+        <div>
+          <button className="btn w-full bg-primary text-primary-content  mb-10">
+            Quiero inscribirme
+          </button>
         </div>
       </div>
-
-      
-      <div>
-        <p>Tareas a realizar:</p>
-        <ul className="list-disc list-inside mt-4 text-gray-700">
-          {tareasList.length > 0 ? (
-            tareasList.map((tar, index) => <li key={index}>{tar}</li>)
-          ) : (
-            <li>No hay tareas especificadas.</li>
-          )}
-        </ul>
-      </div>
-
-      
-      <div>{perfil_buscado}</div>
-      <div>{habilidades}</div>
-      <div>{disponibilidad}</div>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Card = ({ activity }) => {
       <figure>
         <img
           className="h-40 w-full rounded- "
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5kp0xUTq4sBK1q-McB-ZgaDGzrzOKymk4_A&s"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONpoTa9Jn2WjBLPf31blftCuRH_YG5Pu9Vw&s"
           alt={titulo}
         />
       </figure>

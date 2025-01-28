@@ -24,7 +24,7 @@ function App() {
             <Route path="/profile" element={<FoundationProfile />} />
             <Route path="/volunteering" element={<Activities />} />
           <Route path="/edit/info" element={<EditFoundInfoPage  />} />
-          <Route path="/activities/:id" element={<ActivitiesDetail/>}/>
+          <Route path="/volunteering/activities/:id" element={<ActivitiesDetail/>}/>
           </Routes>
         </Router>
     </AuthProvider>

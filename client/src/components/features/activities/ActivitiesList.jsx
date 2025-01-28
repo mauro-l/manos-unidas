@@ -50,35 +50,40 @@ const ActivitiesList = () => {
       </div>
 
       
-      <div className="flex justify-center items-center space-x-4">
-        <button
-          className="btn btn-sm btn-outline"
-          onClick={handlePrevious}
-          disabled={currentPage === 1}
-        >
-          Anterior
-        </button>
-        <div className="btn-group">
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button
-              key={index + 1}
-              className={`btn btn-sm ${
-                currentPage === index + 1 ? "btn-active" : ""
-              }`}
-              onClick={() => setCurrentPage(index + 1)}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
-        <button
-          className="btn btn-sm btn-outline"
-          onClick={handleNext}
-          disabled={currentPage === totalPages}
-        >
-          Siguiente
-        </button>
-      </div>
+      <div className="flex justify-center items-center space-x-2">
+  <button
+    className={`btn btn-sm btn-outline text-primary ${
+      currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+    }`}
+    onClick={handlePrevious}
+    disabled={currentPage === 1}
+  >
+    Anterior
+  </button>
+  <div className="btn-group">
+    {Array.from({ length: totalPages }, (_, index) => (
+      <button
+        key={index + 1}
+        className={`btn btn-sm ${
+          currentPage === index + 1 ? "btn-active bg-primary text-white" : ""
+        }`}
+        onClick={() => setCurrentPage(index + 1)}
+      >
+        {index + 1}
+      </button>
+    ))}
+  </div>
+  <button
+    className={` btn btn-sm btn-outline text-primary ${
+      currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+    }`}
+    onClick={handleNext}
+    disabled={currentPage === totalPages}
+  >
+    Siguiente
+  </button>
+</div>
+
     </div>
   );
 };
