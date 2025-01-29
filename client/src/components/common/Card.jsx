@@ -12,22 +12,22 @@ const Card = ({ activity }) => {
  
 
   return (
-    <div className="card bg-base-100 shadow-xl mx-auto">
+    <div className="card bg-base-100 border-2 mx-auto">
       <figure>
         <img
-          className="h-36 w-96"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5kp0xUTq4sBK1q-McB-ZgaDGzrzOKymk4_A&s"
+          className="h-40 w-full rounded- "
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONpoTa9Jn2WjBLPf31blftCuRH_YG5Pu9Vw&s"
           alt={titulo}
         />
       </figure>
       <div className="card-body p-6 gap-4">
         <div className="inline-flex items-center text-[#818181] border-[#818181] gap-2">
-          <div className="badge badge-outline">{categoria}</div>
+          <div className="className=badge badge-ghost gap-4 badge-md rounded-full">{categoria}</div>
         </div>
-        <h2 className="card-title font-bold text-2xl leading-6">{titulo}</h2>
+        <h2 className="card-title text-[#374151] font-bold text-2xl leading-6">{titulo}</h2>
         <div className="inline-flex gap-2 text-[#515151] text-sm w-full ">
-          <Link  className="link font-bold text-balance w-1/2">{fundacion}</Link>
-          <p className="border-l border-[#D1D5DB] ps-2 w-1/2 ">{ubicacion.pais}, {ubicacion.ciudad}  </p>
+          <Link  className="link font-bold text-balance w-1/2 text-[#0891B2] ">{fundacion}</Link>
+          <p className="border-l text-[#374151] border-[#D1D5DB] ps-2 w-1/2 ">{ubicacion.pais}, {ubicacion.ciudad}  </p>
         </div>
         <p>{descripcion}</p>
       
