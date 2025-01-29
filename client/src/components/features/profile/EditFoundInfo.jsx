@@ -98,12 +98,7 @@ function EditFoundInfo(id) {
               label="Número de registro"
               disabled={isFieldDisabled("number")}
             />
-            <InputForm
-              name="email"
-              type="email"
-              label="Email"
-              disabled={isFieldDisabled("email")}
-            />
+            <InputForm name="email" type="email" label="Email" />
             <InputForm
               name="password"
               label="Contraseña actual"

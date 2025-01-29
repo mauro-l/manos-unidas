@@ -15,6 +15,7 @@
     "fecha_registro": "2025-01-20",
     "logo": "https://example.com/logo_esperanza.png",
     "web": "https://esperanza.org",
+    "link_donacion": "https://esperanza.org",
     "email_contacto": "info@esperanza.org",
     "area_principal": "Educación",
     "nro_registro": 123456
@@ -35,8 +36,9 @@
     "fecha_registro": "2024-12-15",
     "logo": "https://example.com/logo_vida.png",
     "web": "https://fundacionvida.org",
+    "link_donacion": "https://fundacionvida.org",
     "email_contacto": "contacto@fundacionvida.org",
-    "area_principal": "Medio Ambiente",
+    "area_principal": "environment",
     "nro_registro": 789101
   },
   {
@@ -50,6 +52,7 @@
     "fecha_registro": "",
     "logo": "",
     "web": "",
+    "link_donacion": "",
     "email_contacto": "",
     "area_principal": "",
     "nro_registro": 111213
