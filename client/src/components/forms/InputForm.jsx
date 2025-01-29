@@ -5,9 +5,11 @@ function InputForm({ label, name, type = "text", disabled, ...props }) {
   return (
     <>
       <label className="w-full form-control">
-        <div className="label">
-          <span className="label-text">{label}</span>
-        </div>
+        {label && (
+          <div className="label">
+            <span className="label-text">{label}</span>
+          </div>
+        )}
         <input
           {...field}
           type={type}
@@ -18,17 +20,7 @@ function InputForm({ label, name, type = "text", disabled, ...props }) {
           {...props}
         />
       </label>
-      <small className="text-red-500">
-        {" "}
-        <span
-          className={`${
-            meta.touched && meta.error ? "opacitiy-100" : "opacity-0"
-          }`}
-        >
-          ❌
-        </span>{" "}
-        {meta.touched && meta.error}
-      </small>
+      <small className="text-red-500">{meta.touched && meta.error}</small>
     </>
   );
 }

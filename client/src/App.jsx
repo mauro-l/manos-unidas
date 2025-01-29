@@ -8,6 +8,8 @@ import FoundationProfile from "./pages/profile/FoundationProfile.jsx";
 import EditFoundInfoPage from "./pages/profile/EditFoundInfoPage.jsx";
 import Activities from "./pages/volunteering/Activities.jsx";
 import ActivitiesDetail from "./components/features/activities/ActivitiesDetail.jsx";
+import EditFoundProfilePage from "./pages/profile/EditFoundProfilePage.jsx";
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             />
             <Route path="/register" element={<VolunteerRegisterPage />} />
             <Route path="/profile" element={<FoundationProfile />} />
+            <Route path="/profile/edit" element={<EditFoundProfilePage />} />
             <Route path="/volunteering" element={<Activities />} />
           <Route path="/edit/info" element={<EditFoundInfoPage  />} />
           <Route path="/volunteering/activities/:id" element={<ActivitiesDetail/>}/>
