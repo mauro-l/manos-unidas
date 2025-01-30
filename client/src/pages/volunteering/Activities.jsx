@@ -1,5 +1,6 @@
 import Banner from "../../components/common/Banner.jsx";
-import ActivitiesList from "../../components/features/activities/activitiesList.jsx";
+import ActivitiesList from "../../components/features/activities/ActivitiesList.jsx";
+
 
 
 const Activities = () => {

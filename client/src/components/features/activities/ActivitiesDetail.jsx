@@ -25,7 +25,7 @@ const ActivitiesDetail = () => {
         const res = await axios.get(`/data/actividades-voluntariado-db.json`);
 
         const actividad = res.data.find((item) => item.id === Number(id));
-        console.log(actividad);
+        
 
         if (!actividad) {
           throw new Error("Actividad no encontrada");
@@ -77,6 +77,7 @@ const ActivitiesDetail = () => {
             <h2 className="card-title font-bold text-2xl leading-6">
               {titulo}
             </h2>
+            
             <p className="font-normal text-base text-neutral-content  ">
               {descripcion}
             </p>
@@ -86,7 +87,7 @@ const ActivitiesDetail = () => {
                 <p className="text-xs text-neutral-content font-normal ">
                   Organizado por
                 </p>
-                <Link className="link font-semibold  text-primary text-pretty">
+                <Link  className="link font-semibold  text-primary text-pretty">
                   {fundacion}
                 </Link>
               </div>
