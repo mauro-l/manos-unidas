@@ -10,6 +10,7 @@ import FoundationProfile from "./pages/foundation/profile/FoundationProfile.jsx"
 import EditInfoFnd from "./pages/foundation/profile/EditInfoFnd.jsx";
 import EditProfileFnd from "./pages/foundation/profile/EditProfileFnd.jsx";
 import FoundationView from "./pages/volunteer/activities/FoundationView.jsx";
+import VolunteerProfile from "./pages/volunteer/profile/VolunteerProfile.jsx";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             element={<ActivitiesDetailVol />}
           />
           <Route path="/foundation/:id" element={<FoundationView />} />
+          <Route path="/profileVol" element={<VolunteerProfile />} />
         </Routes>
       </Router>
     </AuthProvider>
