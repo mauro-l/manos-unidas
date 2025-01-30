@@ -13,6 +13,7 @@ import FoundationView from "./pages/volunteer/activities/FoundationView.jsx";
 import VolunteerProfile from "./pages/volunteer/profile/VolunteerProfile.jsx";
 import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
+import RegisterConfir from "./pages/auth/RegisterConfir.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/register/foundation" element={<RegisterFnd />} />
           <Route path="/register" element={<RegisterVol />} />
+          <Route path="/confirm/register" element={ <RegisterConfir/> }/>
           {/* fundacion */}
           <Route path="/profile" element={<FoundationProfile />} />
           <Route path="/profile/edit" element={<EditProfileFnd />} />

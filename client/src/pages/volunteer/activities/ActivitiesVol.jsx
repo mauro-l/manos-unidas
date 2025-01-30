@@ -4,7 +4,7 @@ import ActivitiesListVol from "@/components/modules/activities/ActivitiesListVol
 const ActivitiesVol = () => {
   return (
     <div className="flex flex-col justify-center ">
-      <Banner color="bg-red-500">
+      <Banner color=" bg-primary-focus ">
         <h3 className="text-3xl leading-7">
           Explora las oportunidades de voluntariado que tenemos para ti
         </h3>
