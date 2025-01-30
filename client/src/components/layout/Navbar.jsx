@@ -6,10 +6,12 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
-        <Link className="text-xl btn btn-ghost" to="/">
+        <Link className="text-xl btn btn-ghost -ms-2" to="/">
           <img src="/Hand-In-Hand.ico" alt="" />
+          <h2 className="text-2xl font-bold tracking-tight text-neutral text-nowrap">
+            ManosUnidas
+          </h2>
         </Link>
-        <h2 className="text-base-neutral text-2xl">Manos unidas</h2>
       </div>
       <div className="hidden navbar-center lg:flex">
         <ul className="px-1 menu menu-horizontal">

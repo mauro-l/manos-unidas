@@ -1,15 +1,15 @@
-import Banner from "../../components/common/Banner.jsx";
-/* import BottomNavbar from "../../components/layout/BottomNavbar.jsx"; */
-import examplePic from "../../assets/examplePic.png";
-import ButtonEdit from "../../components/common/ButtonEdit.jsx";
+import ButtonEdit from "../../../components/common/buttons/ButtonEdit.jsx";
+import CardInfo from "../../../components/common/cards/CardInfo.jsx";
+import TitleAction from "../../../components/common/headers/TitleAction.jsx";
+import Banner from "../../../components/layout/Banner.jsx";
+import examplePic from "@/assets/examplePic.png";
+
 import {
   HiOutlineClipboardDocumentList,
   HiCheck,
   HiOutlineUserCircle,
   HiOutlineBellAlert,
 } from "react-icons/hi2";
-import CardInfo from "../../components/common/CardInfo.jsx";
-import TitleAction from "../../components/common/TitleAction.jsx";
 
 function FoundationProfile() {
   return (

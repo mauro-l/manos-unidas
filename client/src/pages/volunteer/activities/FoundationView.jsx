@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Banner from "../../components/common/Banner.jsx";
-import BtnBack from "../../components/common/BtnBack.jsx";
+
+import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import { FaRegEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { BiLink } from "react-icons/bi";
+import Banner from "@/components/layout/Banner.jsx";
 
 const FoundationView = () => {
   const [detail, setDetail] = useState(null);
@@ -47,7 +48,7 @@ const FoundationView = () => {
     area_principal = "Área no especificada",
     ubicacion = {},
     descripcion = "Descripción no disponible",
-    web="Web no disponible"
+    web = "Web no disponible",
   } = detail;
 
   return (
@@ -55,10 +56,13 @@ const FoundationView = () => {
       <Banner>
         <BtnBack>Volver</BtnBack>
 
-        <div className="flex flex-col-2 space-y-4 ">
+        <div className="flex space-y-4 flex-col-2 ">
           <p>
             {logo && (
-              <img src={logo} className=" rounded-2xl max-w-24 max-h-28 mt-8 border-2 border-white  " />
+              <img
+                src={logo}
+                className="mt-8 border-2 border-white rounded-2xl max-w-24 max-h-28"
+              />
             )}
           </p>
 
@@ -67,10 +71,10 @@ const FoundationView = () => {
               {area_principal}
             </h2>
 
-            <h2 className="card-title font-bold text-3xl leading-6 text-neutral-content mt-2 ">
+            <h2 className="mt-2 text-3xl font-bold leading-6 card-title text-neutral-content ">
               {nombre}
             </h2>
-            <p className="text-sm text-neutral-content font-sans mt-2">
+            <p className="mt-2 font-sans text-sm text-neutral-content">
               {ubicacion.pais
                 ? `${ubicacion.direccion}, ${ubicacion.provincia}, ${ubicacion.pais}`
                 : "Ubicación no disponible"}
@@ -79,36 +83,37 @@ const FoundationView = () => {
         </div>
       </Banner>
 
-      <div className="  m-4 p-6 mb-4 -mt-8 rounded-lg bg-base-100">
+      <div className="p-6 m-4 mb-4 -mt-8 rounded-lg bg-base-100">
         <p>{descripcion}</p>
       </div>
 
       <div className="gap-4 m-4">
-        <h2 className="text-neutral font-sans font-bold text-2xl">
+        <h2 className="font-sans text-2xl font-bold text-neutral">
           Datos de contacto
         </h2>
 
-        <div className="flex  space-x-2 mt-4">
-          <FaRegEnvelope className="text-secondary w-5 h-5 " />
-          <p className="link  text-sm "> {email}</p>
+        <div className="flex mt-4 space-x-2">
+          <FaRegEnvelope className="w-5 h-5 text-secondary " />
+          <p className="text-sm link "> {email}</p>
         </div>
 
-        <div className="flex  space-x-2 mt-4">
-        <FiPhone className="text-secondary w-5 h-5  "  />      
+        <div className="flex mt-4 space-x-2">
+          <FiPhone className="w-5 h-5 text-secondary " />
           <p>{telefono}</p>
         </div>
 
-        <div className="flex  space-x-2 mt-4">
-        <BiLink className="text-secondary w-5 h-5  " />
-          <Link > {web} </Link>
+        <div className="flex mt-4 space-x-2">
+          <BiLink className="w-5 h-5 text-secondary " />
+          <Link> {web} </Link>
         </div>
 
-        <button className="btn w-full bg-secondary text-primary-content  mt-6 mb-10">
-            Quiero inscribirme
-          </button>
+        <button className="w-full mt-6 mb-10 btn bg-secondary text-primary-content">
+          Quiero inscribirme
+        </button>
       </div>
     </div>
   );
 };
 
 export default FoundationView;
+

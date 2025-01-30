@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import VolunteerRegisterForm from "../../components/auth/VolunteerRegisterForm.jsx";
-import Banner from "../../components/common/Banner.jsx";
-import CardWhite from "../../components/common/CardWhite.jsx";
+import Banner from "../../components/layout/Banner.jsx";
+import CardWhite from "../../components/common/cards/CardWhite.jsx";
 
-function VolunteerRegisterPage() {
+function RegisterVol() {
   return (
     <div>
       <Banner>
-        <p>
-          Registrate como voluntario e inscribite en actividades para ayudar a
-          tu comunidad
-        </p>
+        Registrate como voluntario e inscribite en actividades para ayudar a tu
+        comunidad
       </Banner>
       <div className="p-4">
         <CardWhite>
@@ -21,7 +19,7 @@ function VolunteerRegisterPage() {
         </CardWhite>
         <VolunteerRegisterForm />
         <Link
-          to={"/foundation/register"}
+          to={"/register/foundation"}
           role="button"
           className="w-full my-4 text-center text-black btn btn-link"
         >
@@ -32,4 +30,4 @@ function VolunteerRegisterPage() {
   );
 }
 
-export default VolunteerRegisterPage;
+export default RegisterVol;

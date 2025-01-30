@@ -1,4 +1,4 @@
-import Hero from "../../components/features/homepage/Hero.jsx";
+import Hero from "../../components/modules/homepage/Hero.jsx";
 
 function HomePage() {
   return (

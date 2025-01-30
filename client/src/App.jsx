@@ -2,15 +2,14 @@ import Navbar from "./components/layout/Navbar.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/authContext.jsx";
 import HomePage from "./pages/home/HomePage.jsx";
-import FoundationRegisterPage from "./pages/auth/FoundationRegisterPage.jsx";
-import VolunteerRegisterPage from "./pages/auth/VolunteerRegisterPage.jsx";
-import FoundationProfile from "./pages/profile/FoundationProfile.jsx";
-import EditFoundInfoPage from "./pages/profile/EditFoundInfoPage.jsx";
-import Activities from "./pages/volunteering/Activities.jsx";
-import ActivitiesDetail from "./components/features/activities/ActivitiesDetail.jsx";
-import EditFoundProfilePage from "./pages/profile/EditFoundProfilePage.jsx";
-import FoundationDetail from "./pages/volunteering/foundationDetail.jsx";
-
+import RegisterFnd from "./pages/auth/RegisterFnd.jsx";
+import ActivitiesVol from "./pages/volunteer/activities/ActivitiesVol.jsx";
+import ActivitiesDetailVol from "./pages/volunteer/activities/ActivitiesDetailVol.jsx";
+import RegisterVol from "./pages/auth/RegisterVol.jsx";
+import FoundationProfile from "./pages/foundation/profile/FoundationProfile.jsx";
+import EditInfoFnd from "./pages/foundation/profile/EditInfoFnd.jsx";
+import EditProfileFnd from "./pages/foundation/profile/EditProfileFnd.jsx";
+import FoundationView from "./pages/volunteer/activities/FoundationView.jsx";
 
 function App() {
   return (
@@ -19,21 +18,24 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route
-            path="/foundation/register"
-            element={<FoundationRegisterPage />}
-          />
-          <Route path="/register" element={<VolunteerRegisterPage />} />
+          <Route path="/register/foundation" element={<RegisterFnd />} />
+          <Route path="/register" element={<RegisterVol />} />
+          {/* fundacion */}
           <Route path="/profile" element={<FoundationProfile />} />
-          <Route path="/profile/edit" element={<EditFoundProfilePage />} />
-          <Route path="/volunteering" element={<Activities />} />
-          <Route path="/edit/info" element={<EditFoundInfoPage />} />
-          <Route path="/volunteering/activities/:id" element={<ActivitiesDetail />} />
-          <Route path="/foundation/:id" element={<FoundationDetail />} />
-         </Routes>
+          <Route path="/profile/edit" element={<EditProfileFnd />} />
+          <Route path="/edit/info" element={<EditInfoFnd />} />
+          {/* voluntariado */}
+          <Route path="/volunteer" element={<ActivitiesVol />} />
+          <Route
+            path="/volunteer/activities/:id"
+            element={<ActivitiesDetailVol />}
+          />
+          <Route path="/foundation/:id" element={<FoundationView />} />
+        </Routes>
       </Router>
     </AuthProvider>
   );
 }
 
 export default App;
+

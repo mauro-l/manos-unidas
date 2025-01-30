@@ -1,4 +1,4 @@
-import ButtonEdit from "./ButtonEdit.jsx";
+import ButtonEdit from "../buttons/ButtonEdit.jsx";
 
 function TitleAction({ href, children }) {
   return (

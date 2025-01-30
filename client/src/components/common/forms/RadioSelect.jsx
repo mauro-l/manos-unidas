@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { options } from "../../utils/activityOptions.js";
+import { options } from "@/utils/activityOptions.js";
 
 function RadioSelect({ label, name }) {
   const [isOpen, setIsOpen] = useState(false);

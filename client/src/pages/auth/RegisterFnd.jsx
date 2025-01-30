@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
-import FoundationRegisterForm from "../../components/auth/FoundationRegisterForm.jsx";
-import Banner from "../../components/common/Banner.jsx";
-import CardWhite from "../../components/common/CardWhite.jsx";
+import FoundationRegisterForm from "@/components/auth/FoundationRegisterForm.jsx";
+import Banner from "@/components/layout/Banner.jsx";
+import CardWhite from "@/components/common/cards/CardWhite.jsx";
 
-function FoundationRegisterPage() {
+function RegisterFnd() {
   return (
     <div>
       <Banner>
-        <p>
-          Crea la cuenta para tu fundación y comienza a publicar actividades
-        </p>
+        Crea la cuenta para tu fundación y comienza a publicar actividades
       </Banner>
       <div className="p-4">
         <CardWhite>
@@ -36,4 +34,4 @@ function FoundationRegisterPage() {
   );
 }
 
-export default FoundationRegisterPage;
+export default RegisterFnd;
