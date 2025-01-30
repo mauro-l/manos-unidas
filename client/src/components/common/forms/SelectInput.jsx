@@ -4,7 +4,7 @@ function SelectInput({ label, name, disabledOpt, options = [], ...props }) {
   const [field, meta] = useField(name);
   return (
     <>
-      <label className="w-full max-w-xs form-control">
+      <label className="w-full form-control">
         {label && (
           <div className="label">
             <span className="label-text">{label}</span>
