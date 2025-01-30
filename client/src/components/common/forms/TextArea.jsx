@@ -25,7 +25,7 @@ function TextArea({ label, name, placeholder, ...props }) {
             {meta.touched && meta.error}
           </small>
           <span className="label-text-alt text-neutral">
-            {field.value.length}/255
+            {field.value ? field.value.length : "0"}/255
           </span>
         </div>
       </label>
