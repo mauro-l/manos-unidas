@@ -1,0 +1,65 @@
+[
+  {
+    "voluntario_id": "VOL001",
+    "nombre": "Ana",
+    "apellido": "García",
+    "email": "ana.garcia@email.com",
+    "contrasena": "hashedPassword123",
+    "sexo": "Femenino",
+    "telefono": "123456789",
+    "intereses": "Ayudar en educación y arte",
+    "descripcion": "Me apasiona enseñar y ayudar a los demás",
+    "estudios": "Licenciatura en Educación",
+    "habilidades": ["arte", "enseñanza", "musica"],
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Buenos Aires",
+      "ciudad": "La plata",
+      "direccion": "Calle 10 125"
+    },
+    "profesion": "Maestra",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a042581f4e29026704d"
+  },
+  {
+    "voluntario_id": "VOL002",
+    "nombre": "Carlos",
+    "apellido": "Rodríguez",
+    "email": "carlos.rodriguez@email.com",
+    "contrasena": "hashedPassword456",
+    "sexo": "Masculino",
+    "telefono": "987654321",
+    "intereses": "Tecnología y educación",
+    "descripcion": "Profesional IT con interés en voluntariado",
+    "estudios": "Ingeniería en Sistemas",
+    "habilidades": ["computacion", "ingles", "enseñanza"],
+    "ubicacion": {
+      "pais": "España",
+      "provincia": "Madrid",
+      "ciudad": "Chamartín",
+      "direccion": "Paseo de la Castellana 890"
+    },
+    "profesion": "Desarrollador de Software",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a042581f4e29026024d"
+  },
+  {
+    "voluntario_id": "VOL003",
+    "nombre": "María",
+    "apellido": "López",
+    "email": "maria.lopez@email.com",
+    "contrasena": "hashedPassword789",
+    "sexo": "Femenino",
+    "telefono": "456789123",
+    "intereses": "Arte y cuidado de niños",
+    "descripcion": "Artista y educadora infantil",
+    "estudios": "Profesorado de Arte",
+    "habilidades": ["arte", "pintura", "cuidado_de_niños", "teatro"],
+    "ubicacion": {
+      "pais": "Colombia",
+      "provincia": "Antioquia",
+      "ciudad": "Medellín",
+      "direccion": "Calle 10 Sur #50-125"
+    },
+    "profesion": "Profesora de Arte",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a04258114e29026702d"
+  }
+]
