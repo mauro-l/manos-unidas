@@ -1,24 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "../../common/cards/Card.jsx";
+import useActivities from "@/hooks/useActivities.js";
 
 const ActivitiesListVol = () => {
-  const [activities, setActivities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const activitiesPerPage = 3;
 
-  useEffect(() => {
-    const fetchActivities = async () => {
-      try {
-        const res = await axios.get("/data/actividades-voluntariado-db.json");
-        setActivities(res.data);
-      } catch (error) {
-        console.error("Error fetching activities:", error);
-      }
-    };
-
-    fetchActivities();
-  }, []);
+  const { activities } = useActivities();
 
   const indexOfLastActivity = currentPage * activitiesPerPage;
   const indexOfFirstActivity = indexOfLastActivity - activitiesPerPage;
