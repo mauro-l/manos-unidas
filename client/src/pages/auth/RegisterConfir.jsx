@@ -1,26 +1,37 @@
-import Banner from "../../components/layout/Banner.jsx";
-
 const RegisterConfir = () => {
-
-
-
   return (
-    <div className="w-full">
-    <Banner color="bg-primary-focus">
-      ¡Bienvenido a ManosUnidas! La plataforma para conectar fundaciones y
-      voluntarios
-    </Banner>
-    <div className="p-6 m-4 mb-4 -mt-8 rounded-lg bg-base-100">
-        <h2> ¡Tu cuenta ha sido creada con éxito!  </h2>
-        <p>Solo queda un paso para comenzar a ayudar a tu comunidad. Por favor, completa tu perfil con información adicional para continuar.</p>
-        <button className="w-full mt-6 mb-10 btn bg-primary
-         text-primary-content">
-          Completar perfil
-        </button>
+    <>
+      <div className="relative w-full h-[80vh] -z-10">
+        <div className="flex items-center w-full h-full px-4 bg-black/60">
+          <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover -z-10 bg-image-cta"></div>
+          <div className="flex justify-end w-full mx-auto space-y-6">
+            <div className="flex w-full mx-auto">
+              <h1 className="text-5xl font-semibold text-neutral-content text-balance lg:mx-auto lg:max-w-[800px]">
+                ¡Bienvenido a ManosUnidas!
+                <br />
+                La plataforma para conectar fundaciones y voluntarios{" "}
+              </h1>
+            </div>
+          </div>
+        </div>
       </div>
-
-    </div>
+      <div className="px-4 pb-10">
+        <div className="p-6 -mt-6 space-y-6 rounded-lg bg-base-100 lg:max-w-[800px] lg:mx-auto lg:p-12">
+          <h3 className="text-3xl font-bold leading-tree text-neutral text-balance lg:text-4xl">
+            ¡Tu cuenta ha sido creada con éxito!
+          </h3>
+          <p className="lg:text-lg">
+            Solo queda un paso para comenzar a ayudar a tu comunidad. Por favor,
+            completa tu perfil con información adicional para continuar.
+          </p>
+          <button className="w-full btn btn-primary text-primary-content lg:w-auto">
+            Completar perfil
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default RegisterConfir;
+

@@ -29,6 +29,10 @@ export default {
         "warning-content": "#713F12",
         "danger-content": "#7F1D1D",
       },
+      backgroundImage: {
+        "hero-pattern": "url('/assets/hero-content.jpeg')",
+        "image-cta": "url('/assets/image-cta.jpeg')",
+      },
     },
   },
   daisyui: {
