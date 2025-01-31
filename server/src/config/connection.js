@@ -3,16 +3,11 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const dbUser = process.env.DB_USER;
-const dbPassword = process.env.DB_PASSWORD;
-const dbHost = process.env.DB_HOST;
-const dbName = process.env.DB_NAME;
+const dbUri = process.env.DB_URL;
 
-if (!dbUser || !dbPassword || !dbHost || !dbName) {
-    throw new Error('Las variables de entorno de la base de datos no están definidas correctamente');
+if (!dbUri) {
+    throw new Error('La variable de entorno DB_URL no está definida correctamente');
 }
-
-const dbUri = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/?retryWrites=true&w=majority&appName=${dbName}`;
 
 const connectDB = async () => {
     try {
