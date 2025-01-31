@@ -3,7 +3,7 @@
 const MiniCard = ( {className, icon:Icon, title, text }  ) => {
   return (
     <div className={`${className} flex items-center p-4 border border-base-300 rounded-lg justify-center `}>
-      < Icon  className="text-secondary text-6xl mr-4" />
+      < Icon  className="text-secondary text-2xl mr-4" />
       <div>
         <p className="text-sm text-neutral font-normal">
           {title}
