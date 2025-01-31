@@ -1,13 +1,12 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import useActivities from "@/hooks/useActivities.js";
+
 import CardEskeleton from "@/components/common/cards/CardEskeleton.jsx";
 import Card from "@/components/common/cards/Card.jsx";
 import { Pagination } from "swiper/modules";
 
-function HomeCarrusel() {
-  const { loading, activities } = useActivities();
+function HomeCarrusel({ loading, activities }) {
   const currentActivities = activities.slice(0, 3);
 
   if (loading) {
@@ -25,11 +24,12 @@ function HomeCarrusel() {
         }}
         modules={[Pagination]}
       >
-        {currentActivities.map((activity) => (
-          <SwiperSlide key={activity.id}>
-            <Card activity={activity} />
-          </SwiperSlide>
-        ))}
+        {currentActivities &&
+          currentActivities.map((activity) => (
+            <SwiperSlide key={activity.id}>
+              <Card activity={activity} />
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
