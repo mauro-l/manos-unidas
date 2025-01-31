@@ -1,7 +1,7 @@
 import Navbar from "./components/layout/Navbar.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/authContext.jsx";
-import HomePage from "./pages/home/HomePage.jsx";
+/* import HomePage from "./pages/home/HomePage.jsx"; */
 import RegisterFnd from "./pages/auth/RegisterFnd.jsx";
 import ActivitiesVol from "./pages/volunteer/activities/ActivitiesVol.jsx";
 import ActivitiesDetailVol from "./pages/volunteer/activities/ActivitiesDetailVol.jsx";
@@ -13,6 +13,7 @@ import FoundationView from "./pages/volunteer/activities/FoundationView.jsx";
 import VolunteerProfile from "./pages/volunteer/profile/VolunteerProfile.jsx";
 import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
+import Home from "./pages/home/Home.jsx";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Home />} />
           <Route path="/register/foundation" element={<RegisterFnd />} />
           <Route path="/register" element={<RegisterVol />} />
           {/* fundacion */}
