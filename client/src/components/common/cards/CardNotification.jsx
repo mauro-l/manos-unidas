@@ -2,7 +2,7 @@ import { HiXMark } from "react-icons/hi2";
 
 function CardNotification() {
   return (
-    <div className="w-full bg-white border card border-base-300">
+    <div className="w-full bg-white border rounded-lg card border-base-300">
       <div className="gap-2 p-4 card-body">
         <div className="inline-flex items-center gap-2 pb-1.5 border-b text-nowrap border-base-300">
           <small className="text-xs font-bold leading-3 text-base-400">

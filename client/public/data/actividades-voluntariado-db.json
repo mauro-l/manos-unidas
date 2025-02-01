@@ -1,219 +1,224 @@
- 
- [
-    {
-      "id":1,
-      "titulo": "Limpieza del Río Example",
-      "descripcion": "Jornada de limpieza y concientización ambiental en las márgenes del río. Se proporcionarán todos los materiales necesarios para la recolección de residuos.",
-      "inscripcion": "2025-03-15",
-      "fecha_inicio": "2025-02-15",
-      "fecha_fin": "2025-02-15",
-      "ubicacion": {
-        "pais": "Argentina",
-        "provincia": "Buenos Aires",
-        "ciudad": "La Plata",
-        "direccion": "Calle 50 N°123"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Fundación Ambiente Vivo",
-      "categoria": "MEDIOAMBIENTE",
-      "tareas": "1. Recolección de residuos\n2. Clasificación de materiales reciclables\n3. Registro fotográfico de la actividad\n4. Participación en charla de concientización",
-      "habilidades": "- Buena condición física\n- Capacidad de trabajo en equipo\n- Compromiso con el medio ambiente",
-      "perfil_buscado": "Personas mayores de 18 años con interés en el cuidado del medio ambiente y la conservación de espacios naturales. Preferentemente con experiencia en actividades de voluntariado ambiental.",
-      "disponibilidad":"Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
-
+[
+  {
+    "id": 1,
+    "titulo": "Limpieza del Río Example",
+    "descripcion": "Jornada de limpieza y concientización ambiental en las márgenes del río. Se proporcionarán todos los materiales necesarios para la recolección de residuos.",
+    "inscripcion": "2025-03-15",
+    "fecha_inicio": "2025-02-15",
+    "fecha_fin": "2025-02-15",
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Buenos Aires",
+      "ciudad": "La Plata",
+      "direccion": "Calle 50 N°123"
     },
-    {
-      "id": 2,
-      "titulo": "Apoyo en Casa Hogar Rayitos de Sol",
-      "descripcion": "Acompañamiento y actividades recreativas con niños y niñas del hogar. Se realizarán talleres de arte, lectura y juegos deportivos.",
-      "inscripcion": "2025-03-15",
-      "fecha_inicio": "2025-03-01",
-      "fecha_fin": "2025-06-30",
-      "ubicacion":   {
-        "pais": "Chile",
-        "provincia": "Santiago",
-        "ciudad": "Providencia",
-        "direccion": "Avenida Providencia 1234"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Asociación Protectora de la Infancia",
-      "categoria": "SOCIAL",
-      "tareas": "1. Organización de actividades recreativas\n2. Apoyo en tareas escolares\n3. Acompañamiento en juegos y deportes\n4. Preparación de materiales para talleres",
-      "habilidades": "- Empatía y paciencia\n- Creatividad\n- Habilidades de comunicación con niños\n- Responsabilidad y compromiso",
-      "perfil_buscado": "Personas entre 21 y 50 años con experiencia en trabajo con niños. Se valora formación en educación, psicología o áreas afines. Disponibilidad de al menos 4 horas semanales.",
-      "disponibilidad":"Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
-
-    },
-    {
-      "id": 3,
-      "titulo": "Alfabetización Digital para Adultos Mayores",
-      "descripcion": "Programa de enseñanza de habilidades digitales básicas para adultos mayores, incluyendo uso de redes sociales, videollamadas y herramientas básicas de internet.",
-      "inscripcion": "2025-03-15",      
-      "fecha_inicio": "2025-02-01",
-      "fecha_fin": "2025-05-30",
-      "ubicacion": {
-        "pais": "México",
-        "provincia": "Ciudad de México",
-        "ciudad": "Polanco",
-        "direccion": "Calle Homero 567"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Fundación Conectando Generaciones",
-      "categoria": "EDUCACION",
-      "tareas": "1. Enseñanza personalizada de uso de dispositivos\n2. Preparación de material didáctico\n3. Acompañamiento en práctica de habilidades\n4. Evaluación de progreso",
-      "habilidades": "- Conocimientos de informática\n- Paciencia y claridad para explicar\n- Habilidades de comunicación\n- Empatía con adultos mayores",
-      "perfil_buscado": "Jóvenes y adultos con buenos conocimientos de tecnología y disposición para enseñar. Preferentemente con experiencia en educación o trato con adultos mayores.",
-      "disponibilidad":"Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
-
-    },
-    {
-      "id":4,
-      "titulo": "Huerta Comunitaria Sustentable",
-      "descripcion": "Proyecto de creación y mantenimiento de una huerta comunitaria para producir alimentos orgánicos y educar sobre agricultura sustentable.",
-      "inscripcion": "2025-03-15",
-      "fecha_inicio": "2025-03-15",
-      "fecha_fin": "2025-12-15",
-      "ubicacion":   {
-        "pais": "España",
-        "provincia": "Madrid",
-        "ciudad": "Chamartín",
-        "direccion": "Paseo de la Castellana 890"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Asociación Cultivando Futuro",
-      "categoria": "AGRICULTURA URBANA",
-      "tareas": "1. Preparación de terreno\n2. Siembra y mantenimiento de cultivos\n3. Talleres de compostaje\n4. Cosecha y distribución",
-      "habilidades": "- Conocimientos básicos de jardinería\n- Compromiso con la agricultura sustentable\n- Trabajo en equipo\n- Disponibilidad regular",
-      "perfil_buscado": "Personas interesadas en la agricultura urbana y la alimentación saludable. No se requiere experiencia previa, solo compromiso y disposición para aprender.",
-      "disponibilidad":"Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
-
-    },
-    {
-      "id": 5,
-      "titulo": "Rescate y Cuidado de Animales",
-      "descripcion": "Apoyo en el refugio de animales para el cuidado, alimentación y socialización de perros y gatos rescatados.",
-      "inscripcion": "2025-03-15",
-      "fecha_inicio": "2025-02-01",
-      "fecha_fin": "2025-12-31",
-      "ubicacion": {
-        "pais": "Colombia",
-        "provincia": "Antioquia",
-        "ciudad": "Medellín",
-        "direccion": "Carrera 70 #45-32"
-      },
-    
-      "cupo_disponible": true,
-      "fundacion": "Protectora de Animales Unidos",
-      "categoria": "PROTECCION ANIMAL",
-      "tareas": "1. Alimentación de animales\n2. Limpieza de espacios\n3. Paseos y socialización\n4. Apoyo en campañas de adopción",
-      "habilidades": "- Amor por los animales\n- Resistencia física\n- Compromiso y responsabilidad\n- Trabajo en equipo",
-      "perfil_buscado": "Mayores de 18 años con amor por los animales y disponibilidad de al menos 4 horas semanales. Se valora experiencia previa en el cuidado de mascotas.",
-      "disponibilidad":"Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
-    },
-    {
-      "id": 6,
-      "titulo": "Reforestación de Áreas Degradadas",
-      "descripcion": "Jornadas de plantación de árboles nativos en áreas afectadas por la deforestación, con seguimiento del crecimiento de las plantas.",
-      "inscripcion": "2025-03-20",
-      "fecha_inicio": "2025-04-01",
-      "fecha_fin": "2025-06-30",
-      "ubicacion": {
-          "pais": "Brasil",
-          "provincia": "Amazonas",
-          "ciudad": "Manaos",
-          "direccion": "Reserva Natural EcoVida"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Fundación Bosques para el Futuro",
-      "categoria": "MEDIOAMBIENTE",
-      "tareas": "1. Plantación de árboles nativos\n2. Control de plagas y fertilización\n3. Mantenimiento de senderos ecológicos\n4. Registro de datos sobre el desarrollo de las plantas",
-      "habilidades": "- Conocimientos básicos de jardinería o biología\n- Resistencia física\n- Trabajo en equipo\n- Compromiso con la conservación ambiental",
-      "perfil_buscado": "Personas mayores de 18 años comprometidas con la conservación de la naturaleza y la reforestación de áreas críticas.",
-      "disponibilidad": "Las actividades se realizarán los fines de semana, de 8 a 15 horas, con una carga semanal de 8 hs."
+    "cupos_disponibles": 12,
+    "voluntarios_inscritos": 11,
+    "fundacion": "Fundación Ambiente Vivo",
+    "categoria": "MEDIOAMBIENTE",
+    "tareas": "1. Recolección de residuos\n2. Clasificación de materiales reciclables\n3. Registro fotográfico de la actividad\n4. Participación en charla de concientización",
+    "habilidades": "- Buena condición física\n- Capacidad de trabajo en equipo\n- Compromiso con el medio ambiente",
+    "perfil_buscado": "Personas mayores de 18 años con interés en el cuidado del medio ambiente y la conservación de espacios naturales. Preferentemente con experiencia en actividades de voluntariado ambiental.",
+    "disponibilidad": "Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
   },
   {
-      "id": 7,
-      "titulo": "Talleres de Reciclaje Creativo",
-      "descripcion": "Capacitación en técnicas de reciclaje y creación de productos artesanales a partir de materiales reutilizados.",
-      "inscripcion": "2025-03-25",
-      "fecha_inicio": "2025-04-10",
-      "fecha_fin": "2025-08-15",
-      "ubicacion": {
-          "pais": "Perú",
-          "provincia": "Lima",
-          "ciudad": "Miraflores",
-          "direccion": "Calle Las Artes 345"
-      },
-      "cupo_disponible": true,
-      "fundacion": "EcoInnovadores Perú",
-      "categoria": "EDUCACION AMBIENTAL",
-      "tareas": "1. Diseño de talleres creativos\n2. Enseñanza de técnicas de reciclaje\n3. Organización de exposiciones de productos reciclados\n4. Creación de materiales educativos",
-      "habilidades": "- Creatividad\n- Habilidades manuales\n- Paciencia para enseñar\n- Capacidad de organización",
-      "perfil_buscado": "Jóvenes y adultos con interés en el reciclaje y la artesanía, con disponibilidad para trabajar con grupos variados.",
-      "disponibilidad": "Las actividades se realizarán los miércoles y viernes, de 14 a 18 horas."
+    "id": 2,
+    "titulo": "Apoyo en Casa Hogar Rayitos de Sol",
+    "descripcion": "Acompañamiento y actividades recreativas con niños y niñas del hogar. Se realizarán talleres de arte, lectura y juegos deportivos.",
+    "inscripcion": "2025-03-15",
+    "fecha_inicio": "2025-03-01",
+    "fecha_fin": "2025-06-30",
+    "ubicacion": {
+      "pais": "Chile",
+      "provincia": "Santiago",
+      "ciudad": "Providencia",
+      "direccion": "Avenida Providencia 1234"
+    },
+    "cupos_disponibles": 12,
+    "voluntarios_inscritos": 10,
+    "fundacion": "Asociación Protectora de la Infancia",
+    "categoria": "SOCIAL",
+    "tareas": "1. Organización de actividades recreativas\n2. Apoyo en tareas escolares\n3. Acompañamiento en juegos y deportes\n4. Preparación de materiales para talleres",
+    "habilidades": "- Empatía y paciencia\n- Creatividad\n- Habilidades de comunicación con niños\n- Responsabilidad y compromiso",
+    "perfil_buscado": "Personas entre 21 y 50 años con experiencia en trabajo con niños. Se valora formación en educación, psicología o áreas afines. Disponibilidad de al menos 4 horas semanales.",
+    "disponibilidad": "Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
   },
   {
-      "id": 8,
-      "titulo": "Asistencia a Personas Sin Hogar",
-      "descripcion": "Distribución de alimentos, ropa y kits de higiene a personas en situación de calle. Incluye charlas motivacionales y orientación social.",
-      "inscripcion": "2025-02-28",
-      "fecha_inicio": "2025-03-05",
-      "fecha_fin": "2025-12-31",
-      "ubicacion": {
-          "pais": "Estados Unidos",
-          "provincia": "California",
-          "ciudad": "Los Ángeles",
-          "direccion": "Centro de Ayuda Comunal"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Hope for All Foundation",
-      "categoria": "SOCIAL",
-      "tareas": "1. Organización de kits de ayuda\n2. Distribución de alimentos y ropa\n3. Registro de beneficiarios\n4. Orientación sobre servicios sociales disponibles",
-      "habilidades": "- Empatía y capacidad de escucha\n- Organización\n- Trabajo en equipo\n- Capacidad para resolver problemas",
-      "perfil_buscado": "Personas con disposición para interactuar con poblaciones vulnerables y apoyar en labores logísticas.",
-      "disponibilidad": "Las actividades se realizarán los martes y sábados, de 10 a 14 horas."
+    "id": 3,
+    "titulo": "Alfabetización Digital para Adultos Mayores",
+    "descripcion": "Programa de enseñanza de habilidades digitales básicas para adultos mayores, incluyendo uso de redes sociales, videollamadas y herramientas básicas de internet.",
+    "inscripcion": "2025-03-15",
+    "fecha_inicio": "2025-02-01",
+    "fecha_fin": "2025-05-30",
+    "ubicacion": {
+      "pais": "México",
+      "provincia": "Ciudad de México",
+      "ciudad": "Polanco",
+      "direccion": "Calle Homero 567"
+    },
+    "cupos_disponibles": 7,
+    "voluntarios_inscritos": 4,
+    "fundacion": "Fundación Conectando Generaciones",
+    "categoria": "EDUCACION",
+    "tareas": "1. Enseñanza personalizada de uso de dispositivos\n2. Preparación de material didáctico\n3. Acompañamiento en práctica de habilidades\n4. Evaluación de progreso",
+    "habilidades": "- Conocimientos de informática\n- Paciencia y claridad para explicar\n- Habilidades de comunicación\n- Empatía con adultos mayores",
+    "perfil_buscado": "Jóvenes y adultos con buenos conocimientos de tecnología y disposición para enseñar. Preferentemente con experiencia en educación o trato con adultos mayores.",
+    "disponibilidad": "Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
   },
   {
-      "id": 9,
-      "titulo": "Clases de Apoyo Escolar",
-      "descripcion": "Tutorías en materias escolares para estudiantes de primaria y secundaria en situación vulnerable.",
-      "inscripcion": "2025-03-10",
-      "fecha_inicio": "2025-03-20",
-      "fecha_fin": "2025-12-15",
-      "ubicacion": {
-          "pais": "Uruguay",
-          "provincia": "Montevideo",
-          "ciudad": "Centro",
-          "direccion": "Plaza Independencia 123"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Educación para Todos",
-      "categoria": "EDUCACION",
-      "tareas": "1. Impartición de clases de apoyo\n2. Preparación de guías de estudio\n3. Evaluación del avance de estudiantes\n4. Organización de actividades recreativas educativas",
-      "habilidades": "- Conocimientos básicos en matemáticas y lenguaje\n- Paciencia para enseñar\n- Buenas habilidades de comunicación\n- Organización y puntualidad",
-      "perfil_buscado": "Estudiantes y profesionales con conocimientos en materias escolares y motivación para enseñar.",
-      "disponibilidad": "Las actividades se realizarán los lunes, miércoles y viernes, de 15 a 18 horas."
+    "id": 4,
+    "titulo": "Huerta Comunitaria Sustentable",
+    "descripcion": "Proyecto de creación y mantenimiento de una huerta comunitaria para producir alimentos orgánicos y educar sobre agricultura sustentable.",
+    "inscripcion": "2025-03-15",
+    "fecha_inicio": "2025-03-15",
+    "fecha_fin": "2025-12-15",
+    "ubicacion": {
+      "pais": "España",
+      "provincia": "Madrid",
+      "ciudad": "Chamartín",
+      "direccion": "Paseo de la Castellana 890"
+    },
+    "cupos_disponibles": 9,
+    "voluntarios_inscritos": 5,
+    "fundacion": "Asociación Cultivando Futuro",
+    "categoria": "AGRICULTURA URBANA",
+    "tareas": "1. Preparación de terreno\n2. Siembra y mantenimiento de cultivos\n3. Talleres de compostaje\n4. Cosecha y distribución",
+    "habilidades": "- Conocimientos básicos de jardinería\n- Compromiso con la agricultura sustentable\n- Trabajo en equipo\n- Disponibilidad regular",
+    "perfil_buscado": "Personas interesadas en la agricultura urbana y la alimentación saludable. No se requiere experiencia previa, solo compromiso y disposición para aprender.",
+    "disponibilidad": "Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
   },
   {
-      "id": 10,
-      "titulo": "Campañas de Concientización sobre Salud",
-      "descripcion": "Organización de eventos para educar sobre prevención de enfermedades, higiene y hábitos saludables.",
-      "inscripcion": "2025-04-01",
-      "fecha_inicio": "2025-04-20",
-      "fecha_fin": "2025-11-30",
-      "ubicacion": {
-          "pais": "Costa Rica",
-          "provincia": "San José",
-          "ciudad": "Escazú",
-          "direccion": "Parque Central"
-      },
-      "cupo_disponible": true,
-      "fundacion": "Salud para Todos",
-      "categoria": "SALUD",
-      "tareas": "1. Diseño de material informativo\n2. Organización de eventos de salud comunitaria\n3. Apoyo en evaluaciones médicas básicas\n4. Orientación a los participantes",
-      "habilidades": "- Conocimientos básicos de salud o primeros auxilios\n- Comunicación efectiva\n- Creatividad en la elaboración de materiales\n- Trabajo en equipo",
-      "perfil_buscado": "Personas con interés en la promoción de la salud, preferentemente con conocimientos básicos en el área médica.",
-      "disponibilidad": "Las actividades se realizarán los jueves y sábados, de 9 a 13 horas."
+    "id": 5,
+    "titulo": "Rescate y Cuidado de Animales",
+    "descripcion": "Apoyo en el refugio de animales para el cuidado, alimentación y socialización de perros y gatos rescatados.",
+    "inscripcion": "2025-03-15",
+    "fecha_inicio": "2025-02-01",
+    "fecha_fin": "2025-12-31",
+    "ubicacion": {
+      "pais": "Colombia",
+      "provincia": "Antioquia",
+      "ciudad": "Medellín",
+      "direccion": "Carrera 70 #45-32"
+    },
+
+    "cupos_disponibles": 8,
+    "voluntarios_inscritos": 6,
+    "fundacion": "Protectora de Animales Unidos",
+    "categoria": "PROTECCION ANIMAL",
+    "tareas": "1. Alimentación de animales\n2. Limpieza de espacios\n3. Paseos y socialización\n4. Apoyo en campañas de adopción",
+    "habilidades": "- Amor por los animales\n- Resistencia física\n- Compromiso y responsabilidad\n- Trabajo en equipo",
+    "perfil_buscado": "Mayores de 18 años con amor por los animales y disponibilidad de al menos 4 horas semanales. Se valora experiencia previa en el cuidado de mascotas.",
+    "disponibilidad": "Las actividades se realizarán de lunes a viernes, entre las 10 y 17 horas, con una carga semanal de 16 hs."
+  },
+  {
+    "id": 6,
+    "titulo": "Reforestación de Áreas Degradadas",
+    "descripcion": "Jornadas de plantación de árboles nativos en áreas afectadas por la deforestación, con seguimiento del crecimiento de las plantas.",
+    "inscripcion": "2025-03-20",
+    "fecha_inicio": "2025-04-01",
+    "fecha_fin": "2025-06-30",
+    "ubicacion": {
+      "pais": "Brasil",
+      "provincia": "Amazonas",
+      "ciudad": "Manaos",
+      "direccion": "Reserva Natural EcoVida"
+    },
+    "cupos_disponibles": 5,
+    "voluntarios_inscritos": 1,
+    "fundacion": "Fundación Bosques para el Futuro",
+    "categoria": "MEDIOAMBIENTE",
+    "tareas": "1. Plantación de árboles nativos\n2. Control de plagas y fertilización\n3. Mantenimiento de senderos ecológicos\n4. Registro de datos sobre el desarrollo de las plantas",
+    "habilidades": "- Conocimientos básicos de jardinería o biología\n- Resistencia física\n- Trabajo en equipo\n- Compromiso con la conservación ambiental",
+    "perfil_buscado": "Personas mayores de 18 años comprometidas con la conservación de la naturaleza y la reforestación de áreas críticas.",
+    "disponibilidad": "Las actividades se realizarán los fines de semana, de 8 a 15 horas, con una carga semanal de 8 hs."
+  },
+  {
+    "id": 7,
+    "titulo": "Talleres de Reciclaje Creativo",
+    "descripcion": "Capacitación en técnicas de reciclaje y creación de productos artesanales a partir de materiales reutilizados.",
+    "inscripcion": "2025-03-25",
+    "fecha_inicio": "2025-04-10",
+    "fecha_fin": "2025-08-15",
+    "ubicacion": {
+      "pais": "Perú",
+      "provincia": "Lima",
+      "ciudad": "Miraflores",
+      "direccion": "Calle Las Artes 345"
+    },
+    "cupos_disponibles": 13,
+    "voluntarios_inscritos": 14,
+    "fundacion": "EcoInnovadores Perú",
+    "categoria": "EDUCACION AMBIENTAL",
+    "tareas": "1. Diseño de talleres creativos\n2. Enseñanza de técnicas de reciclaje\n3. Organización de exposiciones de productos reciclados\n4. Creación de materiales educativos",
+    "habilidades": "- Creatividad\n- Habilidades manuales\n- Paciencia para enseñar\n- Capacidad de organización",
+    "perfil_buscado": "Jóvenes y adultos con interés en el reciclaje y la artesanía, con disponibilidad para trabajar con grupos variados.",
+    "disponibilidad": "Las actividades se realizarán los miércoles y viernes, de 14 a 18 horas."
+  },
+  {
+    "id": 8,
+    "titulo": "Asistencia a Personas Sin Hogar",
+    "descripcion": "Distribución de alimentos, ropa y kits de higiene a personas en situación de calle. Incluye charlas motivacionales y orientación social.",
+    "inscripcion": "2025-02-28",
+    "fecha_inicio": "2025-03-05",
+    "fecha_fin": "2025-12-31",
+    "ubicacion": {
+      "pais": "Estados Unidos",
+      "provincia": "California",
+      "ciudad": "Los Ángeles",
+      "direccion": "Centro de Ayuda Comunal"
+    },
+    "cupos_disponibles": 10,
+    "voluntarios_inscritos": 10,
+    "fundacion": "Hope for All Foundation",
+    "categoria": "SOCIAL",
+    "tareas": "1. Organización de kits de ayuda\n2. Distribución de alimentos y ropa\n3. Registro de beneficiarios\n4. Orientación sobre servicios sociales disponibles",
+    "habilidades": "- Empatía y capacidad de escucha\n- Organización\n- Trabajo en equipo\n- Capacidad para resolver problemas",
+    "perfil_buscado": "Personas con disposición para interactuar con poblaciones vulnerables y apoyar en labores logísticas.",
+    "disponibilidad": "Las actividades se realizarán los martes y sábados, de 10 a 14 horas."
+  },
+  {
+    "id": 9,
+    "titulo": "Clases de Apoyo Escolar",
+    "descripcion": "Tutorías en materias escolares para estudiantes de primaria y secundaria en situación vulnerable.",
+    "inscripcion": "2025-03-10",
+    "fecha_inicio": "2025-03-20",
+    "fecha_fin": "2025-12-15",
+    "ubicacion": {
+      "pais": "Uruguay",
+      "provincia": "Montevideo",
+      "ciudad": "Centro",
+      "direccion": "Plaza Independencia 123"
+    },
+    "cupos_disponibles": 12,
+    "voluntarios_inscritos": 1,
+    "fundacion": "Educación para Todos",
+    "categoria": "EDUCACION",
+    "tareas": "1. Impartición de clases de apoyo\n2. Preparación de guías de estudio\n3. Evaluación del avance de estudiantes\n4. Organización de actividades recreativas educativas",
+    "habilidades": "- Conocimientos básicos en matemáticas y lenguaje\n- Paciencia para enseñar\n- Buenas habilidades de comunicación\n- Organización y puntualidad",
+    "perfil_buscado": "Estudiantes y profesionales con conocimientos en materias escolares y motivación para enseñar.",
+    "disponibilidad": "Las actividades se realizarán los lunes, miércoles y viernes, de 15 a 18 horas."
+  },
+  {
+    "id": 10,
+    "titulo": "Campañas de Concientización sobre Salud",
+    "descripcion": "Organización de eventos para educar sobre prevención de enfermedades, higiene y hábitos saludables.",
+    "inscripcion": "2025-04-01",
+    "fecha_inicio": "2025-04-20",
+    "fecha_fin": "2025-11-30",
+    "ubicacion": {
+      "pais": "Costa Rica",
+      "provincia": "San José",
+      "ciudad": "Escazú",
+      "direccion": "Parque Central"
+    },
+    "cupos_disponibles": 14,
+    "voluntarios_inscritos": 10,
+    "fundacion": "Salud para Todos",
+    "categoria": "SALUD",
+    "tareas": "1. Diseño de material informativo\n2. Organización de eventos de salud comunitaria\n3. Apoyo en evaluaciones médicas básicas\n4. Orientación a los participantes",
+    "habilidades": "- Conocimientos básicos de salud o primeros auxilios\n- Comunicación efectiva\n- Creatividad en la elaboración de materiales\n- Trabajo en equipo",
+    "perfil_buscado": "Personas con interés en la promoción de la salud, preferentemente con conocimientos básicos en el área médica.",
+    "disponibilidad": "Las actividades se realizarán los jueves y sábados, de 9 a 13 horas."
   }
-  ]
+]
 

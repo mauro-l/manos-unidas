@@ -1,9 +1,8 @@
 import CardWhite from "@/components/common/cards/CardWhite.jsx";
 import Banner from "@/components/layout/Banner.jsx";
-import CardNotification from "@/components/common/notifications/CardNotification.jsx";
-//import EmptyNotification from "@/components/common/notifications/EmptyNotification.jsx";
+import CardNotification from "@/components/common/cards/CardNotification.jsx";
 
-function NotificationVol() {
+function Notification() {
   return (
     <div>
       <Banner>Notificaciones</Banner>
@@ -12,7 +11,6 @@ function NotificationVol() {
           Entérate de cualquier novedad de tus inscripciones y voluntariados
           activos.
         </CardWhite>
-        {/* <EmptyNotification /> */}
         <div className="flex flex-col gap-2 ">
           <CardNotification />
           <CardNotification />
@@ -24,4 +22,4 @@ function NotificationVol() {
   );
 }
 
-export default NotificationVol;
+export default Notification;
