@@ -1,6 +1,6 @@
 
 
-const MiniCard = ( {className, icon:Icon, title, text }  ) => {
+const MiniCard = ( {className, icon:Icon, titulo:title, text }  ) => {
   return (
     <div className={`${className} flex items-center p-4 border border-base-300 rounded-lg justify-center `}>
       < Icon  className="text-secondary text-2xl mr-4" />

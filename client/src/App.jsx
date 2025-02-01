@@ -14,7 +14,6 @@ import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
 import RegisterConfirm from "./pages/auth/RegisterConfirm.jsx";
 import Home from "./pages/home/Home.jsx";
-import RegisterConfir from "./pages/auth/RegisterConfir.jsx";
 import Notification from "./pages/notifications/Notification.jsx";
 import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
 import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
