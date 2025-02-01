@@ -53,7 +53,7 @@ function Home() {
         <div className="hidden lg:block lg:-mt-16 lg:mx-auto">
           <StepsCards />
         </div>
-        <div className="py-32 space-y-6">
+        <div className="space-y-6 lg:py-32">
           <TitleDoubleXL className="text-3xl leading-tree text-balance lg:text-6xl lg:text-center">
             Explora las oportunidades de voluntariado publicadas
           </TitleDoubleXL>
