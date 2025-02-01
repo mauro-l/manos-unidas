@@ -193,9 +193,9 @@ const ActivitiesDetailVol = () => {
               </p>
               <div className="modal-action  ">
                 <form method="dialog  ">
-                  <button className="px-6 py-3 border border-base-300 rounded-xl text-base-content text-sm "  >
+                  <Link to="/inscriptions/5" className="px-6 py-3 border border-base-300 rounded-xl text-base-content text-sm "  >
                     Ir a Mis voluntariados
-                  </button>
+                  </Link>
                 </form>
               </div>
             </div>

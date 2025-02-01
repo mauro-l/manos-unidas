@@ -14,6 +14,7 @@ import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
 import RegisterConfirm from "./pages/auth/RegisterConfirm.jsx";
 import Home from "./pages/home/Home.jsx";
+import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             path="/volunteer/activities/:id"
             element={<ActivitiesDetailVol />}
           />
+          <Route path="/inscriptions/:id" element= {<InscriptionsVol/>}/>
           <Route path="/foundation/:id" element={<FoundationView />} />
           <Route path="/profileVol" element={<VolunteerProfile />} />
           <Route path="/volunteer/profile/data" element={<EditDataVol />} />

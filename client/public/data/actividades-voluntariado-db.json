@@ -35,7 +35,7 @@
         "ciudad": "Providencia",
         "direccion": "Avenida Providencia 1234"
       },
-      "cupo_disponible": true,
+      "cupo_disponible": false,
       "fundacion": "Asociación Protectora de la Infancia",
       "categoria": "SOCIAL",
       "tareas": "1. Organización de actividades recreativas\n2. Apoyo en tareas escolares\n3. Acompañamiento en juegos y deportes\n4. Preparación de materiales para talleres",
