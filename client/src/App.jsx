@@ -14,6 +14,7 @@ import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
 import Home from "./pages/home/Home.jsx";
 import RegisterConfir from "./pages/auth/RegisterConfir.jsx";
+import NotificationVol from "./pages/notifications/NotificationVol.jsx";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           />
           <Route path="/foundation/:id" element={<FoundationView />} />
           <Route path="/profileVol" element={<VolunteerProfile />} />
+          <Route path="/notifications" element={<NotificationVol />} />
           <Route path="/volunteer/profile/data" element={<EditDataVol />} />
           <Route path="/volunteer/profile/edit" element={<EditProfileVol />} />
         </Routes>
