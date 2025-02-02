@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import Fundacion from './fundacion.model.js';
+import Categoria from './categoria.model.js';
 
 const actividadSchema = new mongoose.Schema({
     actividad_id: { type: String, required: true, unique: true },
@@ -8,12 +10,14 @@ const actividadSchema = new mongoose.Schema({
     fecha_fin: { type: Date, required: true },
     ubicacion: { type: String, required: true },
     cupo_disponible: { type: Boolean, required: true },
-    fundacion_id: { type: String, required: true },
-    categoria_id: { type: String, required: false },
+    fundacion_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Fundacion', required: true }, // Referencia a Fundacion
+    categoria_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Categoria' }, // Referencia a Categoria
     tareas: { type: [String], required: false },
     categoria: { type: String, required: false },
     habilidades: { type: [String], required: false },
     perfil_buscado: { type: String, required: false }
 });
-
-export default mongoose.model("Actividad", actividadSchema);
+//const Fundacion = mongoose.model("Fundacion", FundacionSchema);
+//const categoria = mongoose.model('categoria', categoriaSchema);
+const Actividad = mongoose.model("actividad", actividadSchema);
+export default Actividad;
