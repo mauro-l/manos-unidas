@@ -1,12 +1,31 @@
 import Actividad from '../models/Actividad.model.js';
-
+import Fundacion from '../models/fundacion.model.js';
+import Categoria from '../models/categoria.model.js';
 
 export const createActividad = async (req, res) => {
-    const { titulo, descripcion, fecha_inicio, fecha_fin, ubicacion, cupo_disponible, fundacion_id, categoria_id } = req.body;
+    const {
+        actividad_id,
+        titulo,
+        descripcion,
+        fecha_inicio,
+        fecha_fin,
+        fecha_limite,
+        ubicacion,
+        cupo_maximo,
+        cupo_disponible,
+        fundacion_id,
+        categoria_id,
+        tareas,
+
+        habilidades,
+        perfil_buscado,
+        disponibilidad, } = req.body;
 
     try {
-        // Verifica 
+        console.log(fundacion_id)
         const fundacion = await Fundacion.findById(fundacion_id);
+        console.log(fundacion)
+
         if (!fundacion) {
             return res.status(400).json({ message: 'ID de fundación no válido' });
         }
@@ -15,14 +34,22 @@ export const createActividad = async (req, res) => {
             return res.status(400).json({ message: 'ID de categoría no válido' });
         }
         const nuevaActividad = new Actividad({
+            actividad_id,
             titulo,
             descripcion,
             fecha_inicio,
             fecha_fin,
+            fecha_limite,
             ubicacion,
+            cupo_maximo,
             cupo_disponible,
             fundacion_id,
             categoria_id,
+            tareas,
+
+            habilidades,
+            perfil_buscado,
+            disponibilidad,
         });
 
         await nuevaActividad.save();

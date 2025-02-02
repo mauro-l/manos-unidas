@@ -2,54 +2,54 @@ import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
 const FundacionSchema = new mongoose.Schema({
-    fundacion_id: { 
+    fundacion_id: {
         type: mongoose.Schema.Types.ObjectId,
         default: () => new mongoose.Types.ObjectId(),
     },
     nombre: {
-        type: String, 
-        required: true 
+        type: String,
+        required: true
     },
-    email: { 
-        type: String, 
-        required: true, 
-        unique: true 
+    email: {
+        type: String,
+        required: true,
+        unique: true
     },
-    contrasena: { 
-        type: String, 
-        required: true 
+    contrasena: {
+        type: String,
+        required: true
     },
-    telefono: { 
-        type: String, 
-        required: true 
+    telefono: {
+        type: String,
+        required: true
     },
-    direccion: { 
-        type: String, 
-        required: true 
+    direccion: {
+        type: String,
+        required: true
     },
-    descripcion: { 
-        type: String, 
-        required: true 
+    descripcion: {
+        type: String,
+        required: true
     },
-    fecha_registro: { 
-        type: Date, 
-        default: Date.now 
+    fecha_registro: {
+        type: Date,
+        default: Date.now
     },
-    logo: { 
+    logo: {
         type: Buffer
     },
-    web: { 
-        type: String 
+    web: {
+        type: String
     },
-    email_contacto: { 
-        type: String 
+    email_contacto: {
+        type: String
     },
-    area_principal: { 
-        type: String 
+    area_principal: {
+        type: String
     },
-    nro_registro: { 
-        type: String, 
-        required: true 
+    nro_registro: {
+        type: String,
+        required: true
     }
 });
 
