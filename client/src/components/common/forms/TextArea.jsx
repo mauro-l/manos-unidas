@@ -13,7 +13,7 @@ function TextArea({ label, name, placeholder = "", ...props }) {
         )}
         <textarea
           {...field}
-          className={`textarea textarea-bordered textarea-lg leading-5 ${
+          className={`textarea textarea-bordered textarea-md leading-5 ${
             meta.touched && meta.error ? "textarea-error" : " "
           } `}
           placeholder={placeholder}
