@@ -21,9 +21,6 @@ const ActivitiesDetailVol = () => {
 
   const {loading, activity, error} = useActivityById(id);
   
-  if(!loading){
-   (activity)
-  }
  
 
   
@@ -35,6 +32,7 @@ const ActivitiesDetailVol = () => {
   
  
 const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
+
 
 
 

@@ -1,5 +1,7 @@
 import { HiCalendarDays } from "react-icons/hi2";
 import useActivityById from "../../../hooks/useActivityById.js";
+import DropdownVolunteering from "../../modules/activities/DropdownVolunteering.jsx";
+
 
 const EventCard = ({ className, activityId, estado }) => {
   const { loading, activity, error } = useActivityById(activityId);
@@ -15,14 +17,16 @@ const EventCard = ({ className, activityId, estado }) => {
 
   return (
     <div
-      className={`${className} flex flex-col  p-4 border border-base-300 rounded-lg space-y-4 `}
+      className={`${className} flex flex-col  p-4 border border-base-300 rounded-lg space-y-4 lg:w-[475px] max-w-[475px] lg:h-[184px] lg:p-6 `}
     >
-      <div className="space-y-2">
-        <h3 className="text-lg  font-bold text-base-neutral text-start">
-          {" "}
-          {activity.titulo}{" "}
-        </h3>
-
+      <div className="space-y-2 ">
+        <div className="flex justify-between">
+          <h3 className="text-lg  font-bold text-base-neutral text-start">
+            {" "}
+            {activity.titulo}{" "}
+          </h3>
+          <DropdownVolunteering/>
+        </div>
         <div className="w-full flex flex-col-2 gap-4 ">
           <div className="w-1/2 flex items-center ">
             <HiCalendarDays className="text-secondary text-2xl mr-2 " />
@@ -42,22 +46,22 @@ const EventCard = ({ className, activityId, estado }) => {
         </div>
       </div>
 
-      <div >
-      <div
-        className={`mt-2 px-3 py-0.5 rounded-full  inline-block text-sm font-bold uppercase ${
-          estadoClases[estado] || "bg-base-400 text-neutral "
-        }`}
-      >
-        {estado === "aprobado"
-          ? "Aprobado para participar"
-          : estado === "pendiente"
-          ? "Aprobación pendiente"
-          : estado === "rechazado"
-          ? "Rechazado"
-          : estado === "finalizado"
-          ? "Actividad finalizada"
-          : "Estado desconocido"}
-      </div>
+      <div>
+        <div
+          className={`mt-2 px-3 py-0.5 rounded-full  inline-block text-sm font-bold uppercase ${
+            estadoClases[estado] || "bg-base-400 text-neutral "
+          }`}
+        >
+          {estado === "aprobado"
+            ? "Aprobado para participar"
+            : estado === "pendiente"
+            ? "Aprobación pendiente"
+            : estado === "rechazado"
+            ? "Rechazado"
+            : estado === "finalizado"
+            ? "Actividad finalizada"
+            : "Estado desconocido"}
+        </div>
       </div>
     </div>
   );

@@ -17,22 +17,23 @@ const InscriptionsVol = () => {
       <Banner>
         Revisa el estado de todas tus inscripciones a voluntariados
       </Banner>
+      <div className="lg:container lg:mx-auto">
       {Number(id) > 5 ? (
         <div className="px-4">
-          <div className="p-6 m-4 mb-4 -mt-8 rounded-lg bg-base-100">
+          <div className="p-6  mb-4 -mt-8 rounded-lg bg-base-100">
             <p>
               Desde aquí podrás revisar todas los voluntariados en los que te
               has inscrito, ver las fechas de las actividades o cancelar tu
               inscripción de ser necesario.
             </p>
           </div>
-          <div >{id} </div>
+         
          <InscriptionsListVol/>
         </div>
       ) : Number(id) < 5 ? (
-        <div>
-          <div className="p-6 m-4 mb-4 -mt-8 rounded-lg bg-warning">
-            <p className="mb-4 text-warning-content">
+        <div className="px-4">
+          <div className="p-6 mb-4 -mt-8 rounded-lg bg-warning lg:inline-flex lg:w-full lg:justify-between lg:items-center">
+            <p className="mb-4 text-warning-content lg:mb-0">
               ¡Recuerda completar la información de tu perfil para para poder
               inscribirte en actividades!
             </p>
@@ -51,15 +52,13 @@ const InscriptionsVol = () => {
 
               <Link
                 to="/volunteer"
-                className="btn gap-2 bg-primary roundedd-lg text-primary-content font-bold "
+                className="btn gap-2 btn-primary roundedd-lg text-primary-content font-bold "
               >
                 {" "}
                 Explorar actividades publicadas
               </Link>
 
-              <p className="text-5xl font-bold  text-red-900">
-                {id} {/* menor de 5  */}
-              </p>
+              
             </EmptyDashed>
           </div>
         </div>
@@ -71,7 +70,7 @@ const InscriptionsVol = () => {
             </p>
             <Link
               to="/volunteer"
-              className="btn   bg-primary rounded-lg text-primary-content font-bold  "
+              className="btn   btn-primary rounded-lg text-primary-content font-bold  "
             >
               {" "}
               Explorar actividades publicadas
@@ -83,6 +82,7 @@ const InscriptionsVol = () => {
         <div className="text-5xl font-bold  text-black">error{id} </div>
       )}{" "}
       {/* no existe  */}
+      </div>
     </>
   );
 };
