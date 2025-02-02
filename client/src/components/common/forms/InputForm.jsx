@@ -15,12 +15,16 @@ function InputForm({ label, name, type = "text", disabled, ...props }) {
           type={type}
           disabled={disabled}
           className={`w-full input ${
-            disabled ? "border-red-500 border text-yellow-400" : ""
+            disabled ? "border-danger-content border" : ""
           } input-bordered ${meta.touched && meta.error ? "input-error" : " "}`}
           {...props}
         />
+        <div className="label">
+          <small className="text-danger-content label-text-alt">
+            {meta.touched && meta.error}
+          </small>
+        </div>
       </label>
-      <small className="text-red-500">{meta.touched && meta.error}</small>
     </>
   );
 }

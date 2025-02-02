@@ -1,6 +1,6 @@
 import { useField } from "formik";
 
-function TextArea({ label, name, placeholder, ...props }) {
+function TextArea({ label, name, placeholder = "", ...props }) {
   const [field, meta] = useField(name);
 
   return (
@@ -13,7 +13,7 @@ function TextArea({ label, name, placeholder, ...props }) {
         )}
         <textarea
           {...field}
-          className={`textarea textarea-bordered textarea-md leading-5 ${
+          className={`textarea textarea-bordered textarea-lg leading-5 ${
             meta.touched && meta.error ? "textarea-error" : " "
           } `}
           placeholder={placeholder}
@@ -21,7 +21,7 @@ function TextArea({ label, name, placeholder, ...props }) {
         ></textarea>
 
         <div className="label">
-          <small className="text-red-500 label-text-alt">
+          <small className="text-danger-content label-text-alt">
             {meta.touched && meta.error}
           </small>
           <span className="label-text-alt text-neutral">
