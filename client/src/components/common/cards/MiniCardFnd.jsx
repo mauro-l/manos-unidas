@@ -1,14 +1,16 @@
+import { useState } from "react";
 import {
   HiOutlineClipboardDocumentCheck,
-  HiOutlineEllipsisVertical,
   HiOutlineEnvelope,
   HiOutlinePencil,
-  HiOutlineTrash,
   HiOutlineUsers,
-  HiOutlineXCircle,
 } from "react-icons/hi2";
+import ModalMessage from "../../layout/ModalMessage.jsx";
+import DropdownActivity from "../../modules/dashboard/DropdownActivity.jsx";
 
 function MiniCardFnd({ activity }) {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <article className="w-full p-4 space-y-4 border rounded-lg border-base-300">
       <div className="flex justify-between">
@@ -19,10 +21,13 @@ function MiniCardFnd({ activity }) {
           <button className="p-0 btn-xs btn-ghost">
             <HiOutlinePencil className="text-xl" />
           </button>
-          <button className="p-0 btn-xs btn-ghost">
+          <button
+            className="p-0 btn-xs btn-ghost"
+            onClick={() => setIsOpen(true)}
+          >
             <HiOutlineEnvelope className="text-xl" />
           </button>
-          <div className="dropdown dropdown-bottom dropdown-end">
+          {/* <div className="dropdown dropdown-bottom dropdown-end">
             <div tabIndex={0} role="button" className="p-0 btn-xs btn-ghost">
               <HiOutlineEllipsisVertical className="text-xl" />
             </div>
@@ -38,12 +43,13 @@ function MiniCardFnd({ activity }) {
               </li>
               <li className="hidden">
                 <button className="text-nowrap">
-                  <HiOutlineTrash className="text-lg text-secondary" />{" "}
+                  <HiOutlineTrash className="text-lg text-secondary" />
                   Elimninar actividad
                 </button>
               </li>
             </ul>
-          </div>
+          </div> */}
+          <DropdownActivity />
         </div>
       </div>
       <div className="flex w-full">
@@ -64,6 +70,7 @@ function MiniCardFnd({ activity }) {
           </span>
         </div>
       </div>
+      <ModalMessage isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </article>
   );
 }
