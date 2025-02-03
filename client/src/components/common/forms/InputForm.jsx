@@ -14,7 +14,7 @@ function InputForm({ label, name, type = "text", disabled, ...props }) {
           {...field}
           type={type}
           disabled={disabled}
-          className={`w-full input ${
+          className={`w-full bg-white input ${
             disabled ? "border-danger-content border" : ""
           } input-bordered ${meta.touched && meta.error ? "input-error" : " "}`}
           {...props}

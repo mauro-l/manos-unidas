@@ -16,7 +16,7 @@ import Home from "./pages/home/Home.jsx";
 import RegisterConfir from "./pages/auth/RegisterConfir.jsx";
 import Notification from "./pages/notifications/Notification.jsx";
 import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
-import CreateActivity from "./pages/foundation/activities/CreateActivity.jsx";
+import ActivityManager from "./pages/foundation/activities/ActivityManager.jsx";
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
           <Route path="/edit/info" element={<EditInfoFnd />} />
 
           <Route path="/dashboard" element={<DashboardFnd />} />
-          <Route path="/activity/create" element={<CreateActivity />} />
+          <Route path="/activity/create" element={<ActivityManager />} />
 
           {/* voluntariado */}
           <Route path="/volunteer" element={<ActivitiesVol />} />

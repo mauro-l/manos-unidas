@@ -1,9 +1,9 @@
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import Banner from "@/components/layout/Banner.jsx";
-import CardWhite from "../../../components/common/cards/CardWhite.jsx";
-import AddActivities from "../../../components/modules/activities/AddActivities.jsx";
+import CardWhite from "@/components/common/cards/CardWhite.jsx";
+import ActivitiesFormHandle from "@/components/modules/activities/ActivitiesFormHandle.jsx";
 
-function CreateActivity() {
+function ActivityManager() {
   return (
     <div>
       <Banner>
@@ -17,10 +17,10 @@ function CreateActivity() {
           alguien se inscriba para que compruebes su perfil.
         </CardWhite>
 
-        <AddActivities />
+        <ActivitiesFormHandle />
       </div>
     </div>
   );
 }
 
-export default CreateActivity;
+export default ActivityManager;

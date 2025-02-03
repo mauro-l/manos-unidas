@@ -7,9 +7,7 @@ function RadioSelect({ label, name }) {
 
   return (
     <div className="w-full">
-      {label && (
-        <label className="block mb-2 text-sm font-medium">{label}</label>
-      )}
+      {label && <label className="block mb-2 text-sm">{label}</label>}
 
       {/* Dropdown Toggle */}
       <div
@@ -25,7 +23,9 @@ function RadioSelect({ label, name }) {
             e.currentTarget.nextSibling.classList.toggle("hidden")
           }
         >
-          <span>{selectedOption || "Seleccione una opción"}</span>
+          <span className={`${!selectedOption && "text-base-400"}`}>
+            {selectedOption || "Seleccione una categoría"}
+          </span>
         </div>
 
         {/* Dropdown Options */}
