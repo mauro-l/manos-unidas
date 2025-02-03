@@ -12,10 +12,11 @@ import FoundationView from "./pages/volunteer/activities/FoundationView.jsx";
 import VolunteerProfile from "./pages/volunteer/profile/VolunteerProfile.jsx";
 import EditDataVol from "./pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "./pages/volunteer/profile/EditProfileVol.jsx";
+import RegisterConfirm from "./pages/auth/RegisterConfirm.jsx";
 import Home from "./pages/home/Home.jsx";
-import RegisterConfir from "./pages/auth/RegisterConfir.jsx";
 import Notification from "./pages/notifications/Notification.jsx";
 import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
+import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
 import ActivityManager from "./pages/foundation/activities/ActivityManager.jsx";
 
 function App() {
@@ -27,7 +28,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register/foundation" element={<RegisterFnd />} />
           <Route path="/register" element={<RegisterVol />} />
-          <Route path="/confirm/register" element={<RegisterConfir />} />
+
+          <Route path="/register/confirm" element={<RegisterConfirm />} />
+
           {/* fundacion */}
           <Route path="/profile" element={<FoundationProfile />} />
           <Route path="/profile/edit" element={<EditProfileFnd />} />
@@ -42,6 +45,7 @@ function App() {
             path="/volunteer/activities/:id"
             element={<ActivitiesDetailVol />}
           />
+          <Route path="/inscriptions/:id" element={<InscriptionsVol />} />
           <Route path="/foundation/:id" element={<FoundationView />} />
           <Route path="/profileVol" element={<VolunteerProfile />} />
           <Route path="/notifications" element={<Notification />} />
