@@ -8,7 +8,7 @@ export const getAllCategorias = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
-};
+};//meterle
 
 // Obtener una categoría por ID
 export const getCategoriaById = async (req, res) => {
@@ -23,10 +23,10 @@ export const getCategoriaById = async (req, res) => {
     }
 };
 
-// Crear una nueva categoría
+// Crear una nueva categoríass
 export const createCategoria = async (req, res) => {
     try {
-        console.log("Datos recibidos:", req.body); // Agregar este log
+
 
         const { categoria_id, nombre, descripcion } = req.body;
 
@@ -34,11 +34,7 @@ export const createCategoria = async (req, res) => {
             return res.status(400).json({ message: "Todos los campos son obligatorios." });
         }
 
-        const newCategoria = new Categoria({
-            categoria_id,
-            nombre,
-            descripcion,
-        });
+        const newCategoria = new Categoria(req.body)
 
         await newCategoria.save();
         res.status(201).json(newCategoria);
