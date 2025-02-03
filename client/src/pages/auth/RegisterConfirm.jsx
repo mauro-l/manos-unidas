@@ -1,4 +1,4 @@
-const RegisterConfir = () => {
+const RegisterConfirm = () => {
   return (
     <>
       <div className="relative w-full h-[80vh] -z-10">
@@ -33,5 +33,5 @@ const RegisterConfir = () => {
   );
 };
 
-export default RegisterConfir;
+export default RegisterConfirm;
 
