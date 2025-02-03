@@ -8,12 +8,12 @@ function TextArea({ label, name, placeholder = "", ...props }) {
       <label className="w-full form-control">
         {label && (
           <div className="label">
-            <span className="label-text">{label}</span>
+            <span className="text-sm label-text">{label}</span>
           </div>
         )}
         <textarea
           {...field}
-          className={`textarea textarea-bordered textarea-lg leading-5 ${
+          className={`textarea textarea-bordered textarea-lg bg-white text-sm h-auto min-h-28 px-3 py-4 leading-4 ${
             meta.touched && meta.error ? "textarea-error" : " "
           } `}
           placeholder={placeholder}

@@ -17,6 +17,7 @@ import Home from "./pages/home/Home.jsx";
 import Notification from "./pages/notifications/Notification.jsx";
 import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
 import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
+import ActivityManager from "./pages/foundation/activities/ActivityManager.jsx";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/edit/info" element={<EditInfoFnd />} />
 
           <Route path="/dashboard" element={<DashboardFnd />} />
+          <Route path="/activity/create" element={<ActivityManager />} />
 
           {/* voluntariado */}
           <Route path="/volunteer" element={<ActivitiesVol />} />
@@ -43,7 +45,7 @@ function App() {
             path="/volunteer/activities/:id"
             element={<ActivitiesDetailVol />}
           />
-          <Route path="/inscriptions/:id" element= {<InscriptionsVol/>}/>
+          <Route path="/inscriptions/:id" element={<InscriptionsVol />} />
           <Route path="/foundation/:id" element={<FoundationView />} />
           <Route path="/profileVol" element={<VolunteerProfile />} />
           <Route path="/notifications" element={<Notification />} />
@@ -56,3 +58,4 @@ function App() {
 }
 
 export default App;
+

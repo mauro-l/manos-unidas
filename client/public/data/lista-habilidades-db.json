@@ -1,0 +1,16 @@
+[
+  { "id": "arte", "skill": "Arte" },
+  { "id": "cocina", "skill": "Cocina" },
+  { "id": "computacion", "skill": "Computación" },
+  { "id": "cuidado-animales", "skill": "Cuidado de animales" },
+  { "id": "cuidado-ninos", "skill": "Cuidado de niños" },
+  { "id": "danza", "skill": "Danza" },
+  { "id": "deportes", "skill": "Deportes" },
+  { "id": "ensenanza", "skill": "Enseñanza" },
+  { "id": "escritura", "skill": "Escritura" },
+  { "id": "fotografia", "skill": "Fotografía" },
+  { "id": "ingles", "skill": "Inglés" },
+  { "id": "musica", "skill": "Música" },
+  { "id": "pintura", "skill": "Pintura" },
+  { "id": "teatro", "skill": "Teatro" }
+]

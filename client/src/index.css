@@ -13,3 +13,37 @@ input:-webkit-autofill:active {
     transition: background-color 5000s ease-in-out 0s;
     background-color: F3F4F6 !important;
 }
+
+.react-datepicker {
+    background-color: #ffffff !important;
+    color: white !important;
+    border-color: #D1D5DB !important;
+  }
+  
+.react-datepicker__header {
+  background-color: #ffffff !important;
+  border-bottom-color: #D1D5DB !important;
+}
+  
+.react-datepicker__current-month,
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: #374151 !important;
+}
+  
+.react-datepicker__day:hover {
+  background-color: #374151 !important;
+}
+  
+.react-datepicker__day--selected {
+  background-color: #BFDBFE !important;
+}
+  
+.react-datepicker__day--keyboard-selected {
+  background-color: #BBF7D0 !important;
+}
+  
+.react-datepicker__input-container input {
+  background-color: #ffffff !important;
+  color: #1F2937 !important;
+}
