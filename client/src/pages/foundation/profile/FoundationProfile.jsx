@@ -3,13 +3,7 @@ import CardInfo from "../../../components/common/cards/CardInfo.jsx";
 import TitleAction from "../../../components/common/headers/TitleAction.jsx";
 import Banner from "../../../components/layout/Banner.jsx";
 import examplePic from "@/assets/examplePic.png";
-
-import {
-  HiOutlineClipboardDocumentList,
-  HiCheck,
-  HiOutlineUserCircle,
-  HiOutlineBellAlert,
-} from "react-icons/hi2";
+import { HiCheck } from "react-icons/hi2";
 
 function FoundationProfile() {
   return (
@@ -81,25 +75,6 @@ function FoundationProfile() {
         </CardInfo>
         <div className="mt-6">
           <TitleAction href={"#"}>Sobre la fundacion</TitleAction>
-          <div className="relative mt-3">
-            <span className="before:content-[' '] before:block before:h-16"></span>
-            <div className="absolute border-t border-[#D1D5DB] btm-nav btm-nav-md">
-              <button>
-                <HiOutlineClipboardDocumentList className="text-xl" />
-                <span className="text-xs btm-nav-label">Voluntarios</span>
-              </button>
-              <button className="active">
-                <HiOutlineUserCircle className="text-xl" />
-                <span className="text-xs btm-nav-label">
-                  Perfil de fundación
-                </span>
-              </button>
-              <button>
-                <HiOutlineBellAlert className="text-xl" />
-                <span className="text-xs btm-nav-label">Notificaciones</span>
-              </button>
-            </div>
-          </div>
         </div>
         <div className="border-t border-[#D1D5DB] my-4">
           <TitleAction href={"#"}>Datos de contacto</TitleAction>

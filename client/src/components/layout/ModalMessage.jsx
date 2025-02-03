@@ -50,9 +50,9 @@ function ModalMessage({ isOpen, onClose }) {
                 <TextArea
                   label={"mensaje"}
                   name={"message"}
-                  /* placeholder={
-                  "Escribe el mensaje para los voluntarios inscritos, para dar un aviso, recordarles algo o al cambiar la fecha de inicio."
-                } */
+                  placeholder={
+                    "Escribe el mensaje para los voluntarios inscritos, para dar un aviso, recordarles algo o al cambiar la fecha de inicio."
+                  }
                 />
                 <InputForm label={"Firma"} name={"firm"} />
                 <button

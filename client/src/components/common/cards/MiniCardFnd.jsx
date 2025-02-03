@@ -7,6 +7,7 @@ import {
 } from "react-icons/hi2";
 import ModalMessage from "../../layout/ModalMessage.jsx";
 import DropdownActivity from "../../modules/dashboard/DropdownActivity.jsx";
+import { Link } from "react-router-dom";
 
 function MiniCardFnd({ activity }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,37 +19,19 @@ function MiniCardFnd({ activity }) {
           {activity.titulo}
         </p>
         <div className="inline-flex gap-1.5">
-          <button className="p-0 btn-xs btn-ghost">
+          <Link
+            to={`/activity/${activity.id}`}
+            role="button"
+            className="p-0 btn-xs btn-ghost"
+          >
             <HiOutlinePencil className="text-xl" />
-          </button>
+          </Link>
           <button
             className="p-0 btn-xs btn-ghost"
             onClick={() => setIsOpen(true)}
           >
             <HiOutlineEnvelope className="text-xl" />
           </button>
-          {/* <div className="dropdown dropdown-bottom dropdown-end">
-            <div tabIndex={0} role="button" className="p-0 btn-xs btn-ghost">
-              <HiOutlineEllipsisVertical className="text-xl" />
-            </div>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu bg-base-100 rounded-box z-[1] p-0 px-2 shadow"
-            >
-              <li>
-                <button className="inline-flex p-0 text-sm font-normal text-nowrap flex-nowrap btn btn-ghost text-neutral">
-                  <HiOutlineXCircle className="text-lg text-secondary" />
-                  Cancelar inscripcion
-                </button>
-              </li>
-              <li className="hidden">
-                <button className="text-nowrap">
-                  <HiOutlineTrash className="text-lg text-secondary" />
-                  Elimninar actividad
-                </button>
-              </li>
-            </ul>
-          </div> */}
           <DropdownActivity />
         </div>
       </div>

@@ -13,7 +13,7 @@ function Home() {
 
   return (
     <>
-      <div className="relative w-full h-[80vh] -z-10">
+      <div className="relative w-full h-[80vh]">
         <div className="flex items-center h-full px-4 bg-black/80">
           <div className="w-full space-y-6 lg:justify-center lg:flex">
             <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover -z-10 bg-hero-pattern"></div>

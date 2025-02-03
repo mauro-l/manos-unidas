@@ -10,12 +10,34 @@ import InputDate from "../../common/forms/InputDate.jsx";
 import { useEffect, useState } from "react";
 import ModalSkills from "../../layout/ModalSkills.jsx";
 import { useSkills } from "../../../hooks/useSkills.js";
+import { useParams } from "react-router-dom";
+import useActivityById from "../../../hooks/useActivityById.js";
 
 function ActivitiesFormHandle() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [skillsData, setSkillsData] = useState({});
+  const [initialValues, setInitialValues] = useState({
+    title: "",
+    description: "",
+    tasks: "",
+    category: "",
+    country: "",
+    province: "",
+    city: "",
+    address: "",
+    vacancies: "",
+    profile: "",
+    skills: [],
+  });
+
+  const { id } = useParams();
 
   const { skills, loading, error } = useSkills();
+  const {
+    loading: activityLoading,
+    error: activityError,
+    activity,
+  } = useActivityById(id);
 
   useEffect(() => {
     if (!loading) {
@@ -29,6 +51,39 @@ function ActivitiesFormHandle() {
       setSkillsData(skillsMap);
     }
   }, [loading, skills]);
+
+  useEffect(() => {
+    if (id && !activityLoading && activity) {
+      console.log(activity);
+      setInitialValues({
+        title: activity.titulo || "",
+        description: activity.descripcion || "",
+        tasks: activity.tareas || "",
+        category: activity.categoria || "",
+        country: activity.ubicacion.pais || "",
+        province: activity.ubicacion.provincia || "",
+        city: activity.ubicacion.ciudad || "",
+        address: activity.ubicacion.direccion || "",
+        vacancies: activity.cupos_disponibles || "",
+        profile: activity.perfil_buscado || "",
+        skills: activity.skills || [],
+      });
+    }
+  }, [id, activityLoading, activity]);
+
+  /* const initialValues = {
+    title: "",
+    description: "",
+    tasks: "",
+    category: "",
+    country: "",
+    province: "",
+    city: "",
+    address: "",
+    vacancies: "",
+    profile: "",
+    skills: [],
+  }; */
 
   const locations = [
     { name: "country", label: "País", placeholder: "Ingresa el país" },
@@ -45,20 +100,6 @@ function ActivitiesFormHandle() {
     },
   ];
 
-  const initialValues = {
-    title: "",
-    description: "",
-    tasks: "",
-    category: "",
-    country: "",
-    province: "",
-    city: "",
-    address: "",
-    vacancies: "",
-    profile: "",
-    skills: [],
-  };
-
   const addActivity = (values) => {
     console.log(values);
   };
@@ -69,7 +110,11 @@ function ActivitiesFormHandle() {
 
   return (
     <div>
-      <Formik initialValues={initialValues} onSubmit={addActivity}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={addActivity}
+        enableReinitialize={true}
+      >
         {({ values }) => (
           <Form>
             <TitleDoubleXL className={"py-4"}>Información básica</TitleDoubleXL>
@@ -179,7 +224,7 @@ function ActivitiesFormHandle() {
               type="submit"
               className="w-full my-6 font-bold btn btn-primary text-primary-content"
             >
-              Publicar actividad
+              {id ? "Editar actividad" : "Publicar actividad"}
             </button>
             <div className="text-center">
               <ButtonLink path={"#"}>Cancelar</ButtonLink>

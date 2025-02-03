@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const RegisterConfirm = () => {
   return (
     <>
@@ -24,9 +26,13 @@ const RegisterConfirm = () => {
             Solo queda un paso para comenzar a ayudar a tu comunidad. Por favor,
             completa tu perfil con información adicional para continuar.
           </p>
-          <button className="w-full btn btn-primary text-primary-content lg:w-auto">
+          <Link
+            to={"/volunteer/profile"}
+            role="button"
+            className="w-full btn btn-primary text-primary-content lg:w-auto"
+          >
             Completar perfil
-          </button>
+          </Link>
         </div>
       </div>
     </>

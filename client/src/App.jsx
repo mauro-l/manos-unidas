@@ -18,6 +18,7 @@ import Notification from "./pages/notifications/Notification.jsx";
 import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
 import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
 import ActivityManager from "./pages/foundation/activities/ActivityManager.jsx";
+import BottomNavbar from "./components/layout/BottomNavbar.jsx";
 
 function App() {
   return (
@@ -38,20 +39,22 @@ function App() {
 
           <Route path="/dashboard" element={<DashboardFnd />} />
           <Route path="/activity/create" element={<ActivityManager />} />
+          <Route path="/activity/:id" element={<ActivityManager />} />
 
           {/* voluntariado */}
-          <Route path="/volunteer" element={<ActivitiesVol />} />
+          <Route path="/explore" element={<ActivitiesVol />} />
           <Route
             path="/volunteer/activities/:id"
             element={<ActivitiesDetailVol />}
           />
-          <Route path="/inscriptions/:id" element={<InscriptionsVol />} />
+          <Route path="/inscriptions" element={<InscriptionsVol />} />
           <Route path="/foundation/:id" element={<FoundationView />} />
-          <Route path="/profileVol" element={<VolunteerProfile />} />
+          <Route path="/volunteer/profile" element={<VolunteerProfile />} />
           <Route path="/notifications" element={<Notification />} />
           <Route path="/volunteer/profile/data" element={<EditDataVol />} />
           <Route path="/volunteer/profile/edit" element={<EditProfileVol />} />
         </Routes>
+        <BottomNavbar />
       </Router>
     </AuthProvider>
   );
