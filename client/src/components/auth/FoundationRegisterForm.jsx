@@ -1,5 +1,7 @@
 import { useFormik } from "formik";
 import { foundationRegisterSchema } from "../../schemas/auth/registerSchema.js";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   name: "",
@@ -10,8 +12,15 @@ const initialValues = {
 };
 
 function FoundationRegisterForm() {
+  const [loading, setLoading] = useState();
+  const navigate = useNavigate();
   const handleRegister = (values) => {
+    setLoading(true);
     console.log(values);
+    setTimeout(() => {
+      setLoading(false);
+      navigate("/register/confirm");
+    }, 1000);
   };
 
   const { handleChange, errors, handleSubmit } = useFormik({
@@ -129,7 +138,11 @@ function FoundationRegisterForm() {
       </small>
       <div>
         <button className="w-full mt-3 text-white btn btn-primary btn-sm min-h-10">
-          Registrar fundación
+          {loading ? (
+            <span className="loading loading-ring loading-md"></span>
+          ) : (
+            <p>Registrar fundación</p>
+          )}
         </button>
       </div>
     </form>

@@ -1,55 +1,75 @@
+import { Link, useLocation } from "react-router-dom";
+import {
+  HiOutlineBellAlert,
+  HiOutlineClipboardDocumentList,
+  HiOutlineMagnifyingGlassCircle,
+  HiOutlineUserCircle,
+} from "react-icons/hi2";
+import useAuth from "../../hooks/useAuth.js";
+
+const navItems = {
+  voluntario: [
+    {
+      path: "/explore",
+      label: "Explorar",
+      icon: HiOutlineMagnifyingGlassCircle,
+    },
+    {
+      path: "/inscriptions",
+      label: "Mis voluntariados",
+      icon: HiOutlineClipboardDocumentList,
+    },
+    {
+      path: "/volunteer/profile",
+      label: "Mi Perfil",
+      icon: HiOutlineUserCircle,
+    },
+    {
+      path: "/notifications",
+      label: "Notificaciones",
+      icon: HiOutlineBellAlert,
+    },
+  ],
+  fundacion: [
+    {
+      path: "/dashboard",
+      label: "Publicaciones",
+      icon: HiOutlineClipboardDocumentList,
+    },
+    {
+      path: "/profile",
+      label: "Perfil de fundacioón",
+      icon: HiOutlineUserCircle,
+    },
+    {
+      path: "/notifications",
+      label: "Notificaciones",
+      icon: HiOutlineBellAlert,
+    },
+  ],
+};
+
 function BottomNavbar() {
+  const location = useLocation();
+  const { user } = useAuth();
+
+  if (!user || location.pathname === "/") return null;
+  const role = user.role;
+
   return (
-    <div className="absolute btm-nav btm-nav-sm">
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-          />
-        </svg>
-        <span className="btm-nav-label">Home</span>
-      </button>
-      <button className="active">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-          />
-        </svg>
-      </button>
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-5 h-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-          />
-        </svg>
-      </button>
+    <div className="border border-t btm-nav border-base-300">
+      {navItems[role]?.map(({ path, label, icon: Icon }) => (
+        <Link key={path} to={path}>
+          <button
+            className={`${
+              location.pathname === path ? "active" : ""
+            } flex flex-col justify-center items-center`}
+          >
+            <Icon className="w-5 h-5 text-primary" />
+            <span className="mt-1 text-xs btm-nav-label">{label}</span>
+          </button>
+        </Link>
+      ))}
     </div>
   );
 }
