@@ -1,40 +1,12 @@
+
 import Actividad from '../models/Actividad.model.js';
 import Fundacion from '../models/fundacion.model.js';
 import Categoria from '../models/categoria.model.js';
-
+import mongoose from 'mongoose';
+/*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
 export const createActividad = async (req, res) => {
-    const {
-        actividad_id,
-        titulo,
-        descripcion,
-        fecha_inicio,
-        fecha_fin,
-        fecha_limite,
-        ubicacion,
-        cupo_maximo,
-        cupo_disponible,
-        fundacion_id,
-        categoria_id,
-        tareas,
-
-        habilidades,
-        perfil_buscado,
-        disponibilidad, } = req.body;
-
     try {
-        console.log(fundacion_id)
-        const fundacion = await Fundacion.findById(fundacion_id);
-        console.log(fundacion)
-
-        if (!fundacion) {
-            return res.status(400).json({ message: 'ID de fundación no válido' });
-        }
-        const categoria = await Categoria.findById(categoria_id);
-        if (!categoria) {
-            return res.status(400).json({ message: 'ID de categoría no válido' });
-        }
-        const nuevaActividad = new Actividad({
-            actividad_id,
+        const {
             titulo,
             descripcion,
             fecha_inicio,
@@ -46,17 +18,63 @@ export const createActividad = async (req, res) => {
             fundacion_id,
             categoria_id,
             tareas,
+            habilidades,
+            perfil_buscado,
+            disponibilidad,
+        } = req.body;
 
+        /*console.log("Datos recibidos:", req.body); // ✅ Depuración*/
+        /*console.log("Fundacion ID recibido:", fundacion_id);*/
+
+
+
+        //  Validación de datos de entrada
+        if (!titulo || !descripcion || !fundacion_id || !categoria_id) {
+            return res.status(400).json({ message: 'Faltan campos obligatorios' });
+        }
+
+        //  Convertir fundacion_id y categoria_id a ObjectId si es necesario
+        const fundacionObjectId = new mongoose.Types.ObjectId(fundacion_id);
+        const categoriaObjectId = new mongoose.Types.ObjectId(categoria_id);
+
+        //  Verifico  que la fundación y la categoría existen malditaseas//
+        const [fundacion, categoria] = await Promise.all([
+            Fundacion.findById(fundacionObjectId),
+            Categoria.findById(categoriaObjectId),
+        ]);
+
+        if (!categoria) {
+            return res.status(400).json({ message: 'ID de categoría no válido' });
+        }
+
+        // Crear nueva actividad  la fundación y la categoría existen 😊
+        const nuevaActividad = new Actividad({
+            actividad_id: `act-${Date.now()}`, // Generar un ID único
+            titulo,
+            descripcion,
+            fecha_inicio,
+            fecha_fin,
+            fecha_limite,
+            ubicacion,
+            cupo_maximo,
+            cupo_disponible,
+            fundacion_id: fundacionObjectId,
+            categoria_id: categoriaObjectId,
+            tareas,
             habilidades,
             perfil_buscado,
             disponibilidad,
         });
 
-        await nuevaActividad.save();
+        //  Guardar en la base de datos la puta madre
+        const actividadGuardada = await nuevaActividad.save();
+
+        //  Responder con la concha de la lora!!
         res.status(201).json({
             message: 'Actividad creada exitosamente',
-            actividad: nuevaActividad,
+            actividad: actividadGuardada,
         });
+
     } catch (error) {
         console.error('Error al crear actividad:', error);
         res.status(500).json({
@@ -65,7 +83,7 @@ export const createActividad = async (req, res) => {
         });
     }
 };
-
+/*---------el problema es el create--------------------------------------------*/
 
 export const getAllActividades = async (req, res) => {
     try {

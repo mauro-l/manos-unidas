@@ -13,14 +13,11 @@ const actividadSchema = new mongoose.Schema({
     fundacion_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Fundacion', required: true }, // Referencia a Fundacion
     categoria_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Categoria' }, // Referencia a Categoria
     tareas: { type: [String], required: false },
-
     habilidades: { type: [String], required: false },
     perfil_buscado: { type: String, required: false },
     disponibilidad: { type: String, required: false },
     // imagen: { type: Buffer }
-
 });
-
 const Actividad = mongoose.models.Actividad || mongoose.model("Actividad", actividadSchema);
 
 export default Actividad;
