@@ -12,8 +12,8 @@ if (!dbUser || !dbPassword || !dbHost || !dbName) {
     throw new Error('Las variables de entorno de la base de datos no están definidas correctamente');
 }
 
-const dbUri = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/?retryWrites=true&w=majority&appName=${dbName}`;
-
+// const dbUri = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/?retryWrites=true&w=majority&appName=${dbName}`;
+const dbUri = process.env.DB_URL
 const connectDB = async () => {
     try {
         await mongoose.connect(dbUri);
