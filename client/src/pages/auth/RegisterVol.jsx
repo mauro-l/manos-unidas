@@ -11,7 +11,7 @@ function RegisterVol() {
         Registrate como voluntario e inscribite en actividades para ayudar a tu
         comunidad
       </Banner>
-      <div className="p-4 -mt-4  lg:max-w-5xl  lg:-mt-4">
+      <div className="p-4 -mt-4  lg:max-w-5xl  lg:-mt-4 lg:mx-auto">
         <CardWhite>
           <p className="texSt-sm text-center">
             Deberás completar tu perfil una vez registrado, para poder
