@@ -31,7 +31,7 @@ const ActivitiesDetailVol = () => {
 
   
  
-const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
+  const tareasList = activity.tareas ? activity.tareas.split("\n") : [];
 
 
 
@@ -47,7 +47,7 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
                 {activity.categoria}
               </div>
             </div>
-            <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl ">
+            <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl lg:text-red-900 ">
               {activity.titulo}
             </h2>
 
@@ -90,7 +90,7 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
           />
         </div>
         <div className="flex flex-col lg:flex-row gap-2 mt-6 ">
-          <div className="flex w-full h-20 gap-2 ">
+          <div className="flex w-full h-20 gap-2  ">
             <MiniCard
               className="text-xs w-2/3"
               icon={HiOutlineClipboardDocumentCheck}
@@ -98,7 +98,7 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
               text={activity.inscripcion}
             />
             <MiniCard
-              className="w-1/3"
+              className="w-2/5"
               icon={HiOutlineUsers}
               title={"Quedan"}
               text={activity.cupo_disponible}
@@ -145,7 +145,7 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
 
         <div>
           <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
-          <p>{activity.habilidades}</p>
+          <p >{activity.habilidades}</p>
         </div>
 
         <div className="my-6 divider "></div>

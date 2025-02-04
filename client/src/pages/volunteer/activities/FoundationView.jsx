@@ -7,6 +7,7 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { FiPhone } from "react-icons/fi";
 import { BiLink } from "react-icons/bi";
 import Banner from "@/components/layout/Banner.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 const FoundationView = () => {
   const [detail, setDetail] = useState(null);
@@ -111,6 +112,7 @@ const FoundationView = () => {
           Quiero inscribirme
         </button>
       </div>
+      <Footer/>
     </div>
   );
 };

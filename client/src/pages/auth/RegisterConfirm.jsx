@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Footer from "../../components/layout/Footer.jsx";
 
 const RegisterConfirm = () => {
   return (
@@ -34,6 +35,7 @@ const RegisterConfirm = () => {
             Completar perfil
           </Link>
         </div>
+        <Footer/>
       </div>
     </>
   );

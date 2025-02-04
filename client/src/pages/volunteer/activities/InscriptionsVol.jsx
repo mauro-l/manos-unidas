@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import Banner from "../../../components/layout/Banner.jsx";
 import EmptyDashed from "../../../components/layout/EmptyDashed.jsx";
 import InscriptionsListVol from "../../../components/modules/activities/InscriptionsListVol.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 const InscriptionsVol = () => {
   const { id } = useParams();
@@ -80,6 +81,7 @@ const InscriptionsVol = () => {
         )}{" "}
         {/* no existe  */}
       </div>
+      <Footer/>
     </>
   );
 };

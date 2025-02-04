@@ -17,7 +17,7 @@ const EventCard = ({ className, activityId, estado }) => {
 
   return (
     <div
-      className={`${className} flex flex-col  p-4 border border-base-300 rounded-lg space-y-4 lg:w-[475px] max-w-[475px] lg:h-[184px] lg:p-6 `}
+      className={`${className} flex flex-col   p-4 border border-base-300 rounded-lg space-y-4 lg:w-[475px] max-w-[475px] lg:h-[184px] lg:p-6 `}
     >
       <div className="space-y-2 ">
         <div className="flex justify-between">
@@ -48,7 +48,7 @@ const EventCard = ({ className, activityId, estado }) => {
 
       <div>
         <div
-          className={`mt-2 px-3 py-0.5 rounded-full  inline-block text-sm font-bold uppercase ${
+          className={`mt-2 mb-4 px-3 py-0.5 rounded-full  inline-block text-sm font-bold uppercase ${
             estadoClases[estado] || "bg-base-400 text-neutral "
           }`}
         >

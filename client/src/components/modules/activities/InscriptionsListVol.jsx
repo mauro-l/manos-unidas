@@ -13,7 +13,7 @@ const InscriptionsListVol = () => {
 
   return (
     
-    <div className="space-y-2 lg:flex lg:flex-row lg:w-full lg:gap-2 lg:flex-wrap lg:space-y-0 lg:mx-auto " >
+    <div className="space-y-2 mb-4  lg:flex lg:flex-row lg:w-full lg:gap-2 lg:flex-wrap lg:space-y-0 lg:mx-auto " >
       {inscriptions.map((inscription,index) => (
         <EventCard
           key={index}

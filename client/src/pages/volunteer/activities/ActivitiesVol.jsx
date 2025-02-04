@@ -10,7 +10,7 @@ const ActivitiesVol = () => {
           Explora las oportunidades de voluntariado que tenemos para ti
         </h3>
       </Banner>
-      <div className="p-4">
+      <div className="p-4 lg:flex">
         <ActivitiesListVol></ActivitiesListVol>
       </div>
       <Footer/>
