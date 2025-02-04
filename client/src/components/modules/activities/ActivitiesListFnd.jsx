@@ -3,7 +3,7 @@ import MiniCardFnd from "../../common/cards/MiniCardFnd.jsx";
 import CardListSkt from "../../common/skeleton/CardListSkt.jsx";
 
 function ActivitiesListFnd() {
-  const { loading, activity } = useActivitiesByFndId("FND001");
+  const { loading, activity } = useActivitiesByFndId("FND002");
 
   return (
     <div className="space-y-2">

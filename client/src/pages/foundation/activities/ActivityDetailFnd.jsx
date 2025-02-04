@@ -59,7 +59,7 @@ function ActivityDetailFnd() {
           ) : (
             inscriptions.map((ins) => (
               <MiniCardInscripFnd
-                key={ins.id}
+                key={ins.inscripcion_id}
                 volId={ins.voluntario_id}
                 status={ins.estado}
                 expectedSkills={activity.habilidades}

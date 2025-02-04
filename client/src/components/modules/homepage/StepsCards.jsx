@@ -3,7 +3,7 @@ import CardWhite from "../../common/cards/CardWhite.jsx";
 
 function StepsCards() {
   return (
-    <div className="flex gap-6">
+    <div className="relative z-20 flex gap-6">
       <CardWhite className="h-[243px] mt-0 w-[342px] bg-white border border-base-300">
         <div className="flex flex-col items-start">
           <small className="text-sm font-bold uppercase text-secondary">
