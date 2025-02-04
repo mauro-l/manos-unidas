@@ -19,6 +19,7 @@ import DashboardFnd from "./pages/foundation/DashboardFnd.jsx";
 import InscriptionsVol from "./pages/volunteer/activities/InscriptionsVol.jsx";
 import ActivityManager from "./pages/foundation/activities/ActivityManager.jsx";
 import BottomNavbar from "./components/layout/BottomNavbar.jsx";
+import ActivityDetailFnd from "./pages/foundation/activities/ActivityDetailFnd.jsx";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/dashboard" element={<DashboardFnd />} />
           <Route path="/activity/create" element={<ActivityManager />} />
           <Route path="/activity/:id" element={<ActivityManager />} />
+          <Route path="/activity/detail/:id" element={<ActivityDetailFnd />} />
 
           {/* voluntariado */}
           <Route path="/explore" element={<ActivitiesVol />} />

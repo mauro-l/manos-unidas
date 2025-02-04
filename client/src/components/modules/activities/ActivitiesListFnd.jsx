@@ -1,20 +1,20 @@
-import useActivities from "../../../hooks/useActivities.js";
+import useActivitiesByFndId from "../../../hooks/useActivitiesByFndId.js";
 import MiniCardFnd from "../../common/cards/MiniCardFnd.jsx";
+import CardListSkt from "../../common/skeleton/CardListSkt.jsx";
 
 function ActivitiesListFnd() {
-  const { loading, activities } = useActivities();
-  const currentActivities = activities.slice(0, 5);
-
-  if (loading) {
-    return <span className="loading loading-bars loading-lg"></span>;
-  }
+  const { loading, activity } = useActivitiesByFndId("FND002");
 
   return (
     <div className="space-y-2">
-      {currentActivities &&
-        currentActivities.map((activity) => (
+      {loading ? (
+        <CardListSkt />
+      ) : (
+        activity &&
+        activity.map((activity) => (
           <MiniCardFnd key={activity.id} activity={activity} />
-        ))}
+        ))
+      )}
     </div>
   );
 }
