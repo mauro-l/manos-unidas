@@ -2,7 +2,6 @@ import { HiCalendarDays } from "react-icons/hi2";
 import useActivityById from "../../../hooks/useActivityById.js";
 import DropdownVolunteering from "../../modules/activities/DropdownVolunteering.jsx";
 
-
 const EventCard = ({ className, activityId, estado }) => {
   const { loading, activity, error } = useActivityById(activityId);
   const estadoClases = {
@@ -21,24 +20,24 @@ const EventCard = ({ className, activityId, estado }) => {
     >
       <div className="space-y-2 ">
         <div className="flex justify-between">
-          <h3 className="text-lg  font-bold text-base-neutral text-start">
+          <h3 className="text-lg font-bold truncate text-base-neutral text-start">
             {" "}
             {activity.titulo}{" "}
           </h3>
-          <DropdownVolunteering/>
+          <DropdownVolunteering />
         </div>
-        <div className="w-full flex flex-col-2 gap-4 ">
-          <div className="w-1/2 flex items-center ">
-            <HiCalendarDays className="text-secondary text-2xl mr-2 " />
-            <div>
+        <div className="flex w-full gap-4 flex-col-2 ">
+          <div className="flex items-center w-1/2 ">
+            <HiCalendarDays className="mr-2 text-2xl text-secondary " />
+            <div className="text-sm">
               <p className="text-neutral">Inicio de actividad </p>
               <p className="font-bold">{activity.fecha_inicio}</p>
             </div>
           </div>
 
-          <div className="md:w-1/2 flex items-center">
-            <HiCalendarDays className="text-secondary text-2xl mr-2  " />
-            <div>
+          <div className="flex items-center md:w-1/2">
+            <HiCalendarDays className="mr-2 text-2xl text-secondary " />
+            <div className="text-sm">
               <p className=" text-neutral"> Fin de actividad </p>
               <p className="font-bold">{activity.fecha_fin}</p>
             </div>
@@ -46,25 +45,24 @@ const EventCard = ({ className, activityId, estado }) => {
         </div>
       </div>
 
-      <div>
-        <div
-          className={`mt-2 px-3 py-0.5 rounded-full  inline-block text-sm font-bold uppercase ${
-            estadoClases[estado] || "bg-base-400 text-neutral "
-          }`}
-        >
-          {estado === "aprobado"
-            ? "Aprobado para participar"
-            : estado === "pendiente"
-            ? "Aprobación pendiente"
-            : estado === "rechazado"
-            ? "Rechazado"
-            : estado === "finalizado"
-            ? "Actividad finalizada"
-            : "Estado desconocido"}
-        </div>
+      <div
+        className={`badge text-xs font-bold uppercase ${
+          estadoClases[estado] || "bg-base-400 text-neutral "
+        }`}
+      >
+        {estado === "aprobado"
+          ? "Aprobado para participar"
+          : estado === "pendiente"
+          ? "Aprobación pendiente"
+          : estado === "rechazado"
+          ? "Rechazado"
+          : estado === "finalizado"
+          ? "Actividad finalizada"
+          : "Estado desconocido"}
       </div>
     </div>
   );
 };
 
 export default EventCard;
+

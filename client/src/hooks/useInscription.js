@@ -1,20 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useInscription = (id) => {
+const useInscription = (id, role = "voluntario_id") => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [inscriptions, setInscriptions] = useState([]);
 
   useEffect(() => {
-    const fetchDetail = async (id) => {
+    const fetchDetail = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`/data/inscripciones-voluntariados-db.json`);
+        const res = await axios.get(
+          `/data/inscripciones-voluntariados-db.json`
+        );
 
-        const actividad = res.data.filter((item) => item.voluntario_id === id);
-          console.log(actividad);
-          
+        const actividad = res.data.filter((item) => item[role] === id);
+        console.log(actividad);
+
         if (!actividad) {
           throw new Error("Actividad no encontrada");
         }
@@ -27,10 +29,11 @@ const useInscription = (id) => {
       }
     };
 
-    fetchDetail(id);
-  }, [id]);
+    fetchDetail();
+  }, [id, role]);
 
-  return {loading, error, inscriptions};
+  return { loading, error, inscriptions };
 };
 
 export default useInscription;
+

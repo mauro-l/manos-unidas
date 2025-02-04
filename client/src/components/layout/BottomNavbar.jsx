@@ -57,7 +57,9 @@ function BottomNavbar() {
   const role = user.role;
 
   return (
-    <div className="border border-t btm-nav border-base-300">
+    <div
+      className={`border border-t btm-nav border-base-300 ${!role && "hidden"}`}
+    >
       {navItems[role]?.map(({ path, label, icon: Icon }) => (
         <Link key={path} to={path}>
           <button

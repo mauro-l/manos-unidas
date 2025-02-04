@@ -104,8 +104,8 @@ function ActivitiesFormHandle() {
     console.log(values);
   };
 
-  if (error) {
-    return <div>{error}</div>;
+  if (error || activityError) {
+    return <div>{error || activityError}</div>;
   }
 
   return (

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const useActivities = () => {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState();
 
   useEffect(() => {
     const fetchActivities = async () => {
@@ -12,7 +13,7 @@ const useActivities = () => {
         const res = await axios.get("/data/actividades-voluntariado-db.json");
         setActivities(res.data);
       } catch (error) {
-        console.error("Error fetching activities:", error);
+        setError("Error fetching activities:", error);
       } finally {
         setLoading(false);
       }
@@ -21,7 +22,7 @@ const useActivities = () => {
     fetchActivities();
   }, []);
 
-  return { loading, activities };
+  return { loading, activities, error };
 };
 
 export default useActivities;

@@ -15,9 +15,12 @@ function MiniCardFnd({ activity }) {
   return (
     <article className="w-full p-4 space-y-4 border rounded-lg border-base-300">
       <div className="flex justify-between">
-        <p className="text-lg font-bold truncate text-neutral">
+        <Link
+          to={`/activity/detail/${activity.id}`}
+          className="text-lg font-bold truncate text-neutral"
+        >
           {activity.titulo}
-        </p>
+        </Link>
         <div className="inline-flex gap-1.5">
           <Link
             to={`/activity/${activity.id}`}
@@ -35,7 +38,7 @@ function MiniCardFnd({ activity }) {
           <DropdownActivity />
         </div>
       </div>
-      <div className="flex w-full">
+      <Link to={`/activity/detail/${activity.id}`} className="flex w-full">
         <div className="flex items-center w-1/2 gap-2">
           <HiOutlineUsers className="text-2xl text-secondary" />
           <span className="text-sm text-neutral">
@@ -52,7 +55,7 @@ function MiniCardFnd({ activity }) {
             <p className="font-bold">{activity.fecha_fin}</p>
           </span>
         </div>
-      </div>
+      </Link>
       <ModalMessage isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </article>
   );

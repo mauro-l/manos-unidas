@@ -7,6 +7,8 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const role = user && user.role;
 
+  console.log(user);
+
   const handleLogout = () => {
     logout();
   };
