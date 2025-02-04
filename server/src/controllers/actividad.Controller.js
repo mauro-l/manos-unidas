@@ -87,7 +87,7 @@ export const createActividad = async (req, res) => {
 
 export const getAllActividades = async (req, res) => {
     try {
-        const actividades = await Actividad.find();
+        const actividades = await Actividad.find().populate({ path: 'categoria_id', select: 'categoria_id nombre' });
         res.json(actividades);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -96,7 +96,7 @@ export const getAllActividades = async (req, res) => {
 
 export const getActividadById = async (req, res) => {
     try {
-        const actividad = await Actividad.findById(req.params.id);
+        const actividad = await Actividad.findById(req.params.id)
         if (!actividad) return res.status(404).json({ message: 'Actividad no encontrada' });
         res.json(actividad);
     } catch (error) {
