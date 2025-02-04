@@ -8,6 +8,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import Banner from "@/components/layout/Banner.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function EditProfileFnd() {
   const [valuesDB, setValuesDB] = useState(null);
@@ -142,6 +143,7 @@ function EditProfileFnd() {
             </Formik>
           )}
         </div>
+        <Footer/>
       </div>
     </>
   );

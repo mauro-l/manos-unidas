@@ -3,6 +3,7 @@ import ButtonEdit from "../../../components/common/buttons/ButtonEdit.jsx";
 import CardInfo from "../../../components/common/cards/CardInfo.jsx";
 import Banner from "../../../components/layout/Banner.jsx";
 import TitleAction from "../../../components/common/headers/TitleAction.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function VolunteerProfile() {
   return (
@@ -84,6 +85,7 @@ function VolunteerProfile() {
         <div className="divider"></div>
         <TitleAction>Habilidades</TitleAction>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -1,22 +1,18 @@
 import { HiCalendarDays } from "react-icons/hi2";
 import useActivityById from "../../../hooks/useActivityById.js";
 import DropdownVolunteering from "../../modules/activities/DropdownVolunteering.jsx";
+import BadgeStatus from "../buttons/BadgeStatus.jsx";
 
 const EventCard = ({ className, activityId, estado }) => {
   const { loading, activity, error } = useActivityById(activityId);
-  const estadoClases = {
-    aprobado: "bg-secondary text-secondary-content ",
-    pendiente: "bg-base-10 text-base-content",
-    rechazado: "bg-accent  text-warning",
-    finalizado: "border border-base-400 text-base-400",
-  };
+  
 
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <div
-      className={`${className} flex flex-col  p-4 border border-base-300 rounded-lg space-y-4 lg:w-[475px] max-w-[475px] lg:h-[184px] lg:p-6 `}
+      className={`${className} flex flex-col   p-4 border border-base-300 rounded-lg space-y-4 lg:w-[475px] max-w-[475px] lg:h-[184px] lg:p-6 `}
     >
       <div className="space-y-2 ">
         <div className="flex justify-between">
@@ -45,21 +41,10 @@ const EventCard = ({ className, activityId, estado }) => {
         </div>
       </div>
 
-      <div
-        className={`badge text-xs font-bold uppercase ${
-          estadoClases[estado] || "bg-base-400 text-neutral "
-        }`}
-      >
-        {estado === "aprobado"
-          ? "Aprobado para participar"
-          : estado === "pendiente"
-          ? "Aprobación pendiente"
-          : estado === "rechazado"
-          ? "Rechazado"
-          : estado === "finalizado"
-          ? "Actividad finalizada"
-          : "Estado desconocido"}
-      </div>
+      
+      <BadgeStatus
+        estado={estado}
+      />
     </div>
   );
 };

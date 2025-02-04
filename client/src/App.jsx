@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} /> 
           <Route path="/register/foundation" element={<RegisterFnd />} />
           <Route path="/register" element={<RegisterVol />} />
 

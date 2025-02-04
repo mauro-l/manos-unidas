@@ -4,13 +4,13 @@ import Footer from "../../../components/layout/Footer.jsx";
 
 const ActivitiesVol = () => {
   return (
-    <div className="flex flex-col justify-center ">
+    <div className="flex flex-col justify-center lg:mx-auto">
       <Banner color="bg-primary-focus">
         <h3 className="text-3xl leading-7">
           Explora las oportunidades de voluntariado que tenemos para ti
         </h3>
       </Banner>
-      <div className="p-4">
+      <div className="p-4 lg:flex lg:mx-auto lg:py-32">
         <ActivitiesListVol></ActivitiesListVol>
       </div>
       <Footer/>

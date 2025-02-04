@@ -2,16 +2,17 @@ import ButtonEdit from "../../../components/common/buttons/ButtonEdit.jsx";
 import CardInfo from "../../../components/common/cards/CardInfo.jsx";
 import TitleAction from "../../../components/common/headers/TitleAction.jsx";
 import Banner from "../../../components/layout/Banner.jsx";
-import examplePic from "@/assets/examplePic.png";
+import logoFundacion from "@/assets/logoFundacion.png";
 import { HiCheck } from "react-icons/hi2";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function FoundationProfile() {
   return (
     <>
       <Banner>
         <div className="flex items-center gap-6 px-3 mb-6">
-          <figure>
-            <img src={examplePic} alt="example pic" />
+          <figure >
+            <img className="border-solid border-4 border-base-10 rounded-2xl"  src={logoFundacion} alt="example pic" />
           </figure>
           <h2 className="text-3xl">Nombre de la fundación</h2>
         </div>
@@ -82,6 +83,7 @@ function FoundationProfile() {
         <div className="border-t border-[#D1D5DB] my-6">
           <TitleAction href={"#"}>Datos para donaciones</TitleAction>
         </div>
+        <Footer/>
       </div>
     </>
   );

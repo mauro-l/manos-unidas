@@ -2,6 +2,7 @@ import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import Banner from "@/components/layout/Banner.jsx";
 import CardWhite from "@/components/common/cards/CardWhite.jsx";
 import ActivitiesFormHandle from "@/components/modules/activities/ActivitiesFormHandle.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function ActivityManager() {
   return (
@@ -19,6 +20,7 @@ function ActivityManager() {
 
         <ActivitiesFormHandle />
       </div>
+      <Footer/>
     </div>
   );
 }

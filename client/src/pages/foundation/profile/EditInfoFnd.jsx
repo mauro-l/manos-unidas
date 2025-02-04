@@ -6,6 +6,7 @@ import FileInput from "@/components/common/forms/FileInput.jsx";
 import axios from "axios";
 import { foundEditInfoSchema } from "@/schemas/profile/foundationProfile.js";
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function EditInfoFnd(id) {
   const [valuesDB, setValuesDB] = useState(null);
@@ -76,10 +77,10 @@ function EditInfoFnd(id) {
     <div>
       <Banner>
         <BtnBack>Volver al perfil</BtnBack>
-        <h3>Completa o edita la informacion</h3>
+        <h3>Completa o edita la información</h3>
       </Banner>
       <div className="p-4">
-        <h3 className="py-6 text-2xl font-semibold">Información básica</h3>
+        <h3 className="py-6 text-2xl font-bold text-neutral">Información básica</h3>
         <div>
           {loading ? (
             <div className="flex items-center justify-center w-full mx-auto">
@@ -147,14 +148,16 @@ function EditInfoFnd(id) {
                   placeholder="Ingresa la dirección de la sede"
                   disabled={isFieldDisabled("address")}
                 />
-                <button type="submit" className="py-2 my-6 btn btn-neutral">
+                <button type="submit" className="py-2 my-6 btn btn-neutral bg-primary ">
                   Guardar información
                 </button>
               </Form>
             </Formik>
           )}
         </div>
+
       </div>
+      <Footer/>
     </div>
   );
 }

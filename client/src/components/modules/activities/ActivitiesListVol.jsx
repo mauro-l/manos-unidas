@@ -4,7 +4,7 @@ import useActivities from "@/hooks/useActivities.js";
 
 const ActivitiesListVol = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const activitiesPerPage = 3;
+  const activitiesPerPage = 6;
 
   const { activities } = useActivities();
 
@@ -30,8 +30,8 @@ const ActivitiesListVol = () => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-6">
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div className="flex flex-col items-center space-y-6 ">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 ">
         {currentActivities.map((activity) => (
           <Card key={activity.id} activity={activity} />
         ))}
