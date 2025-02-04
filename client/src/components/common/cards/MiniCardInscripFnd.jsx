@@ -5,9 +5,6 @@ import MiniCardSkt from "../skeleton/MiniCardSkt.jsx";
 function MiniCardInscripFnd({ volId, status, expectedSkills }) {
   const { loading, error, volunteer } = useVolunteer(volId);
 
-  /* console.log(`Número de habilidades coincidentes: ${skillsMatch.length}`);
-  console.log(`Habilidades coincidentes:`, skillsMatch); */
-
   if (error) return error;
 
   if (loading) {
