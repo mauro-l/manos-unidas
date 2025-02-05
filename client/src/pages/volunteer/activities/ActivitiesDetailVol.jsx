@@ -33,7 +33,7 @@ const ActivitiesDetailVol = () => {
               {activity.categoria.name || "Cargando..."}
             </div>
           </div>
-          <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl lg:text-red-900 ">
+          <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl  ">
             {activity.titulo}
           </h2>
 
