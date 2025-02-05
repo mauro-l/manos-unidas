@@ -19,6 +19,7 @@ import VolunteerProfile from "../pages/volunteer/profile/VolunteerProfile.jsx";
 import EditDataVol from "../pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "../pages/volunteer/profile/EditProfileVol.jsx";
 import Notification from "../pages/notifications/Notification.jsx";
+import VolunteerViewFnd from "../pages/foundation/activities/VolunteerViewFnd.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const routes = createBrowserRouter([
           {
             path: ROUTES.FOUNDATION.DETALLE_PUBLICACIONES(),
             element: <ActivityDetailFnd />,
+          },
+          {
+            path: ROUTES.FOUNDATION.PERFIL_VOLUNT(),
+            element: <VolunteerViewFnd />,
           },
         ],
       },

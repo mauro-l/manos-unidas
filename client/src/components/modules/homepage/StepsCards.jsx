@@ -5,12 +5,12 @@ import { ROUTES } from "../../../routes/index.routes.js";
 function StepsCards() {
   return (
     <div className="relative z-20 flex gap-6">
-      <CardWhite className="h-[243px] mt-0 w-[342px] bg-white border border-base-300">
-        <div className="flex flex-col items-start">
+      <CardWhite className="h-[243px] mt-0 w-[342px] bg-white border border-base-300 lg:p-6 lg:flex lg:items-center">
+        <div className="flex flex-col items-start justify-center">
           <small className="text-sm font-bold uppercase text-secondary">
             paso 1
           </small>
-          <h4 className="mb-4 text-xl font-bold leading-5 text-neutral">
+          <h4 className="mb-4 text-xl font-bold leading-5 lg:mb-2 text-neutral">
             Registrate como voluntario y completa tu perfil
           </h4>
           <p className="leading-5">
@@ -20,15 +20,15 @@ function StepsCards() {
           <Link
             to={ROUTES.AUTH.REGISTER_VOLUNTEER}
             role="button"
-            className="px-0 btn btn-link text-primary"
+            className="h-auto px-0 mt-2 min-h-6 btn btn-link text-primary"
           >
             Crea tu cuenta
           </Link>
         </div>
       </CardWhite>
 
-      <CardWhite className="h-[243px] mt-0 w-[342px] bg-white border border-base-300">
-        <div className="flex flex-col items-start">
+      <CardWhite className="h-[243px] mt-0 w-[342px] bg-white border border-base-300 lg:p-6 lg:flex lg:items-center">
+        <div className="flex flex-col items-start justify-center">
           <small className="text-sm font-bold uppercase text-secondary">
             paso 2
           </small>
@@ -42,14 +42,14 @@ function StepsCards() {
           <Link
             to={ROUTES.VOLUNTEER.EXPLORAR}
             role="button"
-            className="px-0 btn btn-link text-primary"
+            className="h-auto px-0 mt-2 min-h-6 btn btn-link text-primary"
           >
             Ver todos los voluntariados
           </Link>
         </div>
       </CardWhite>
-      <CardWhite className="h-[243px] mt-0 border w-[342px] border-base-300">
-        <div className="flex flex-col">
+      <CardWhite className="h-[243px] mt-0 border w-[342px] border-base-300 lg:p-6 lg:flex lg:items-center">
+        <div className="flex flex-col justify-center">
           <small className="text-sm font-bold uppercase text-secondary">
             paso 3
           </small>
@@ -63,12 +63,12 @@ function StepsCards() {
           </p>
         </div>
       </CardWhite>
-      <CardWhite className="h-[243px] mt-0 border w-[342px] border-base-300">
-        <div className="flex flex-col items-start">
+      <CardWhite className="h-[243px] mt-0 border w-[342px] border-base-300 lg:p-6 lg:flex lg:items-center">
+        <div className="flex flex-col items-start justify-center">
           <small className="text-sm font-bold uppercase text-secondary">
             paso 4
           </small>
-          <h4 className="mb-4 text-xl font-bold leading-5 text-neutral">
+          <h4 className="mb-4 text-xl font-bold leading-5 lg:mb-2 text-neutral">
             Espera la confirmacion de la organizacion y... ¡listo!
           </h4>
           <p className="leading-5">

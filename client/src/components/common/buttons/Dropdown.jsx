@@ -3,7 +3,11 @@ import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 function Dropdown({ icon: Icon = HiOutlineEllipsisVertical, options = [] }) {
   return (
     <div className="dropdown dropdown-bottom dropdown-end">
-      <div tabIndex={0} role="button" className="p-0 btn-xs btn-ghost">
+      <div
+        tabIndex={0}
+        role="button"
+        className="p-0 btn-xs btn-circle btn-ghost"
+      >
         <Icon className="text-xl" />
       </div>
       <ul
@@ -14,7 +18,7 @@ function Dropdown({ icon: Icon = HiOutlineEllipsisVertical, options = [] }) {
           <li key={index} className={hidden ? "hidden" : ""}>
             <button
               onClick={onClick}
-              className="inline-flex p-0 text-sm font-normal text-nowrap flex-nowrap btn btn-ghost text-neutral"
+              className="inline-flex p-0 text-sm font-normal text-nowrap flex-nowrap btn btn-ghost hover:bg-transparent text-neutral"
             >
               {OptionIcon && <OptionIcon className="text-lg text-secondary" />}
               {label}

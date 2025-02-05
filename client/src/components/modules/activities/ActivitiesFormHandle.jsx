@@ -4,13 +4,12 @@ import InputForm from "../../common/forms/InputForm.jsx";
 import RadioSelect from "../../common/forms/RadioSelect.jsx";
 import TextArea from "../../common/forms/TextArea.jsx";
 import TitleDoubleXL from "../../common/headers/TitleDoubleXL.jsx";
-import ButtonLink from "../../common/buttons/ButtonLink.jsx";
 import { Form, Formik } from "formik";
 import InputDate from "../../common/forms/InputDate.jsx";
 import { useEffect, useState } from "react";
 import ModalSkills from "../../layout/ModalSkills.jsx";
 import { useSkills } from "../../../hooks/useSkills.js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useActivityById from "../../../hooks/useActivityById.js";
 
 function ActivitiesFormHandle() {
@@ -31,6 +30,7 @@ function ActivitiesFormHandle() {
   });
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const { skills, loading, error } = useSkills();
   const {
@@ -71,20 +71,6 @@ function ActivitiesFormHandle() {
     }
   }, [id, activityLoading, activity]);
 
-  /* const initialValues = {
-    title: "",
-    description: "",
-    tasks: "",
-    category: "",
-    country: "",
-    province: "",
-    city: "",
-    address: "",
-    vacancies: "",
-    profile: "",
-    skills: [],
-  }; */
-
   const locations = [
     { name: "country", label: "País", placeholder: "Ingresa el país" },
     {
@@ -104,12 +90,12 @@ function ActivitiesFormHandle() {
     console.log(values);
   };
 
-  if (error || activityError) {
+  if (error) {
     return <div>{error || activityError}</div>;
   }
 
   return (
-    <div>
+    <div className="lg:px-12">
       <Formik
         initialValues={initialValues}
         onSubmit={addActivity}
@@ -227,7 +213,12 @@ function ActivitiesFormHandle() {
               {id ? "Editar actividad" : "Publicar actividad"}
             </button>
             <div className="text-center">
-              <ButtonLink path={"#"}>Cancelar</ButtonLink>
+              <button
+                className="font-bold link text-primary"
+                onClick={() => navigate(-1)}
+              >
+                Cancelar
+              </button>
             </div>
             <ModalSkills
               isOpen={isModalOpen}

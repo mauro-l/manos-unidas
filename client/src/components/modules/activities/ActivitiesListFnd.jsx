@@ -6,7 +6,7 @@ function ActivitiesListFnd() {
   const { loading, activity } = useActivitiesByFndId("FND002");
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 lg:flex lg:flex-wrap lg:space-y-0 lg:gap-4">
       {loading ? (
         <CardListSkt />
       ) : (

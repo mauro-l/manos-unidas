@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import useVolunteer from "../../../hooks/useVolunteer.js";
 import BadgeStatus from "../buttons/BadgeStatus.jsx";
 import MiniCardSkt from "../skeleton/MiniCardSkt.jsx";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 function MiniCardInscripFnd({ volId, status, expectedSkills }) {
   const { loading, error, volunteer } = useVolunteer(volId);
@@ -46,9 +48,12 @@ function MiniCardInscripFnd({ volId, status, expectedSkills }) {
         de las habilidades que buscas
       </p>
       <div className="flex items-center justify-between">
-        <button className="bg-white btn btn-ghost btn-sm lg:btn-md border-base-300">
+        <Link
+          to={ROUTES.FOUNDATION.PERFIL_VOLUNT(volId)}
+          className="bg-white btn btn-ghost btn-sm lg:btn-md border-base-300"
+        >
           Ver perfil
-        </button>
+        </Link>
         <BadgeStatus estado={status} role="fundacion" />
       </div>
     </section>

@@ -5,14 +5,14 @@ import {
 } from "react-icons/hi2";
 
 import { Link, useParams } from "react-router-dom";
-import Banner from "../../../components/layout/Banner.jsx";
-import BtnBack from "../../../components/common/buttons/BtnBack.jsx";
-import MiniCard from "../../../components/common/cards/MiniCard.jsx";
-import imgActivity from "../../../assets/imagen-actividad.png";
-import TitleDoubleXL from "../../../components/common/headers/TitleDoubleXL.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
-import useActivityById from "../../../hooks/useActivityById.js";
-import { ROUTES } from "../../../routes/index.routes.js";
+import Banner from "@/components/layout/Banner.jsx";
+import BtnBack from "@/components/common/buttons/BtnBack.jsx";
+import MiniCard from "@/components/common/cards/MiniCard.jsx";
+import imgActivity from "@/assets/imagen-actividad.png";
+import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
+import Footer from "@/components/layout/Footer.jsx";
+import useActivityById from "@/hooks/useActivityById.js";
+import { ROUTES } from "@/routes/index.routes.js";
 
 const ActivitiesDetailVol = () => {
   const { id } = useParams();

@@ -18,7 +18,7 @@ const Card = ({ activity }) => {
       </figure>
       <div className="gap-4 p-6 card-body">
         <div className="inline-flex items-center gap-2 text-base-content border-base300">
-          <div className="className=badge badge-ghost gap-4 badge-md rounded-full">
+          <div className="gap-4 uppercase rounded-full badge badge-ghost badge-sm text-base-content">
             {categoria.name}
           </div>
         </div>

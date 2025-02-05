@@ -8,16 +8,17 @@ import {
 import ModalMessage from "../../layout/ModalMessage.jsx";
 import DropdownActivity from "../../modules/dashboard/DropdownActivity.jsx";
 import { Link } from "react-router-dom";
+import { ROUTES } from "@/routes/index.routes.js";
 
 function MiniCardFnd({ activity }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <article className="w-full p-4 space-y-4 border rounded-lg border-base-300">
+    <article className="w-full p-4 space-y-4 border rounded-lg border-base-300 lg:w-[475px] lg:p-6 lg:space-y-6">
       <div className="flex justify-between">
         <Link
-          to={`/activity/detail/${activity.id}`}
-          className="text-lg font-bold truncate text-neutral"
+          to={ROUTES.FOUNDATION.DETALLE_PUBLICACIONES(activity.id)}
+          className="text-lg font-bold truncate lg:text-xl lg:leading-6 text-neutral"
         >
           {activity.titulo}
         </Link>
@@ -38,10 +39,13 @@ function MiniCardFnd({ activity }) {
           <DropdownActivity />
         </div>
       </div>
-      <Link to={`/activity/detail/${activity.id}`} className="flex w-full">
+      <Link
+        to={ROUTES.FOUNDATION.DETALLE_PUBLICACIONES(activity.id)}
+        className="flex w-full"
+      >
         <div className="flex items-center w-1/2 gap-2">
           <HiOutlineUsers className="text-2xl text-secondary" />
-          <span className="text-sm text-neutral">
+          <span className="text-sm lg:text-base text-neutral">
             <h5 className="leading-3">Voluntarios inscriptos</h5>
             <p className="font-bold">
               {activity.voluntarios_inscritos}/{activity.cupos_disponibles}
@@ -50,7 +54,7 @@ function MiniCardFnd({ activity }) {
         </div>
         <div className="flex items-center w-1/2 gap-2">
           <HiOutlineClipboardDocumentCheck className="text-2xl text-secondary" />
-          <span className="text-sm text-neutral">
+          <span className="text-sm lg:text-base text-neutral">
             <h5 className="leading-3">Cierre de inscripción</h5>
             <p className="font-bold">{activity.fecha_fin}</p>
           </span>

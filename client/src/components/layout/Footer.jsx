@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div className="w-full mb-20 border-t-2 felx solid ">
+    <div className="w-full mb-20 border-t-2 lg:mb-10 felx solid ">
       <div className="flex justify-center mt-10 mr-2 ">
         <img
           className="mr-2"
