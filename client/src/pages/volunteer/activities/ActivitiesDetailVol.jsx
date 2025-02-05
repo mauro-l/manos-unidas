@@ -44,7 +44,7 @@ const ActivitiesDetailVol = () => {
             <div className="flex flex-col">
               <BtnBack> Volver </BtnBack>
               <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
-                {activity.categoria}
+                {activity.categoria.name}
               </div>
             </div>
             <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl lg:text-red-900 ">
@@ -61,7 +61,7 @@ const ActivitiesDetailVol = () => {
                   Organizado por
                 </p>
                 <Link className="font-semibold link text-primary text-pretty"  >
-                  {activity.fundacion}
+                  {activity.fundacion_id}
                 </Link>
               </div>
 
@@ -145,7 +145,16 @@ const ActivitiesDetailVol = () => {
 
         <div>
           <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
-          <p >{activity.habilidades}</p>
+         {/*  <p >{activity.habilidades}</p> */}
+         {  
+          activity.habilidades.map(skill => ( 
+            <p key={skill.id} >
+                {skill.name}
+            </p>
+           )
+
+          )
+         }
         </div>
 
         <div className="my-6 divider "></div>
