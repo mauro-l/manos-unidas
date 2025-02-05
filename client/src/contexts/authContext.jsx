@@ -16,8 +16,9 @@ export const AuthProvider = ({ children }) => {
       setUser(userModel);
 
       // Guardar token en localStorage
+      localStorage.setItem("user", JSON.stringify(userModel));
       localStorage.setItem("token", userModel.token);
-    }  finally {
+    } finally {
       setLoading(false);
     }
   };
@@ -25,13 +26,15 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("user");
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    const savedUser = localStorage.getItem("user");
+    if (token && savedUser) {
       // Aquí podrías intentar validar el token en el backend
-      setUser((prev) => ({ ...prev, token }));
+      setUser(JSON.parse(savedUser));
     }
   }, []);
 
@@ -41,3 +44,4 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+

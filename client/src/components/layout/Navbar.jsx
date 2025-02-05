@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoginButton from "../auth/LoginButton.jsx";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import useAuth from "../../hooks/useAuth.js";
@@ -7,13 +7,16 @@ import BottomNavbar from "./BottomNavbar.jsx";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const role = user && user.role;
 
   console.log(user);
 
   const handleLogout = () => {
     logout();
+    navigate(ROUTES.HOME);
   };
+
   return (
     <div className="container mx-auto navbar bg-base-100 lg:justify-center">
       <div className="navbar-start lg:w-auto">

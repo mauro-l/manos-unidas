@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoginModal from "./LoginModal.jsx";
+import Login from "./Login.jsx";
 
 const LoginButton = () => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -12,7 +12,7 @@ const LoginButton = () => {
       >
         Entrar
       </button>
-      <LoginModal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </>
   );
 };
