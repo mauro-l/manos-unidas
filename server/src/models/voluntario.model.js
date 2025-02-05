@@ -62,7 +62,7 @@ const VoluntarioSchema = new mongoose.Schema({
         required: true,
     },
     foto_perfil: {
-        type: Buffer,
+        type: String,
         required: true,
     },
 });
