@@ -1,9 +1,13 @@
 import express from 'express';
 import connectDB from './src/config/connection.js';
 import dotenv from 'dotenv';
-import routes from './src/routes/index.js';
 import swaggerConfig from './src/config/swagger.util.js';
 import corsMiddleware from './src/config/cors.middleware.js';
+import actividadesRoutes from './src/routes/actividad.routes.js';
+import fundacionesRoutes from './src/routes/fundacion.routes.js';
+import habilidadesRoutes from './src/routes/habilidad.routes.js';
+import ubicacionesRoutes from './src/routes/ubicacion.routes.js';
+import categoriasRoutes from './src/routes/categoria.routes.js';
 
 dotenv.config();
 const app = express();
@@ -11,11 +15,16 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use(corsMiddleware);
+app.use('/v1/api/fundaciones', fundacionesRoutes);
+app.use('/v1/api/habilidades', habilidadesRoutes);
+app.use('/v1/api/ubicaciones', ubicacionesRoutes);
+app.use('/v1/api/actividades', actividadesRoutes);
+app.use('/v1/api/categorias', categoriasRoutes);
 
 connectDB()
-    .then(async () => {
+    .then(() => {
         app.listen(PORT, () => {
-            console.log(`Servidor corriendo en el puerto ${PORT}`)
+            console.log(`Servidor corriendo en el puerto ${PORT}`);
         });
     })
     .catch(() => {
@@ -35,9 +44,11 @@ app.get('/', (req, res) => {
             "/v1/api/fundaciones",
             "/v1/api/habilidades",
             "/v1/api/ubicaciones",
-            "/v1/api/voluntarios"
+            "/v1/api/voluntarios",
+            "/v1/api/actividades",
+            "/v1/api/categorias",
+
         ]
     });
 });
 
-app.use('/v1/api', routes);
