@@ -37,7 +37,7 @@ router.get('/', getHabilidades);
 
 /**
  * @swagger
- * /habilidades:
+ * /v1/api/habilidades:
  *   post:
  *     summary: Crear una nueva habilidad
  *     tags: [Habilidades]
