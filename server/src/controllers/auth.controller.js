@@ -1,4 +1,5 @@
 import Voluntario from '../models/voluntario.model.js';
+import Fundacion from '../models/fundacion.model.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
