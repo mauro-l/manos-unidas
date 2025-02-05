@@ -14,85 +14,70 @@ import TitleDoubleXL from "../../../components/common/headers/TitleDoubleXL.jsx"
 import Footer from "../../../components/layout/Footer.jsx";
 import useActivityById from "../../../hooks/useActivityById.js";
 
-
 const ActivitiesDetailVol = () => {
-
   const { id } = useParams();
-
-  const {loading, activity, error} = useActivityById(id);
-  
- 
-
-  
- 
+  const { loading, activity, error } = useActivityById(id);
 
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
 
-  
- 
-const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
-
-
-
+  const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
 
   return (
     <div className="w-full ">
-      <div>
-        <Banner>
-          <div className="flex flex-col space-y-4 ">
-            <div className="flex flex-col">
-              <BtnBack> Volver </BtnBack>
-              <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
-                {activity.categoria}
-              </div>
-            </div>
-            <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl ">
-              {activity.titulo}
-            </h2>
-
-            <p className="text-base font-normal text-neutral-content ">
-              {activity.descripcion}
-            </p>
-
-            <div className="inline-flex w-full gap-2 text-sm ">
-              <div className="w-1/3">
-                <p className="text-xs font-normal text-neutral-content ">
-                  Organizado por
-                </p>
-                <Link className="font-semibold link text-primary text-pretty"  >
-                  {activity.fundacion}
-                </Link>
-              </div>
-
-              <div className="divider divider-neutral divider-horizontal"></div>
-
-              <div className="w-2/3 font-semibold text-neutral-content ">
-                <p className="text-xs font-normal ">Ubicación</p>
-                <p>
-                  {activity.ubicacion.direccion || "No especificada"},{" "}
-                  {activity.ubicacion.provincia || "No especificada"},{" "}
-                  {activity.ubicacion.ciudad || "No especificada"},{" "}
-                  {activity.ubicacion.pais || "No especificado"}
-                </p>
-              </div>
+      <Banner>
+        <div className="flex flex-col space-y-4 ">
+          <div className="flex flex-col">
+            <BtnBack> Volver </BtnBack>
+            <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
+              {activity.categoria.name || "Cargando..."}
             </div>
           </div>
-        </Banner>
-      </div>
+          <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl ">
+            {activity.titulo}
+          </h2>
+
+          <p className="text-base font-normal text-neutral-content ">
+            {activity.descripcion}
+          </p>
+
+          <div className="inline-flex w-full gap-2 text-sm ">
+            <div className="w-1/3">
+              <p className="text-xs font-normal text-neutral-content ">
+                Organizado por
+              </p>
+              <Link className="font-semibold link text-primary text-pretty">
+                {activity.fundacion}
+              </Link>
+            </div>
+
+            <div className="divider divider-neutral divider-horizontal"></div>
+
+            <div className="w-2/3 font-semibold text-neutral-content ">
+              <p className="text-xs font-normal ">Ubicación</p>
+              <p>
+                {activity.ubicacion.direccion || "No especificada"},{" "}
+                {activity.ubicacion.provincia || "No especificada"},{" "}
+                {activity.ubicacion.ciudad || "No especificada"},{" "}
+                {activity.ubicacion.pais || "No especificado"}
+              </p>
+            </div>
+          </div>
+        </div>
+      </Banner>
 
       <div className="p-4 pb-10 ">
         <div className="-mt-8 ">
           <img
-            className="mx-auto h-48"
+            className="h-48 mx-auto"
             src={imgActivity}
             alt="Imagen de actividad"
           />
         </div>
-        <div className="flex flex-col lg:flex-row gap-2 mt-6 ">
+        <div className="flex flex-col gap-2 mt-6 lg:flex-row ">
           <div className="flex w-full h-20 gap-2 ">
             <MiniCard
-              className="text-xs w-2/3"
+              className="w-2/3 text-xs"
               icon={HiOutlineClipboardDocumentCheck}
               title={"Inscripción abierta hasta"}
               text={activity.inscripcion}
@@ -145,7 +130,7 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
 
         <div>
           <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
-          <p>{activity.habilidades}</p>
+          {/* <p>{activity.habilidades}</p> */}
         </div>
 
         <div className="my-6 divider "></div>
@@ -156,15 +141,15 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
         </div>
         <div className="my-6 divider "></div>
         <div>
-          <button 
-            className="btn w-full   bg-primary text-primary-content  shadow-2xl"
+          <button
+            className="w-full shadow-2xl btn bg-primary text-primary-content"
             onClick={() => document.getElementById("my_modal_1").showModal()}
           >
             Quiero inscribirme
           </button>
           <dialog id="my_modal_1" className="modal">
             <div className="modal-box">
-              <h3 className="font-bold text-3xl ">
+              <h3 className="text-3xl font-bold ">
                 ¡Gracias por tu interés! Te has inscrito con éxito en la
                 actividad
               </h3>
@@ -178,9 +163,12 @@ const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
                 Podrás hacer un seguimiento de tus inscripciones desde Mis
                 voluntariados.
               </p>
-              <div className=" w-full  ">
-                <form method="dialog  " >
-                  <Link to="/inscriptions" className="flex w-full justify-center px-6 py-3 border border-base-300 rounded-xl text-base-content text-sm "  >
+              <div className="w-full ">
+                <form method="dialog  ">
+                  <Link
+                    to="/inscriptions"
+                    className="flex justify-center w-full px-6 py-3 text-sm border border-base-300 rounded-xl text-base-content "
+                  >
                     Ir a Mis voluntariados
                   </Link>
                 </form>

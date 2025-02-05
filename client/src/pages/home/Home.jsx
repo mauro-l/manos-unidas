@@ -6,6 +6,7 @@ import BottomFooter from "../../components/layout/BottomFooter.jsx";
 import StepsCarrusel from "../../components/modules/homepage/StepsCarrusel.jsx";
 import StepsCards from "../../components/modules/homepage/StepsCards.jsx";
 import Card from "../../components/common/cards/Card.jsx";
+import { ROUTES } from "../../routes/index.routes.js";
 
 function Home() {
   const { loading, activities } = useActivities();
@@ -28,14 +29,14 @@ function Home() {
               </p>
               <div className="flex flex-col gap-4 lg:flex-row lg:justify-center lg:text-lg">
                 <Link
-                  to="/register"
+                  to={ROUTES.AUTH.REGISTER_VOLUNTEER}
                   role="button"
                   className="w-full lg:w-auto btn btn-primary text-primary-content"
                 >
                   Quiero ser voluntario
                 </Link>
                 <Link
-                  to="/register/foundation"
+                  to={ROUTES.AUTH.REGISTER_FOUNDATION}
                   role="button"
                   className="w-full lg:w-auto btn btn-secondary text-secondary-content"
                 >
@@ -70,7 +71,7 @@ function Home() {
           <div className="lg:flex lg:justify-center">
             <Link
               role="button"
-              to={"/volunteer"}
+              to={ROUTES.VOLUNTEER.EXPLORAR}
               className="w-full btn btn-primary text-primary-content lg:w-auto"
             >
               Ver todas las actividades publicadas
@@ -90,7 +91,7 @@ function Home() {
               puedan inscribirse.
             </p>
             <Link
-              to={"/register/foundation"}
+              to={ROUTES.AUTH.REGISTER_FOUNDATION}
               role="button"
               className="w-full btn btn-secondary text-secondary-content lg:w-auto"
             >

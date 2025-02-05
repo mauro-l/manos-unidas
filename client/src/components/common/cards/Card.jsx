@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 const Card = ({ activity }) => {
   const { titulo, descripcion, fundacion_id, ubicacion, categoria, id } =
@@ -25,7 +26,10 @@ const Card = ({ activity }) => {
           {titulo} en {ubicacion.ciudad}{" "}
         </h2>
         <div className="inline-flex w-full gap-2 text-sm text-base-300 ">
-          <Link className="w-1/2 font-bold link text-balance text-primary">
+          <Link
+            to={ROUTES.VOLUNTEER.PERFIL_FOUNDATION(fundacion_id)}
+            className="w-1/2 font-bold link text-balance text-primary"
+          >
             {fundacion_id}
           </Link>
           <p className="flex items-center w-1/2 border-l text-neutral border-base-300 ps-3 ">
@@ -36,7 +40,8 @@ const Card = ({ activity }) => {
 
         <div className="w-full card-actions">
           <Link
-            to={`/volunteer/activities/${id}`}
+            to={ROUTES.VOLUNTEER.VER_ACTIVIDAD(Number(id))}
+            /* to={`/volunteer/activities/${id}`} */
             role="button"
             className="w-full mb-1 font-bold btn btn-outline btn-ghost border-base-300"
           >

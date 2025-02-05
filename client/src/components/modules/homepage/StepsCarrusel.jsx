@@ -4,6 +4,7 @@ import "swiper/css/pagination";
 
 import { Link } from "react-router-dom";
 import CardWhite from "../../common/cards/CardWhite.jsx";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 function StepsCarrusel() {
   return (
@@ -27,7 +28,7 @@ function StepsCarrusel() {
             para que las fundaciones te conozcan.
           </p>
           <Link
-            to={"/register"}
+            to={ROUTES.AUTH.REGISTER_VOLUNTEER}
             role="button"
             className="px-0 btn btn-link text-primary"
           >
@@ -48,7 +49,7 @@ function StepsCarrusel() {
             que mas te interese
           </p>
           <Link
-            to={"/volunteer"}
+            to={ROUTES.VOLUNTEER.EXPLORAR}
             role="button"
             className="px-0 btn btn-link text-primary"
           >

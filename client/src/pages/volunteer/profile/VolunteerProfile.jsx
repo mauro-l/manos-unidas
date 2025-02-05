@@ -3,12 +3,13 @@ import ButtonEdit from "../../../components/common/buttons/ButtonEdit.jsx";
 import CardInfo from "../../../components/common/cards/CardInfo.jsx";
 import Banner from "../../../components/layout/Banner.jsx";
 import TitleAction from "../../../components/common/headers/TitleAction.jsx";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 function VolunteerProfile() {
   return (
     <div>
       <Banner>
-        <div className="space-y-6">
+        <div className="space-y-6 lg:container lg:mx-auto">
           <div className="flex items-center gap-6">
             <div className="avatar">
               <div className="w-24 rounded-xl ring-base-10 ring ">
@@ -35,7 +36,9 @@ function VolunteerProfile() {
               </span>
             </li>
           </ul>
-          <ButtonEdit>Editar mis datos personales</ButtonEdit>
+          <ButtonEdit href={ROUTES.VOLUNTEER.EDIT_DATOS}>
+            Editar mis datos personales
+          </ButtonEdit>
         </div>
       </Banner>
       <div className="px-4 pb-10">

@@ -18,7 +18,7 @@ function EditDataVol() {
         <BtnBack>Volver al perfil</BtnBack>
         <h3>Completa o edita tus datos personales</h3>
       </Banner>
-      <div className="px-4 py-10">
+      <div className="px-4 py-10 lg:max-w-[800px] lg:mx-auto">
         <TitleDoubleXL>Datos personales</TitleDoubleXL>
         <Formik>
           <Form>
@@ -41,7 +41,11 @@ function EditDataVol() {
               disabledOpt="Seleccionar"
               options={options}
             />
-            <FileInput label="Carga tu foto de perfil" altLabel="JPG o PNG" />
+            <FileInput
+              label="Carga tu foto de perfil"
+              altLabel="JPG o PNG"
+              name="avatar"
+            />
             <div className="divider">Ubicacion</div>
             <InputForm label="Pais de residencia" name="country" />
             <InputForm label="Provincia" name="province" />
