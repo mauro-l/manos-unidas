@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import InputForm from "../common/forms/InputForm.jsx";
 import TextArea from "../common/forms/TextArea.jsx";
-import { messageSchema } from "../../schemas/MessageSchema.js";
+import { messageSchema } from "../../schemas/messageSchema.js";
 import { HiOutlineXMark } from "react-icons/hi2";
 
 function ModalMessage({ isOpen, onClose }) {
