@@ -6,6 +6,7 @@ import BottomFooter from "../../components/layout/BottomFooter.jsx";
 import StepsCarrusel from "../../components/modules/homepage/StepsCarrusel.jsx";
 import StepsCards from "../../components/modules/homepage/StepsCards.jsx";
 import Card from "../../components/common/cards/Card.jsx";
+import { ROUTES } from "../../routes/index.routes.js";
 
 function Home() {
   const { loading, activities } = useActivities();
@@ -28,14 +29,14 @@ function Home() {
               </p>
               <div className="flex flex-col gap-4 lg:flex-row lg:justify-center lg:text-lg">
                 <Link
-                  to="/register"
+                  to={ROUTES.AUTH.REGISTER_VOLUNTEER}
                   role="button"
                   className="w-full lg:w-auto btn btn-primary text-primary-content"
                 >
                   Quiero ser voluntario
                 </Link>
                 <Link
-                  to="/register/foundation"
+                  to={ROUTES.AUTH.REGISTER_FOUNDATION}
                   role="button"
                   className="w-full lg:w-auto btn btn-secondary text-secondary-content"
                 >
@@ -54,7 +55,7 @@ function Home() {
           <StepsCards />
         </div>
         <div className="space-y-6 lg:py-32">
-          <TitleDoubleXL className="text-3xl leading-tree text-balance lg:text-6xl lg:text-center">
+          <TitleDoubleXL className="text-3xl leading-tree text-balance lg:text-6xl lg:leading-none lg:text-center">
             Explora las oportunidades de voluntariado publicadas
           </TitleDoubleXL>
           <div>
@@ -70,7 +71,7 @@ function Home() {
           <div className="lg:flex lg:justify-center">
             <Link
               role="button"
-              to={"/volunteer"}
+              to={ROUTES.VOLUNTEER.EXPLORAR}
               className="w-full btn btn-primary text-primary-content lg:w-auto"
             >
               Ver todas las actividades publicadas
@@ -79,8 +80,8 @@ function Home() {
         </div>
       </div>
       <article className="relative">
-        <div className="px-4 py-10 lg:py-32 bg-black/70 lg:bg-transparent lg:bg-gradient-to-r from-black/90 to-transparent lg:w-full">
-          <div className="space-y-6 lg:w-1/2">
+        <div className="container px-4 py-10 lg:py-32 bg-black/70 lg:bg-transparent lg:bg-gradient-to-r from-black/90 to-transparent lg:w-full">
+          <div className="container space-y-6 lg:w-1/2 xl:px-6">
             <h3 className="text-3xl font-bold leading-tree text-neutral-content/90 lg:text-6xl">
               ¿Tienes una fundación y buscas voluntarios?
             </h3>
@@ -90,7 +91,7 @@ function Home() {
               puedan inscribirse.
             </p>
             <Link
-              to={"/register/foundation"}
+              to={ROUTES.AUTH.REGISTER_FOUNDATION}
               role="button"
               className="w-full btn btn-secondary text-secondary-content lg:w-auto"
             >
@@ -98,7 +99,7 @@ function Home() {
             </Link>
           </div>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover -z-10 bg-image-cta"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover inset-x-full -z-10 bg-image-cta"></div>
       </article>
       <BottomFooter />
     </>

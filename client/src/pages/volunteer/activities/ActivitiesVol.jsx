@@ -1,6 +1,6 @@
 import Banner from "@/components/layout/Banner.jsx";
 import ActivitiesListVol from "@/components/modules/activities/ActivitiesListVol.jsx";
-import Footer from "../../../components/layout/Footer.jsx";
+import Footer from "@/components/layout/Footer.jsx";
 
 const ActivitiesVol = () => {
   return (
@@ -13,7 +13,7 @@ const ActivitiesVol = () => {
       <div className="p-4 lg:flex lg:mx-auto lg:py-32">
         <ActivitiesListVol></ActivitiesListVol>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

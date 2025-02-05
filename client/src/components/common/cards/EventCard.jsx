@@ -2,10 +2,11 @@ import { HiCalendarDays } from "react-icons/hi2";
 import useActivityById from "../../../hooks/useActivityById.js";
 import DropdownVolunteering from "../../modules/activities/DropdownVolunteering.jsx";
 import BadgeStatus from "../buttons/BadgeStatus.jsx";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 const EventCard = ({ className, activityId, estado }) => {
   const { loading, activity, error } = useActivityById(activityId);
-  
 
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
@@ -22,29 +23,28 @@ const EventCard = ({ className, activityId, estado }) => {
           </h3>
           <DropdownVolunteering />
         </div>
-        <div className="flex w-full gap-4 flex-col-2 ">
-          <div className="flex items-center w-1/2 ">
-            <HiCalendarDays className="mr-2 text-2xl text-secondary " />
-            <div className="text-sm">
-              <p className="text-neutral">Inicio de actividad </p>
-              <p className="font-bold">{activity.fecha_inicio}</p>
+        <Link to={ROUTES.VOLUNTEER.VER_ACTIVIDAD(activityId)}>
+          <div className="flex w-full gap-4 flex-col-2 ">
+            <div className="flex items-center w-1/2 ">
+              <HiCalendarDays className="mr-2 text-2xl text-secondary " />
+              <div className="text-sm">
+                <p className="text-neutral">Inicio de actividad </p>
+                <p className="font-bold">{activity.fecha_inicio}</p>
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center md:w-1/2">
-            <HiCalendarDays className="mr-2 text-2xl text-secondary " />
-            <div className="text-sm">
-              <p className=" text-neutral"> Fin de actividad </p>
-              <p className="font-bold">{activity.fecha_fin}</p>
+            <div className="flex items-center md:w-1/2">
+              <HiCalendarDays className="mr-2 text-2xl text-secondary " />
+              <div className="text-sm">
+                <p className=" text-neutral"> Fin de actividad </p>
+                <p className="font-bold">{activity.fecha_fin}</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       </div>
 
-      
-      <BadgeStatus
-        estado={estado}
-      />
+      <BadgeStatus estado={estado} />
     </div>
   );
 };

@@ -6,43 +6,44 @@ import {
   HiOutlineUserCircle,
 } from "react-icons/hi2";
 import useAuth from "../../hooks/useAuth.js";
+import { ROUTES } from "../../routes/index.routes.js";
 
 const navItems = {
   voluntario: [
     {
-      path: "/explore",
+      path: ROUTES.VOLUNTEER.EXPLORAR,
       label: "Explorar",
       icon: HiOutlineMagnifyingGlassCircle,
     },
     {
-      path: "/inscriptions",
+      path: ROUTES.VOLUNTEER.INSCRIPCIONES,
       label: "Mis voluntariados",
       icon: HiOutlineClipboardDocumentList,
     },
     {
-      path: "/volunteer/profile",
+      path: ROUTES.VOLUNTEER.PERFIL,
       label: "Mi Perfil",
       icon: HiOutlineUserCircle,
     },
     {
-      path: "/notifications",
+      path: ROUTES.NOTIFICACIONES,
       label: "Notificaciones",
       icon: HiOutlineBellAlert,
     },
   ],
   fundacion: [
     {
-      path: "/dashboard",
+      path: ROUTES.FOUNDATION.PUBLICACIONES,
       label: "Publicaciones",
       icon: HiOutlineClipboardDocumentList,
     },
     {
-      path: "/profile",
+      path: ROUTES.FOUNDATION.PERFIL,
       label: "Perfil de fundacioón",
       icon: HiOutlineUserCircle,
     },
     {
-      path: "/notifications",
+      path: ROUTES.NOTIFICACIONES,
       label: "Notificaciones",
       icon: HiOutlineBellAlert,
     },
@@ -58,7 +59,9 @@ function BottomNavbar() {
 
   return (
     <div
-      className={`border border-t btm-nav border-base-300 ${!role && "hidden"}`}
+      className={`border border-t btm-nav lg:static lg:min-w-[400px] lg:border-none lg:max-w-[600px] lg:max-h-16 border-base-300 ${
+        !role && "hidden"
+      }`}
     >
       {navItems[role]?.map(({ path, label, icon: Icon }) => (
         <Link key={path} to={path}>

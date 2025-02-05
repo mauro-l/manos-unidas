@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import LoginButton from "../auth/LoginButton.jsx";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import useAuth from "../../hooks/useAuth.js";
+import { ROUTES } from "../../routes/index.routes.js";
+import BottomNavbar from "./BottomNavbar.jsx";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
@@ -13,49 +15,29 @@ const Navbar = () => {
     logout();
   };
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
+    <div className="container mx-auto navbar bg-base-100 lg:justify-center">
+      <div className="navbar-start lg:w-auto">
         <Link className="text-xl btn btn-ghost -ms-2" to="/">
-          <img src="/Hand-In-Hand.ico" alt="" />
+          <img src="/Hand-In-Hand.ico" alt="Logo page" />
           <h2 className="text-2xl font-bold tracking-tight text-neutral text-nowrap">
             ManosUnidas
           </h2>
         </Link>
       </div>
-      <div className="hidden navbar-center lg:flex">
-        <ul className="px-1 menu menu-horizontal">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+      <div className="hidden navbar-center lg:w-auto lg:flex lg:mx-auto max-h-12">
+        <BottomNavbar />
       </div>
-      <div className="navbar-end">
+      <div className="lg:w-auto navbar-end">
         {user && role === "voluntario" ? (
           <Link
-            to={"/explore"}
+            to={ROUTES.VOLUNTEER.EXPLORAR}
             className="font-semibold leading-4 text-end text-primary"
           >
             ¡Hola, <br /> {user.name}!
           </Link>
         ) : user && role === "fundacion" ? (
           <Link
-            to={"/dashboard"}
+            to={ROUTES.FOUNDATION.PUBLICACIONES}
             className="font-semibold leading-4 text-end text-secondary"
           >
             ¡Bienvenidos, <br /> {user.name}!
@@ -65,11 +47,7 @@ const Navbar = () => {
         )}
       </div>
       <div className="dropdown dropdown-end">
-        <div
-          tabIndex={0}
-          role="button"
-          className="px-2 btn btn-ghost lg:hidden"
-        >
+        <div tabIndex={0} role="button" className="px-2 btn btn-ghost lg:ms-4">
           <HiOutlineBars3 className="text-4xl" />
         </div>
         <ul
@@ -80,7 +58,7 @@ const Navbar = () => {
             <Link to={"/"}>Inicio</Link>
           </li>
           <li>
-            <Link to={"/explore"}>Explorar voluntariados</Link>
+            <Link to={ROUTES.VOLUNTEER.EXPLORAR}>Explorar voluntariados</Link>
           </li>
           {user && (
             <>
