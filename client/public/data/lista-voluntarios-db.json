@@ -1,0 +1,165 @@
+[
+  {
+    "voluntario_id": "VOL001",
+    "nombre": "Ana",
+    "apellido": "García",
+    "email": "ana.garcia@email.com",
+    "contrasena": "hashedPassword123",
+    "sexo": "Femenino",
+    "telefono": "123456789",
+    "intereses": "Ayudar en educación y arte",
+    "descripcion": "Me apasiona enseñar y ayudar a los demás",
+    "estudios": "Licenciatura en Educación",
+    "habilidades": [
+      { "id": "teaching", "name": "Enseñanza" },
+      { "id": "art", "name": "Arte" },
+      { "id": "english", "name": "Inglés" },
+      { "id": "music", "name": "Música" },
+      { "id": "teamwork", "name": "Trabajo en equipo" },
+      { "id": "public-speaking", "name": "Oratoria" },
+      { "id": "communication", "name": "Comunicación" }
+    ],
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Buenos Aires",
+      "ciudad": "La Plata",
+      "direccion": "Calle 10 125"
+    },
+    "profesion": "Maestra",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a042581f4e29026704d"
+  },
+  {
+    "voluntario_id": "VOL002",
+    "nombre": "Carlos",
+    "apellido": "Rodríguez",
+    "email": "carlos.rodriguez@email.com",
+    "contrasena": "hashedPassword456",
+    "sexo": "Masculino",
+    "telefono": "987654321",
+    "intereses": "Tecnología y educación",
+    "descripcion": "Profesional IT con interés en voluntariado",
+    "estudios": "Ingeniería en Sistemas",
+    "habilidades": [
+      { "id": "computing", "name": "Computación" },
+      { "id": "english", "name": "Inglés" },
+      { "id": "teaching", "name": "Enseñanza" },
+      { "id": "problem-solving", "name": "Resolución de problemas" },
+      { "id": "theater", "name": "Teatro" }
+    ],
+    "ubicacion": {
+      "pais": "España",
+      "provincia": "Madrid",
+      "ciudad": "Chamartín",
+      "direccion": "Paseo de la Castellana 890"
+    },
+    "profesion": "Desarrollador de Software",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a042581f4e29026024d"
+  },
+  {
+    "voluntario_id": "VOL003",
+    "nombre": "María",
+    "apellido": "López",
+    "email": "maria.lopez@email.com",
+    "contrasena": "hashedPassword789",
+    "sexo": "Femenino",
+    "telefono": "456789123",
+    "intereses": "Arte y cuidado de niños",
+    "descripcion": "Artista y educadora infantil",
+    "estudios": "Profesorado de Arte",
+    "habilidades": [
+      { "id": "art", "name": "Arte" },
+      { "id": "painting", "name": "Pintura" },
+      { "id": "child-care", "name": "Cuidado de niños" },
+      { "id": "teaching", "name": "Enseñanza" },
+      { "id": "theater", "name": "Teatro" }
+    ],
+    "ubicacion": {
+      "pais": "Colombia",
+      "provincia": "Antioquia",
+      "ciudad": "Medellín",
+      "direccion": "Calle 10 Sur #50-125"
+    },
+    "profesion": "Profesora de Arte",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a04258114e29026702d"
+  },
+  {
+    "voluntario_id": "VOL004",
+    "nombre": "Diego",
+    "apellido": "Fernández",
+    "email": "diego.fernandez@email.com",
+    "contrasena": "hashedPassword987",
+    "sexo": "Masculino",
+    "telefono": "321654987",
+    "intereses": "Deporte y trabajo en equipo",
+    "descripcion": "Entrenador apasionado por la educación física y el trabajo en equipo",
+    "estudios": "Licenciatura en Educación Física",
+    "habilidades": [
+      { "id": "sports", "name": "Deportes" },
+      { "id": "teaching", "name": "Enseñanza" },
+      { "id": "teamwork", "name": "Trabajo en equipo" },
+      { "id": "public-speaking", "name": "Oratoria" },
+      { "id": "communication", "name": "Comunicación" }
+    ],
+    "ubicacion": {
+      "pais": "México",
+      "provincia": "Jalisco",
+      "ciudad": "Guadalajara",
+      "direccion": "Av. Vallarta 1234"
+    },
+    "profesion": "Entrenador Deportivo",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a04258114e09026331d"
+  },
+  {
+    "voluntario_id": "VOL005",
+    "nombre": "Lucía",
+    "apellido": "Martínez",
+    "email": "lucia.martinez@email.com",
+    "contrasena": "hashedPassword654",
+    "sexo": "Femenino",
+    "telefono": "654321987",
+    "intereses": "Organización de eventos y comunicación",
+    "descripcion": "Me encanta planificar eventos y conectar con las personas",
+    "estudios": "Relaciones Públicas y Organización de Eventos",
+    "habilidades": [
+      { "id": "event-planning", "name": "Organización de eventos" },
+      { "id": "communication", "name": "Comunicación" },
+      { "id": "public-speaking", "name": "Oratoria" },
+      { "id": "teamwork", "name": "Trabajo en equipo" }
+    ],
+    "ubicacion": {
+      "pais": "Chile",
+      "provincia": "Santiago",
+      "ciudad": "Providencia",
+      "direccion": "Calle Providencia 456"
+    },
+    "profesion": "Organizadora de Eventos",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a042581f4e29026706d"
+  },
+  {
+    "voluntario_id": "VOL006",
+    "nombre": "Fernando",
+    "apellido": "Ramírez",
+    "email": "fernando.ramirez@email.com",
+    "contrasena": "hashedPassword321",
+    "sexo": "Masculino",
+    "telefono": "987321654",
+    "intereses": "Trabajo manual y construcción",
+    "descripcion": "Constructor con experiencia en proyectos comunitarios",
+    "estudios": "Técnico en Construcción",
+    "habilidades": [
+      { "id": "manual-work", "name": "Trabajo manual" },
+      { "id": "communication", "name": "Comunicación" },
+      { "id": "problem-solving", "name": "Resolución de problemas" },
+      { "id": "teamwork", "name": "Trabajo en equipo" },
+      { "id": "first-aid", "name": "Primeros auxilios" }
+    ],
+    "ubicacion": {
+      "pais": "Perú",
+      "provincia": "Lima",
+      "ciudad": "Miraflores",
+      "direccion": "Av. Larco 789"
+    },
+    "profesion": "Constructor",
+    "foto_perfil": "https://i.pravatar.cc/150?u=a04258114e09036731d"
+  }
+]
