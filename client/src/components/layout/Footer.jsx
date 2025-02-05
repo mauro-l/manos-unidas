@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="flex justify-center mt-10 mr-2 ">
         <img
           className="mr-2"
-          src="../../../public/Hand-In-Hand.ico"
+          src="/Hand-In-Hand.ico"
           alt="Logo"
         />
         <p className="text-2xl font-bold tracking-tight text-neutral text-nowrap ">

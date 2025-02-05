@@ -7,7 +7,7 @@ function Notification() {
   return (
     <div>
       <Banner>Notificaciones</Banner>
-      <div className="px-4">
+      <div className="px-4 lg:container lg:mx-auto lg:pb-32">
         <CardWhite>
           Entérate de cualquier novedad de tus inscripciones y voluntariados
           activos.
