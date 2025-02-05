@@ -2,6 +2,7 @@
 import Actividad from '../models/Actividad.model.js';
 import Fundacion from '../models/fundacion.model.js';
 import Categoria from '../models/categoria.model.js';
+import Ubicacion from '../models/ubicacion.model.js';//redirigir la ubicacion
 import mongoose from 'mongoose';
 /*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
 export const createActividad = async (req, res) => {
@@ -33,6 +34,8 @@ export const createActividad = async (req, res) => {
             return res.status(400).json({ message: 'Faltan campos obligatorios' });
         }
 
+
+
         //  Convertir fundacion_id y categoria_id a ObjectId si es necesario
         const fundacionObjectId = new mongoose.Types.ObjectId(fundacion_id);
         const categoriaObjectId = new mongoose.Types.ObjectId(categoria_id);
@@ -47,6 +50,22 @@ export const createActividad = async (req, res) => {
             return res.status(400).json({ message: 'ID de categoría no válido' });
         }
 
+        if (!fundacion) {
+            return res.status(400).json({ message: 'ID de fundación no válido' });
+        }
+        //  agregue ubicacion
+
+
+        let ubicacionObjectId;
+        if (typeof ubicacion === 'string') {
+            ubicacionObjectId = new mongoose.Types.ObjectId(ubicacion); // Si es ObjectId
+        } else if (ubicacion && ubicacion.pais) {
+            const nuevaUbicacion = new Ubicacion(ubicacion);
+            const ubicacionGuardada = await nuevaUbicacion.save();
+            ubicacionObjectId = ubicacionGuardada._id;
+        } else {
+            return res.status(400).json({ message: 'Ubicación no válida' });
+        }
         // Crear nueva actividad  la fundación y la categoría existen 😊
         const nuevaActividad = new Actividad({
             actividad_id: `act-${Date.now()}`, // Generar un ID único
@@ -55,7 +74,7 @@ export const createActividad = async (req, res) => {
             fecha_inicio,
             fecha_fin,
             fecha_limite,
-            ubicacion,
+            ubicacion: ubicacionObjectId,
             cupo_maximo,
             cupo_disponible,
             fundacion_id: fundacionObjectId,
@@ -85,18 +104,13 @@ export const createActividad = async (req, res) => {
 };
 /*---------el problema es el create--------------------------------------------*/
 
-export const getAllActividades = async (req, res) => {
-    try {
-        const actividades = await Actividad.find().populate({ path: 'categoria_id', select: 'categoria_id nombre' });
-        res.json(actividades);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
 
 export const getActividadById = async (req, res) => {
     try {
         const actividad = await Actividad.findById(req.params.id)
+            .populate({ path: "categoria_id", select: "categoria_id nombre" })
+            .populate({ path: "fundacion_id", select: "fundacion_id nombre" });
+
         if (!actividad) return res.status(404).json({ message: 'Actividad no encontrada' });
         res.json(actividad);
     } catch (error) {
@@ -104,6 +118,21 @@ export const getActividadById = async (req, res) => {
     }
 };
 
+
+
+export const getAllActividades = async (req, res) => {
+    try {
+        const actividades = await Actividad.find()
+            .populate({ path: "categoria_id", select: "categoria_id nombre" })
+            .populate({ path: "fundacion_id", select: "fundacion_id nombre" });
+
+
+        res.json(actividades);
+    } catch (error) {
+        console.error("Error al obtener todas las actividades:", error);
+        res.status(500).json({ message: error.message });
+    }
+};
 
 export const updateActividad = async (req, res) => {
     try {

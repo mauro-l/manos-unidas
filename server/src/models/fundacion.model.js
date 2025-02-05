@@ -36,7 +36,7 @@ const FundacionSchema = new mongoose.Schema({
         default: Date.now
     },
     logo: {
-        type: Buffer
+        type: String,
     },
     web: {
         type: String
@@ -50,7 +50,10 @@ const FundacionSchema = new mongoose.Schema({
     nro_registro: {
         type: String,
         required: true
-    }
+    },
+    donaciones: {
+        type: String,
+    },
 });
 
 // Middleware to hash the password before saving

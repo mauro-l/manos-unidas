@@ -24,6 +24,7 @@ const HabilidadSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
 });
 
 const Habilidad = mongoose.model('Habilidad', HabilidadSchema);
