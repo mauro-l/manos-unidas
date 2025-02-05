@@ -2,6 +2,7 @@ import TitleDoubleXL from "../../components/common/headers/TitleDoubleXL.jsx";
 import Banner from "../../components/layout/Banner.jsx";
 import { HiMiniPlus } from "react-icons/hi2";
 import ActivitiesListFnd from "../../components/modules/activities/ActivitiesListFnd.jsx";
+import Footer from "../../components/layout/Footer.jsx";
 //import IncompleteDashboard from "../../components/modules/dashboard/IncompleteDashboard.jsx";
 
 function DashboardFnd() {
@@ -25,6 +26,7 @@ function DashboardFnd() {
         </div>
         <ActivitiesListFnd />
       </div>
+      <Footer/>
     </div>
   );
 }

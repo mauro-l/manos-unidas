@@ -4,6 +4,7 @@ import { Form, Formik } from "formik";
 import TextArea from "../../../components/common/forms/TextArea.jsx";
 import TitleDoubleXL from "../../../components/common/headers/TitleDoubleXL.jsx";
 import SelectInput from "../../../components/common/forms/SelectInput.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function EditProfileVol() {
   return (
@@ -53,6 +54,7 @@ function EditProfileVol() {
           </Form>
         </Formik>
       </div>
+      <Footer/>
     </div>
   );
 }

@@ -1,4 +1,3 @@
-/* import axios from "axios"; */
 import {
   HiOutlineClipboardDocumentCheck,
   HiOutlineUsers,
@@ -13,6 +12,7 @@ import imgActivity from "../../../assets/imagen-actividad.png";
 import TitleDoubleXL from "../../../components/common/headers/TitleDoubleXL.jsx";
 import Footer from "../../../components/layout/Footer.jsx";
 import useActivityById from "../../../hooks/useActivityById.js";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 const ActivitiesDetailVol = () => {
   const { id } = useParams();
@@ -21,7 +21,7 @@ const ActivitiesDetailVol = () => {
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
 
-  const tareasList = activity.tareas ? activity.tareas.split("/n") : [];
+  const tareasList = activity.tareas ? activity.tareas.split("\n") : [];
 
   return (
     <div className="w-full ">
@@ -33,7 +33,7 @@ const ActivitiesDetailVol = () => {
               {activity.categoria.name || "Cargando..."}
             </div>
           </div>
-          <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl ">
+          <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl lg:text-red-900 ">
             {activity.titulo}
           </h2>
 
@@ -47,7 +47,7 @@ const ActivitiesDetailVol = () => {
                 Organizado por
               </p>
               <Link className="font-semibold link text-primary text-pretty">
-                {activity.fundacion}
+                {activity.fundacion_id}
               </Link>
             </div>
 
@@ -83,7 +83,7 @@ const ActivitiesDetailVol = () => {
               text={activity.inscripcion}
             />
             <MiniCard
-              className="w-1/3"
+              className="w-2/5"
               icon={HiOutlineUsers}
               title={"Quedan"}
               text={activity.cupo_disponible}
@@ -130,7 +130,10 @@ const ActivitiesDetailVol = () => {
 
         <div>
           <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
-          {/* <p>{activity.habilidades}</p> */}
+
+          {activity.habilidades.map((skill) => (
+            <p key={skill.id}>{skill.name}</p>
+          ))}
         </div>
 
         <div className="my-6 divider "></div>
@@ -166,7 +169,7 @@ const ActivitiesDetailVol = () => {
               <div className="w-full ">
                 <form method="dialog  ">
                   <Link
-                    to="/inscriptions"
+                    to={ROUTES.VOLUNTEER.INSCRIPCIONES}
                     className="flex justify-center w-full px-6 py-3 text-sm border border-base-300 rounded-xl text-base-content "
                   >
                     Ir a Mis voluntariados

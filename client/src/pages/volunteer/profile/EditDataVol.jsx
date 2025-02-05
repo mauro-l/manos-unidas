@@ -5,6 +5,7 @@ import TitleDoubleXL from "../../../components/common/headers/TitleDoubleXL.jsx"
 import Banner from "../../../components/layout/Banner.jsx";
 import SelectInput from "../../../components/common/forms/SelectInput.jsx";
 import FileInput from "../../../components/common/forms/FileInput.jsx";
+import Footer from "../../../components/layout/Footer.jsx";
 
 function EditDataVol() {
   const options = [
@@ -56,6 +57,8 @@ function EditDataVol() {
           </Form>
         </Formik>
       </div>
+      <Footer/>
+      
     </div>
   );
 }
