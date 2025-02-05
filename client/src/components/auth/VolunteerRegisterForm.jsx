@@ -132,7 +132,7 @@ function VolunteerRegisterForm() {
         {errors.confirmPassword}
       </small>
       <div>
-        <button className="w-full mt-3 btn btn-neutral btn-sm min-h-10">
+        <button className="w-full mt-3 text-white btn btn-primary btn-sm min-h-10">
           Registrarme como voluntario
         </button>
       </div>

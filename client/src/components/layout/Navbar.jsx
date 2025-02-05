@@ -1,78 +1,73 @@
 import { Link } from "react-router-dom";
 import LoginButton from "../auth/LoginButton.jsx";
+import { HiOutlineBars3 } from "react-icons/hi2";
+import useAuth from "../../hooks/useAuth.js";
+import { ROUTES } from "../../routes/index.routes.js";
+import BottomNavbar from "./BottomNavbar.jsx";
 
 const Navbar = () => {
+  const { user, logout } = useAuth();
+  const role = user && user.role;
+
+  console.log(user);
+
+  const handleLogout = () => {
+    logout();
+  };
   return (
-    <div className="navbar bg-base-100">
-      <div className="navbar-start">
-        <Link className="text-xl btn btn-ghost" to="/">
-          daisyUI
+    <div className="container mx-auto navbar bg-base-100 lg:justify-center">
+      <div className="navbar-start lg:w-auto">
+        <Link className="text-xl btn btn-ghost -ms-2" to="/">
+          <img src="/Hand-In-Hand.ico" alt="Logo page" />
+          <h2 className="text-2xl font-bold tracking-tight text-neutral text-nowrap">
+            ManosUnidas
+          </h2>
         </Link>
       </div>
-      <div className="hidden navbar-center lg:flex">
-        <ul className="px-1 menu menu-horizontal">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+      <div className="hidden navbar-center lg:w-auto lg:flex lg:mx-auto max-h-12">
+        <BottomNavbar />
       </div>
-      <div className="navbar-end">
-        <LoginButton />
+      <div className="lg:w-auto navbar-end">
+        {user && role === "voluntario" ? (
+          <Link
+            to={ROUTES.VOLUNTEER.EXPLORAR}
+            className="font-semibold leading-4 text-end text-primary"
+          >
+            ¡Hola, <br /> {user.name}!
+          </Link>
+        ) : user && role === "fundacion" ? (
+          <Link
+            to={ROUTES.FOUNDATION.PUBLICACIONES}
+            className="font-semibold leading-4 text-end text-secondary"
+          >
+            ¡Bienvenidos, <br /> {user.name}!
+          </Link>
+        ) : (
+          <LoginButton />
+        )}
       </div>
       <div className="dropdown dropdown-end">
-        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
+        <div tabIndex={0} role="button" className="px-2 btn btn-ghost lg:ms-4">
+          <HiOutlineBars3 className="text-4xl" />
         </div>
         <ul
           tabIndex={0}
           className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
         >
           <li>
-            <a>Item 1</a>
+            <Link to={"/"}>Inicio</Link>
           </li>
           <li>
-            <a>Parent</a>
-            <ul className="p-2">
-              <li>
-                <a>Submenu 1</a>
-              </li>
-              <li>
-                <a>Submenu 2</a>
-              </li>
-            </ul>
+            <Link to={ROUTES.VOLUNTEER.EXPLORAR}>Explorar voluntariados</Link>
           </li>
-          <li>
-            <a>Item 3</a>
-          </li>
+          {user && (
+            <>
+              <div className="divider"></div>
+              <li>
+                <button onClick={handleLogout}>Cerrar sesión</button>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
