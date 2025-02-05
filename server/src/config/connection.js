@@ -9,6 +9,8 @@ if (!dbUri) {
     throw new Error('La variable de entorno DB_URL no está definida correctamente');
 }
 
+// const dbUri = `mongodb+srv://${dbUser}:${dbPassword}@${dbHost}/?retryWrites=true&w=majority&appName=${dbName}`;
+const dbUri = process.env.DB_URL
 const connectDB = async () => {
     try {
         await mongoose.connect(dbUri);
