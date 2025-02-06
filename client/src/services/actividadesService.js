@@ -9,3 +9,12 @@ export const getActivity = async () => {
   }
 };
 
+export const postActivity = async (body) => {
+  try {
+    const response = await api.get("/actividades", { body });
+    return response.data.actividades;
+  } catch (error) {
+    throw error.response ? error.response.data.message : error.message;
+  }
+};
+

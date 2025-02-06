@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../../../routes/index.routes.js";
 
 const Card = ({ activity }) => {
+  console.log(activity);
   const { titulo, descripcion, fundacion_id, ubicacion, categoria, id } =
     activity;
 
