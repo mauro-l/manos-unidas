@@ -1,5 +1,6 @@
 import Habilidad from '../models/habilidad.model.js';
 
+
 // Crear una nueva habilidad
 export const createHabilidad = async (req, res) => {
     try {

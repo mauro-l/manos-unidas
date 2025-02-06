@@ -25,14 +25,24 @@ import mongoose from 'mongoose';
  *         pais: "Argentina"
  */
 const UbicacionSchema = new mongoose.Schema({
-    ciudad: {
-        type: String,
-        required: true,
-    },
+
     pais: {
         type: String,
         required: true,
     },
+    provincia: {
+        type: String,
+        required: true,
+    },
+
+    cuidad: {
+        type: String,
+        required: true,
+    },
+    direccion: {
+        type: String,
+        required: true,
+    }
 });
 
 const Ubicacion = mongoose.model('Ubicacion', UbicacionSchema);
