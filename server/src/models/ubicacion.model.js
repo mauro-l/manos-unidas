@@ -25,7 +25,6 @@ import mongoose from 'mongoose';
  *         pais: "Argentina"
  */
 const UbicacionSchema = new mongoose.Schema({
-
     pais: {
         type: String,
         required: true,
@@ -34,14 +33,12 @@ const UbicacionSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-
-    cuidad: {
+    ciudad: {
         type: String,
         required: true,
     },
     direccion: {
         type: String,
-        required: true,
     }
 });
 
