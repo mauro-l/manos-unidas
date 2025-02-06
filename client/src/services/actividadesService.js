@@ -1,4 +1,4 @@
-/* import api from './api';
+import api from './api';
 
 export const getActivity = async (email, contrasena) => {
     try {
@@ -8,4 +8,3 @@ export const getActivity = async (email, contrasena) => {
         throw error.response ? error.response.data.message : error.message;
     }
 };
- */

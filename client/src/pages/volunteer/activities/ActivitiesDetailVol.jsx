@@ -143,6 +143,10 @@ const ActivitiesDetailVol = () => {
           <p>{activity.disponibilidad}</p>
         </div>
         <div className="my-6 divider "></div>
+
+
+
+        
         <div>
           <button
             className="w-full shadow-2xl btn bg-primary text-primary-content"
