@@ -1,12 +1,12 @@
-import express from 'express';
+import express from "express";
 import {
-    createFundacion,
-    getFundaciones,
-    getFundacionById,
-    updateFundacion,
-    deleteFundacion
-} from '../controllers/fundacion.controller.js';
-import authenticateJWT from '../config/auth.middleware.js';
+  createFundacion,
+  getFundaciones,
+  getFundacionById,
+  updateFundacion,
+  deleteFundacion,
+} from "../controllers/fundacion.controller.js";
+import authenticateJWT from "../config/auth.middleware.js";
 
 const router = express.Router();
 
@@ -90,7 +90,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /fundaciones:
+ * /v1/api/fundaciones:
  *   post:
  *     summary: Crear una nueva fundación
  *     tags: [Fundaciones]
@@ -110,11 +110,11 @@ const router = express.Router();
  *       400:
  *         description: Error en la solicitud
  */
-router.post('/', createFundacion);
+router.post("/", createFundacion);
 
 /**
  * @swagger
- * /fundaciones:
+ * /v1/api/fundaciones:
  *   get:
  *     summary: Obtener todas las fundaciones
  *     tags: [Fundaciones]
@@ -128,11 +128,11 @@ router.post('/', createFundacion);
  *               items:
  *                 $ref: '#/components/schemas/Fundacion'
  */
-router.get('/', getFundaciones);
+router.get("/", getFundaciones);
 
 /**
  * @swagger
- * /fundaciones/{id}:
+ * /v1/api/fundaciones/{id}:
  *   get:
  *     summary: Obtener una fundación por ID
  *     tags: [Fundaciones]
@@ -153,11 +153,11 @@ router.get('/', getFundaciones);
  *       404:
  *         description: Fundación no encontrada
  */
-router.get('/:id', authenticateJWT, getFundacionById);
+router.get("/:id", authenticateJWT, getFundacionById);
 
 /**
  * @swagger
- * /fundaciones/{id}:
+ * /v1/api/fundaciones/{id}:
  *   put:
  *     summary: Actualizar una fundación por ID
  *     tags: [Fundaciones]
@@ -186,11 +186,11 @@ router.get('/:id', authenticateJWT, getFundacionById);
  *       404:
  *         description: Fundación no encontrada
  */
-router.put('/:id', authenticateJWT, updateFundacion);
+router.put("/:id", authenticateJWT, updateFundacion);
 
 /**
  * @swagger
- * /fundaciones/{id}:
+ * /v1/api/fundaciones/{id}:
  *   delete:
  *     summary: Eliminar una fundación por ID
  *     tags: [Fundaciones]
@@ -207,6 +207,7 @@ router.put('/:id', authenticateJWT, updateFundacion);
  *       404:
  *         description: Fundación no encontrada
  */
-router.delete('/:id', authenticateJWT, deleteFundacion);
+router.delete("/:id", authenticateJWT, deleteFundacion);
 
 export default router;
+

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 /**
  * @swagger
@@ -20,12 +20,12 @@ import mongoose from 'mongoose';
  *         nombre: "Programación"
  */
 const HabilidadSchema = new mongoose.Schema({
-    nombre: {
-        type: String,
-        required: true,
-    },
+  nombre: {
+    type: String,
+    required: true,
+  },
 });
 
-const Habilidad = mongoose.model('Habilidad', HabilidadSchema);
-
+const Habilidad = mongoose.model("Habilidad", HabilidadSchema);
 export default Habilidad;
+

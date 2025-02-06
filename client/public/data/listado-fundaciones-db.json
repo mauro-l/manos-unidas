@@ -1,0 +1,60 @@
+[
+  {
+    "fundacion_id": "FND001",
+    "nombre": "Fundación CONIN",
+    "email": "contacto@esperanza.org",
+    "contrasena": "password123",
+    "telefono": "123456789",
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Mendoza",
+      "ciudad": "Maipú",
+      "direccion": "25 de Mayo 859"
+    },
+    "descripcion": "Promovemos el acceso a la educación en comunidades rurales.Promovemos el acceso a la educación en comunidades rurales",
+    "fecha_registro": "2025-01-20",
+    "logo": "https://s3-alpha-sig.figma.com/img/4e17/16d6/0fdc659a540e24e89feeccbfc7149cce?Expires=1739145600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=nsl2b5a8hn72TJwI4zullas8K1m4GExcoHT2xUju~0oRbKTXJgoplYJykK2V-MrAGzQ65aGeH754l7pWa3PgMZt~xBv6RwklShC9g-6HAwHlghwQnHhnEU3FCHSRPD9RzxgSkH~8Ej7V30pVYN~FM6YLKJyeofd26-js0IdkijRKuBsKyAA4BKpC6Qhy1UplAj4LZDfmjSKAEnvP6K6dm6jZZ0sWisnGlIaEhSsLlU1Oc033UbFq9YHQDuGiFXgMA8pyiUy3BsqszghcuMPpzhKQySRux8JeASaWX7RPO15aEhb-SrGQLQau48Bqm4sZ4xdOXevqfqH2CTioKDPsog__",
+    "web": "https://esperanza.org",
+    "link_donacion": "https://esperanza.org",
+    "email_contacto": "info@esperanza.org",
+    "area_principal": "Educación",
+    "nro_registro": 123456
+  },
+  {
+    "fundacion_id": "FND002",
+    "nombre": "Fundación Vida",
+    "email": "info@fundacionvida.org",
+    "contrasena": "securePass2025",
+    "telefono": "987654321",
+    "ubicacion": {
+      "pais": "Chile",
+      "provincia": "Santiago",
+      "ciudad": "Providencia",
+      "direccion": "Avenida Providencia 1234"
+    },
+    "descripcion": "Dedicados a la preservación del medio ambiente.Dedicados a la preservación del medio ambiente.Dedicados a la preservación del medio ambiente.",
+    "fecha_registro": "2024-12-15",
+    "logo": "https://img.freepik.com/vector-gratis/icono-vector-logotipo-abstracto-flor-estrella_126523-239.jpg?semt=ais_hybrid",
+    "web": "https://fundacionvida.org",
+    "link_donacion": "https://fundacionvida.org",
+    "email_contacto": "contacto@fundacionvida.org",
+    "area_principal": "environment",
+    "nro_registro": 789101
+  },
+  {
+    "fundacion_id": "FND003",
+    "nombre": "Fundación Básica",
+    "email": "basica@correo.org",
+    "contrasena": "basicPass",
+    "telefono": "",
+    "direccion": "",
+    "descripcion": "",
+    "fecha_registro": "",
+    "logo": "",
+    "web": "",
+    "link_donacion": "",
+    "email_contacto": "",
+    "area_principal": "",
+    "nro_registro": 111213
+  }
+]

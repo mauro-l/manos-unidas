@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 /**
  * @swagger
@@ -25,16 +25,25 @@ import mongoose from 'mongoose';
  *         pais: "Argentina"
  */
 const UbicacionSchema = new mongoose.Schema({
-    ciudad: {
-        type: String,
-        required: true,
-    },
-    pais: {
-        type: String,
-        required: true,
-    },
+  pais: {
+    type: String,
+    required: true,
+  },
+  provincia: {
+    type: String,
+    required: true,
+  },
+
+  cuidad: {
+    type: String,
+    required: true,
+  },
+  direccion: {
+    type: String,
+    required: true,
+  },
 });
 
-const Ubicacion = mongoose.model('Ubicacion', UbicacionSchema);
-
+const Ubicacion = mongoose.model("Ubicacion", UbicacionSchema);
 export default Ubicacion;
+

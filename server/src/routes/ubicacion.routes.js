@@ -1,12 +1,12 @@
-import express from 'express';
+import express from "express";
 import {
-    createUbicacion,
-    getUbicaciones,
-    getUbicacionById,
-    updateUbicacion,
-    deleteUbicacion
-} from '../controllers/ubicacion.controller.js';
-import authenticateJWT from '../config/auth.middleware.js';
+  createUbicacion,
+  getUbicaciones,
+  getUbicacionById,
+  updateUbicacion,
+  deleteUbicacion,
+} from "../controllers/ubicacion.controller.js";
+import authenticateJWT from "../config/auth.middleware.js";
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /ubicaciones:
+ * /v1/api/ubicaciones:
  *   get:
  *     summary: Obtener todas las ubicaciones
  *     tags: [Ubicaciones]
@@ -33,11 +33,11 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Ubicacion'
  */
-router.get('/', getUbicaciones);
+router.get("/", getUbicaciones);
 
 /**
  * @swagger
- * /ubicaciones:
+ * /v1/api/ubicaciones:
  *   post:
  *     summary: Crear una nueva ubicación
  *     tags: [Ubicaciones]
@@ -53,11 +53,11 @@ router.get('/', getUbicaciones);
  *       400:
  *         description: Error en la solicitud
  */
-router.post('/', authenticateJWT, createUbicacion);
+router.post("/", authenticateJWT, createUbicacion);
 
 /**
  * @swagger
- * /ubicaciones/{id}:
+ * /v1/api/ubicaciones/{id}:
  *   get:
  *     summary: Obtener una ubicación por ID
  *     tags: [Ubicaciones]
@@ -78,11 +78,11 @@ router.post('/', authenticateJWT, createUbicacion);
  *       404:
  *         description: Ubicación no encontrada
  */
-router.get('/:id', authenticateJWT, getUbicacionById);
+router.get("/:id", authenticateJWT, getUbicacionById);
 
 /**
  * @swagger
- * /ubicaciones/{id}:
+ * /v1/api/ubicaciones/{id}:
  *   put:
  *     summary: Actualizar una ubicación por ID
  *     tags: [Ubicaciones]
@@ -107,11 +107,11 @@ router.get('/:id', authenticateJWT, getUbicacionById);
  *       404:
  *         description: Ubicación no encontrada
  */
-router.put('/:id', authenticateJWT, updateUbicacion);
+router.put("/:id", authenticateJWT, updateUbicacion);
 
 /**
  * @swagger
- * /ubicaciones/{id}:
+ * /v1/api/ubicaciones/{id}:
  *   delete:
  *     summary: Eliminar una ubicación por ID
  *     tags: [Ubicaciones]
@@ -128,6 +128,7 @@ router.put('/:id', authenticateJWT, updateUbicacion);
  *       404:
  *         description: Ubicación no encontrada
  */
-router.delete('/:id', authenticateJWT, deleteUbicacion);
+router.delete("/:id", authenticateJWT, deleteUbicacion);
 
 export default router;
+

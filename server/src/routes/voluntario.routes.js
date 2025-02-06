@@ -110,7 +110,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /voluntarios:
+ * /v1/api/voluntarios:
  *   post:
  *     summary: Crear un nuevo voluntario
  *     tags: [Voluntarios]
@@ -134,7 +134,7 @@ router.post('/', createVoluntario);
 
 /**
  * @swagger
- * /voluntarios:
+ * /v1/api/voluntarios:
  *   get:
  *     summary: Obtener todos los voluntarios
  *     tags: [Voluntarios]
@@ -152,7 +152,7 @@ router.get('/', getVoluntarios);
 
 /**
  * @swagger
- * /voluntarios/{id}:
+ * /v1/api/voluntarios/{id}:
  *   get:
  *     summary: Obtener un voluntario por ID
  *     tags: [Voluntarios]
@@ -177,7 +177,7 @@ router.get('/:id', authenticateJWT, getVoluntarioById);
 
 /**
  * @swagger
- * /voluntarios/{id}:
+ * /v1/api/voluntarios/{id}:
  *   put:
  *     summary: Actualizar un voluntario por ID
  *     tags: [Voluntarios]
@@ -210,7 +210,7 @@ router.put('/:id', authenticateJWT, updateVoluntario);
 
 /**
  * @swagger
- * /voluntarios/{id}:
+ * /v1/api/voluntarios/{id}:
  *   delete:
  *     summary: Eliminar un voluntario por ID
  *     tags: [Voluntarios]

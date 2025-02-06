@@ -12,7 +12,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /auth/login:
+ * /v1/api/auth/login:
  *   post:
  *     summary: Iniciar sesión
  *     tags: [Autenticación]

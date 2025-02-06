@@ -1,12 +1,12 @@
-import express from 'express';
+import express from "express";
 import {
-    createHabilidad,
-    getHabilidades,
-    getHabilidadById,
-    updateHabilidad,
-    deleteHabilidad
-} from '../controllers/habilidad.controller.js';
-import authenticateJWT from '../config/auth.middleware.js';
+  createHabilidad,
+  getHabilidades,
+  getHabilidadById,
+  updateHabilidad,
+  deleteHabilidad,
+} from "../controllers/habilidad.controller.js";
+import authenticateJWT from "../config/auth.middleware.js";
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ const router = express.Router();
 
 /**
  * @swagger
- * /habilidades:
+ * /v1/api/habilidades:
  *   get:
  *     summary: Obtener todas las habilidades
  *     tags: [Habilidades]
@@ -33,11 +33,11 @@ const router = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Habilidad'
  */
-router.get('/', getHabilidades);
+router.get("/", getHabilidades);
 
 /**
  * @swagger
- * /habilidades:
+ * /v1/api/habilidades:
  *   post:
  *     summary: Crear una nueva habilidad
  *     tags: [Habilidades]
@@ -53,11 +53,11 @@ router.get('/', getHabilidades);
  *       400:
  *         description: Error en la solicitud
  */
-router.post('/', authenticateJWT, createHabilidad);
+router.post("/", authenticateJWT, createHabilidad);
 
 /**
  * @swagger
- * /habilidades/{id}:
+ * /v1/api/habilidades/{id}:
  *   get:
  *     summary: Obtener una habilidad por ID
  *     tags: [Habilidades]
@@ -78,11 +78,11 @@ router.post('/', authenticateJWT, createHabilidad);
  *       404:
  *         description: Habilidad no encontrada
  */
-router.get('/:id', authenticateJWT, getHabilidadById);
+router.get("/:id", authenticateJWT, getHabilidadById);
 
 /**
  * @swagger
- * /habilidades/{id}:
+ * /v1/api/habilidades/{id}:
  *   put:
  *     summary: Actualizar una habilidad por ID
  *     tags: [Habilidades]
@@ -107,11 +107,11 @@ router.get('/:id', authenticateJWT, getHabilidadById);
  *       404:
  *         description: Habilidad no encontrada
  */
-router.put('/:id', authenticateJWT, updateHabilidad);
+router.put("/:id", authenticateJWT, updateHabilidad);
 
 /**
  * @swagger
- * /habilidades/{id}:
+ * /v1/api/habilidades/{id}:
  *   delete:
  *     summary: Eliminar una habilidad por ID
  *     tags: [Habilidades]
@@ -128,6 +128,7 @@ router.put('/:id', authenticateJWT, updateHabilidad);
  *       404:
  *         description: Habilidad no encontrada
  */
-router.delete('/:id', authenticateJWT, deleteHabilidad);
+router.delete("/:id", authenticateJWT, deleteHabilidad);
 
 export default router;
+
