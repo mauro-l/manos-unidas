@@ -5,6 +5,9 @@ import Ubicacion from "../models/ubicacion.model.js"; //redirigir la ubicacion
 
 /*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
 export const createActividad = async (req, res) => {
+  console.log("Datos recibidos en req.body:", req.body);
+  console.log("find de datos");
+
   try {
     const {
       titulo,
@@ -57,16 +60,6 @@ export const createActividad = async (req, res) => {
     }
     //  agregue ubicacion
 
-    /* let ubicacionObjectId;
-    if (typeof ubicacion === "string") {
-      ubicacionObjectId = new mongoose.Types.ObjectId(ubicacion); // Si es ObjectId
-    } else if (ubicacion && ubicacion.pais) {
-      const nuevaUbicacion = new Ubicacion(ubicacion);
-      const ubicacionGuardada = await nuevaUbicacion.save();
-      ubicacionObjectId = ubicacionGuardada._id;
-    } else {
-      return res.status(400).json({ message: "Ubicación no válida" });
-    } */
     let ubicacionDoc = await Ubicacion.findOne({ ciudad: ubicacion.ciudad });
     if (!ubicacionDoc) {
       // Si no existe, se crea una nueva ubicación
@@ -118,10 +111,13 @@ export const getActividadById = async (req, res) => {
     const actividad = await Actividad.findById(req.params.id)
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
       .populate({ path: "fundacion_id", select: "fundacion_id nombre" })
-      .populate({
-        path: "ubicacion",
-        select: "pais provincia ciudad direccion",
-      });
+      .populate("ubicacion");
+
+    //TRAER TODOS LOS INSCRIPTOS QUE COINCIDAN CON EL ID DE ESTA ACTIVIDAD (req.params.id)
+    //HACER CONTEO Y VERIFICAR QUE LOS INSCRIPTOS NO EXCEDA EL CUPO_MAXIMO
+    //SI LOS INSCTIPTOS IGUALAN AL CUPO_MAXIMO COLOCAR CUPO_DISPONIBLES A FALSE
+
+    //const incriptos = await
 
     if (!actividad)
       return res.status(404).json({ message: "Actividad no encontrada" });
@@ -133,18 +129,17 @@ export const getActividadById = async (req, res) => {
 
 export const getActividadesByFundacionId = async (req, res) => {
   try {
-    console.log(req.params.id);
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: "ID de fundación no válido" });
+    }
+    const fundacionObjectId = new mongoose.Types.ObjectId(req.params.id);
+
     const actividades = await Actividad.find({
-      fundacion_id: req.params.fundacionId,
+      fundacion_id: fundacionObjectId,
     })
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
       .populate({ path: "fundacion_id", select: "id nombre" })
-      .populate({
-        path: "ubicacion",
-        select: "direccion ciudad provincia pais",
-      });
-
-    console.log(actividades);
+      .populate("ubicacion");
 
     if (!actividades.length) {
       return res
@@ -162,7 +157,8 @@ export const getAllActividades = async (req, res) => {
   try {
     const actividades = await Actividad.find()
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
-      .populate({ path: "fundacion_id", select: "fundacion_id nombre" });
+      .populate({ path: "fundacion_id", select: "fundacion_id nombre" })
+      .populate("ubicacion");
 
     res.status(200).json({ status: "success", actividades });
   } catch (error) {
