@@ -2,8 +2,7 @@ import Actividad from "../models/Actividad.model.js";
 import Fundacion from "../models/fundacion.model.js";
 import Categoria from "../models/categoria.model.js";
 import Ubicacion from "../models/ubicacion.model.js"; //redirigir la ubicacion
-import mongoose from "mongoose";
-import { response } from "express";
+
 /*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
 export const createActividad = async (req, res) => {
   try {
