@@ -2,10 +2,6 @@ import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 
 const FundacionSchema = new mongoose.Schema({
-  fundacion_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: () => new mongoose.Types.ObjectId(),
-  },
   nombre: {
     type: String,
     required: true,
@@ -23,12 +19,9 @@ const FundacionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  direccion: {
-    type: String,
-    required: true,
-  },
-  descripcion: {
-    type: String,
+  ubicacion: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Ubicacion",
     required: true,
   },
   fecha_registro: {

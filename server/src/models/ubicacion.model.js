@@ -33,14 +33,12 @@ const UbicacionSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
-  cuidad: {
+  ciudad: {
     type: String,
     required: true,
   },
   direccion: {
     type: String,
-    required: true,
   },
 });
 
