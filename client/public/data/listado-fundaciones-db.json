@@ -56,5 +56,26 @@
     "email_contacto": "",
     "area_principal": "",
     "nro_registro": 111213
+  },
+  {
+    "fundacion_id": "FND004",
+    "nombre": " Yerba mate",
+    "email": "",
+    "contrasena": "miCasa",
+    "telefono": "",
+    "ubicacion": {
+      "pais": "Argentina",
+      "provincia": "Buenos Aires",
+      "ciudad": "La Plata",
+      "direccion": "Calle 50 N°1234"
+    },
+    "descripcion": "",
+    "fecha_registro": "",
+    "logo": "",
+    "web": "",
+    "link_donacion": "",
+    "email_contacto": "",
+    "area_principal": "",
+    "nro_registro": 7891012
   }
 ]

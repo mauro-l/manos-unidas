@@ -1,10 +1,11 @@
 import ButtonEdit from "../../../components/common/buttons/ButtonEdit.jsx";
 import CardInfo from "../../../components/common/cards/CardInfo.jsx";
-import TitleAction from "../../../components/common/headers/TitleAction.jsx";
 import Banner from "../../../components/layout/Banner.jsx";
-import { HiCheck } from "react-icons/hi2";
+import { HiCheck, HiOutlinePencil } from "react-icons/hi2";
 import Footer from "../../../components/layout/Footer.jsx";
 import useFoundation from "../../../hooks/useFundation.js";
+import { HashLink } from "react-router-hash-link";
+import { ROUTES } from "../../../routes/index.routes.js";
 
 function FoundationProfile() {
   const { foundation, loading, error } = useFoundation("FND001");
@@ -13,15 +14,13 @@ function FoundationProfile() {
   }
 
   if (error) return error;
+
   console.log(foundation);
 
   return (
     <>
       <Banner>
-
-
         <div className="lg:flex lg:justify-between">
-
           <div className="flex items-center gap-6 px-3 mb-6">
             <div className="rounded-lg avatar">
               <div className="w-24 rounded-lg lg:w-32 ring-transparent ring-offset-base-100 ring ring-offset-2">
@@ -34,8 +33,7 @@ function FoundationProfile() {
             </h2>
           </div>
 
-
-          <div >
+          <div>
             <ul className="px-3  space-y-2 text-sm lg:text-base lg:min-w-96 lg:text-end">
               <li>
                 Email:
@@ -53,20 +51,19 @@ function FoundationProfile() {
               <li>
                 Ubicación:
                 <span className="font-normal ms-2 text-neutral-content">
-                  ¡Aún no la completaste!
+                  {foundation.ubicacion.direccion},
+                  {foundation.ubicacion.provincia}, {foundation.ubicacion.pais}
                 </span>
               </li>
             </ul>
-            <div className="px-3 rounded-lg btn-base-100 mt-6 lg:text-end ">
+            <div className="px-3 rounded-lg btn-base-100 mt-6 lg:text-end lg:mt-0">
               <ButtonEdit href={"/edit/info"}>Editar información</ButtonEdit>
             </div>
           </div>
-
         </div>
-
-
       </Banner>
-      <div className="lg:container lg:mx-auto ">
+
+      <div className=" lg:container lg:mx-auto ">
         <div className="p-4">
           <CardInfo>
             <p className="text-sm">
@@ -76,29 +73,61 @@ function FoundationProfile() {
 
             <div className="mt-4 overflow-x-auto">
               <table className="table table-sm">
-                <tbody>
+                <tbody className="text-sm font-bold text-neutral  ">
                   <tr>
                     <th>Número de registro</th>
-                    <td className="flex justify-end pr-6 text-xl text-secondary">
-                      <HiCheck />
+                    <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <HiCheck className="text-xl text-secondary" />
                     </td>
                   </tr>
+
                   <tr>
                     <th>Logo o imagen de la fundación</th>
-                    <td className="flex justify-end text-neutral">Pendiente</td>
+                    <td className="flex justify-end text-xs text-base-400 font-normal">
+                      {foundation.logo ? (
+                        <HiCheck className="text-xl text-secondary" />
+                      ) : (
+                        "Pendiente"
+                      )}
+                    </td>
                   </tr>
+
                   <tr>
                     <th>Ubicación</th>
-                    <td className="flex justify-end text-neutral">Pendiente</td>
+                    <td className="flex justify-end text-xs text-base-400 font-normal">
+                      {foundation.ubicacion?.pais &&
+                      foundation.ubicacion?.provincia &&
+                      foundation.ubicacion?.ciudad &&
+                      foundation.ubicacion?.direccion ? (
+                        <HiCheck className="text-xl text-secondary" />
+                      ) : (
+                        "Pendiente"
+                      )}{" "}
+                    </td>
                   </tr>
+
                   <tr>
                     <th>Datos de contacto</th>
-                    <td className="flex justify-end text-neutral">Pendiente</td>
+                    <td className="flex justify-end text-xs text-base-400 font-normal">
+                      {" "}
+                      {foundation.email &&
+                      foundation.telefono &&
+                      foundation.web ? (
+                        <HiCheck className="text-xl text-secondary" />
+                      ) : (
+                        "Pendiente"
+                      )}{" "}
+                    </td>
                   </tr>
+
                   <tr>
                     <th>Área principal de actividades</th>
-                    <td className=" flex justify-end text-neutral">
-                      Pendiente
+                    <td className="flex justify-end text-xs text-base-400 font-normal">
+                      {foundation.area_principal ? (
+                        <HiCheck className="text-xl text-secondary" />
+                      ) : (
+                        "Pendiente"
+                      )}
                     </td>
                   </tr>
                 </tbody>
@@ -106,17 +135,94 @@ function FoundationProfile() {
             </div>
           </CardInfo>
 
-          <div className="mt-6">
-            <TitleAction href={"#"}>Sobre la fundacion</TitleAction>
+          <div>
+            <div className="flex items-center justify-between mt-4 ">
+              <h3 className="text-xl font-bold">Sobre la fundacion</h3>
+              <HashLink
+                smooth
+                to={`${ROUTES.FOUNDATION.EDIT_PERFIL}#sobrefundacion`}
+              >
+                <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                  {" "}
+                  <HiOutlinePencil className="text-lg" /> Editar
+                </button>
+              </HashLink>
+            </div>
+            <p>{foundation.descripcion}</p>
           </div>
-          <div className="border-t border-base-300 my-4">
-            <TitleAction href={"#"}>Datos de contacto</TitleAction>
+
+          <div className="divider"></div>
+
+          <div>
+            <div className="flex items-center justify-between mt-4 ">
+              <h3 className="text-xl font-bold">Área de actividades</h3>
+              <HashLink
+                smooth
+                to={`${ROUTES.FOUNDATION.EDIT_PERFIL}#actividades`}
+              >
+                <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                  {" "}
+                  <HiOutlinePencil className="text-lg" /> Editar
+                </button>
+              </HashLink>
+            </div>
+            <p className="badge badge-md bg-primary text-primary-content">
+              {foundation.area_principal}
+            </p>
           </div>
-          <div className="border-t border-base-300 my-6">
-            <TitleAction href={"#"}>Datos para donaciones</TitleAction>
+
+          <div className="divider"></div>
+
+          <div>
+            <div className="flex items-center justify-between mt-4">
+              <h3 className="text-xl font-bold">Datos de contacto</h3>
+              <HashLink
+                smooth
+                to={`${ROUTES.FOUNDATION.EDIT_PERFIL}#contactos`}
+              >
+                <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                  {" "}
+                  <HiOutlinePencil className="text-lg" /> Editar
+                </button>
+              </HashLink>
+            </div>
+
+            <div className="flex flex-col text-start gap-4 font-semibold ">
+              <div className="flex gap-2">
+                <p className="font-bold">Email:</p>
+                <p className="font-normal"> {foundation.email} </p>
+              </div>
+              <div className="flex gap-2 ">
+                <p className="font-bold"> Telefono: </p>
+                <p className="font-normal">{foundation.telefono}</p>
+              </div>
+              <div className="flex gap-2">
+                <p className="font-bold"> Web: </p>{" "}
+                <p className="link text-primary font-normal"> {foundation.web}</p>
+              </div>
+            </div>
           </div>
-          <Footer />
+
+          <div className="divider"></div>
+
+          <div>
+            <div className="flex items-center justify-between mt-4">
+              <h3 className="text-xl font-bold">Datos para donaciones</h3>
+              <HashLink
+                smooth
+                to={`${ROUTES.FOUNDATION.EDIT_PERFIL}#donaciones`}
+              >
+                <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                  {" "}
+                  <HiOutlinePencil className="text-lg" /> Editar
+                </button>
+              </HashLink>
+            </div>
+            <p>{foundation.link_donacion}</p>
+          </div>
         </div>
+
+        <Footer />
       </div>
     </>
   );
