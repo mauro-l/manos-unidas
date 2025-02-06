@@ -1,6 +1,5 @@
 import { isValidObjectId } from 'mongoose';
-import Actividad from '../models/Actividad.model';
-//import Actividad from '../models/actividad.model.js';
+import Actividad from '../models/Actividad.model.js';
 
 const validateId = async (req, res, next) => {
     const { id } = req.params;
