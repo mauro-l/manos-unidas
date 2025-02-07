@@ -5,20 +5,29 @@ import mongoose from "mongoose";
 // Obtener todas las inscripciones
 export const getAllInscripciones = async (req, res) => {
   try {
-    const inscripciones = await Inscripcion.find();
+    const inscripciones = await Inscripcion.find().populate(
+      "actividad_id",
+      "titulo fecha_inicio fecha_fin voluntarios_inscriptos cupo_maximo"
+    );
+
     res.status(200).json(inscripciones);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Obtener una inscripción por ID
+// Obtener una inscripción por ID con datos de la actividad
 export const getInscripcionById = async (req, res) => {
   try {
-    const inscripcion = await Inscripcion.findById(req.params.id);
+    const inscripcion = await Inscripcion.findById(req.params.id).populate(
+      "actividad_id",
+      "titulo fecha_inicio fecha_fin voluntarios_inscriptos cupo_maximo"
+    );
+
     if (!inscripcion) {
       return res.status(404).json({ message: "Inscripción no encontrada" });
     }
+
     res.status(200).json(inscripcion);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -102,12 +111,10 @@ export const updateInscripcion = async (req, res) => {
         updatedData.estado
       )
     ) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Valor de 'estado' no válido. Debe ser uno de los siguientes: Pendiente, Aprobada, Rechazada, Cancelado.",
-        });
+      return res.status(400).json({
+        message:
+          "Valor de 'estado' no válido. Debe ser uno de los siguientes: Pendiente, Aprobada, Rechazada, Cancelado.",
+      });
     }
 
     const updatedInscripcion = await Inscripcion.findByIdAndUpdate(
@@ -122,12 +129,10 @@ export const updateInscripcion = async (req, res) => {
 
     res.status(200).json(updatedInscripcion);
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Error al actualizar inscripción",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Error al actualizar inscripción",
+      error: error.message,
+    });
   }
 };
 
