@@ -46,7 +46,9 @@ export const createVoluntario = async (req, res) => {
 // Obtener todos los voluntarios
 export const getVoluntarios = async (req, res) => {
   try {
-    const voluntarios = await Voluntario.find();
+    const voluntarios = await Voluntario.find()
+      .populate("ubicacion")
+      .populate("habilidades");
     res.status(200).json(voluntarios);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -56,7 +58,9 @@ export const getVoluntarios = async (req, res) => {
 // Obtener un voluntario por ID
 export const getVoluntarioById = async (req, res) => {
   try {
-    const voluntario = await Voluntario.findById(req.params.id);
+    const voluntario = await Voluntario.findById(req.params.id)
+      .populate("ubicacion")
+      .populate("habilidades");
     if (!voluntario)
       return res.status(404).json({ message: "Voluntario no encontrado" });
     res.status(200).json(voluntario);
