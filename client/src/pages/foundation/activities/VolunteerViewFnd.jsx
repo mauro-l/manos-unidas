@@ -1,4 +1,4 @@
-import { HiMiniCheck, HiMiniXMark } from "react-icons/hi2";
+import { HiMiniCheck, HiMiniXMark, HiOutlineXCircle } from "react-icons/hi2";
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import CardWhite from "@/components/common/cards/CardWhite.jsx";
 import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
@@ -7,10 +7,20 @@ import Banner from "@/components/layout/Banner.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import useVolunteer from "@/hooks/useVolunteer.js";
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 const VolunteerViewFnd = () => {
   const { id } = useParams();
   const { loading, error, volunteer } = useVolunteer(id);
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleClick = () => {
+    setShowAlert(true);
+
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 2000);
+  };
 
   if (error) return error;
 
@@ -86,15 +96,49 @@ const VolunteerViewFnd = () => {
 
             <div className="divider text-base-300 lg:my-12 "></div>
             <div className="flex flex-col w-full gap-4 lg:flex-row ">
+
+
+
               <button className="btn btn-primary text-primary-content lg:w-1/2">
                 {" "}
                 <HiMiniCheck className="text-pri" />
                 Aprobar voluntario
               </button>
-              <button className="mb-10 btn btn-ghost border-base-300 lg:w-1/2">
-                <HiMiniXMark />
-                Rechazar voluntario
-              </button>
+
+
+
+              
+
+              <div className="relative">
+                <button
+                  className="mb-10 btn btn-ghost w-full border-base-300 lg:w-1/2"
+                  onClick={handleClick}
+                >
+                  <HiMiniXMark />
+                  Rechazar voluntario
+                </button>
+
+                {showAlert && (
+        <div className="fixed bottom-36 left-0 right-0 z-50 flex p-4 mx-4 bg-info rounded-lg items-center gap-4 transition-all duration-300 ease-in-out"
+          style={{
+            opacity: showAlert ? 1 : 0,
+            transform: showAlert ? 'scale(1)' : 'scale(0.9)', // Escala ligeramente la alerta al desaparecer
+          }}
+        >
+          <div>
+            <HiOutlineXCircle className="h-6 w-6" />
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="font-bold text-base">
+              Se ha rechazado el perfil del voluntario
+            </span>
+            <span className="text-xs">
+              Lamentamos que no cumpla con el perfil que buscas
+            </span>
+          </div>
+        </div>
+      )}
+              </div>
             </div>
           </div>
         </div>
@@ -105,4 +149,3 @@ const VolunteerViewFnd = () => {
 };
 
 export default VolunteerViewFnd;
-
