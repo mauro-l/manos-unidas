@@ -2,12 +2,6 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../../../routes/index.routes.js";
 
 const Card = ({ activity }) => {
-  console.log(activity);
-  /* const { titulo, descripcion, fundacion_id, ubicacion, categoria, id } =
-    activity; */
-
-  /*   const {} */
-
   return (
     <div className="mx-auto border-2 card bg-base-100 lg:w-[342px] lg:h-[473px]">
       <figure>
@@ -42,7 +36,6 @@ const Card = ({ activity }) => {
         <div className="w-full card-actions">
           <Link
             to={ROUTES.VOLUNTEER.VER_ACTIVIDAD(activity._id)}
-            /* to={`/volunteer/activities/${id}`} */
             role="button"
             className="w-full mb-1 font-bold btn btn-outline btn-ghost border-base-300"
           >
