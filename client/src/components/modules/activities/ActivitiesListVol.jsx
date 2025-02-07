@@ -44,7 +44,10 @@ const ActivitiesListVol = () => {
         </div>
         <div>
           <div className="my-6 text-xs divider text-base-400">
-            Se encontraron<span className="-mx-2 font-bold">142</span>
+            Se encontraron
+            <span className="-mx-2 font-bold">
+              {activities ? activities.length : "muchas"}
+            </span>
             oportunidades
           </div>
         </div>
@@ -109,7 +112,11 @@ const ActivitiesListVol = () => {
             <Form className="flex items-center gap-6">
               <span className="items-center hidden w-full gap-2 lg:flex lg:flex-nowrap">
                 <div className="text-sm text-base-400 text-nowrap">
-                  Se encontraron <span className="font-bold"> 142 </span>
+                  Se encontraron{" "}
+                  <span className="font-bold">
+                    {" "}
+                    {activities ? activities.length : "muchas"}{" "}
+                  </span>
                   oportunidades
                 </div>
                 <div className="w-full m-0 mt-0.5 divider"></div>
