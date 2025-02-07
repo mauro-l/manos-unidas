@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { getFoundationById } from "../services/fundacionesService.js";
 
 const useFoundation = (id) => {
   const [foundation, setFoundation] = useState(null);
@@ -12,10 +12,9 @@ const useFoundation = (id) => {
         setLoading(true);
         setError(null); // Reiniciamos el error antes de hacer la solicitud
 
-        const response = await axios.get("/data/listado-fundaciones-db.json");
-        const foundations = response.data.find(
-          (item) => item.fundacion_id === foundationId
-        );
+        /* const response = await axios.get("/data/listado-fundaciones-db.json"); */
+
+        const foundations = await getFoundationById(foundationId);
 
         if (foundations) {
           setFoundation(foundations);
@@ -39,3 +38,4 @@ const useFoundation = (id) => {
 };
 
 export default useFoundation;
+
