@@ -13,29 +13,57 @@ import Footer from "@/components/layout/Footer.jsx";
 import useVolunteer from "@/hooks/useVolunteer.js";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { useAprobacion } from "../../../hooks/useAprobacion.js";
 
 const VolunteerViewFnd = () => {
   const { id } = useParams();
   const { loading, error, volunteer } = useVolunteer(id);
   const [showApproveAlert, setShowApproveAlert] = useState(false);
   const [showRejectAlert, setShowRejectAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
+  const {
+    aprobarInscripcion,
+    loading: isLoading,
+    error: errorFetch,
+  } = useAprobacion();
 
-  const handleApproveClick = () => {
-    setShowApproveAlert(true);
-    setShowRejectAlert(false); // Oculta la otra alerta
+  const savedActivity = localStorage.getItem("activity");
+  const activity = savedActivity ? JSON.parse(savedActivity) : null;
 
-    setTimeout(() => {
-      setShowApproveAlert(false);
-    }, 2000);
+  const handleApproveClick = async () => {
+    try {
+      await aprobarInscripcion(volunteer._id, activity._id, "Aprobada");
+      // Manejar éxito, por ejemplo:
+      showApproveAlert(true);
+    } catch (error) {
+      // El error ya está manejado en el estado 'error'
+      console.error(error);
+      setShowErrorAlert(true);
+    } finally {
+      setTimeout(() => {
+        setShowApproveAlert(false);
+        setShowErrorAlert(false);
+        setShowErrorAlert(false);
+      }, 2000);
+    }
   };
 
-  const handleRejectClick = () => {
-    setShowRejectAlert(true);
-    setShowApproveAlert(false); // Oculta la otra alerta
-
-    setTimeout(() => {
-      setShowRejectAlert(false);
-    }, 2000);
+  const handleRejectClick = async () => {
+    try {
+      await aprobarInscripcion(volunteer._id, activity._id, "Rechazada");
+      // Manejar éxito, por ejemplo:
+      setShowRejectAlert(true);
+    } catch (error) {
+      // El error ya está manejado en el estado 'error'
+      console.error(error);
+      setShowErrorAlert(true);
+    } finally {
+      setTimeout(() => {
+        setShowApproveAlert(false);
+        setShowErrorAlert(false);
+        setShowErrorAlert(false);
+      }, 2000);
+    }
   };
 
   if (error) return error;
@@ -120,7 +148,11 @@ const VolunteerViewFnd = () => {
                   onClick={handleApproveClick}
                 >
                   <HiMiniCheck />
-                  Aprobar voluntario
+                  {isLoading ? (
+                    <span className="loading loading-ring loading-md"></span>
+                  ) : (
+                    "Aprobar voluntario"
+                  )}
                 </button>
 
                 {showApproveAlert && (
@@ -146,7 +178,11 @@ const VolunteerViewFnd = () => {
                   onClick={handleRejectClick}
                 >
                   <HiMiniXMark />
-                  Rechazar voluntario
+                  {isLoading ? (
+                    <span className="loading loading-ring loading-md"></span>
+                  ) : (
+                    "Rechazar voluntario"
+                  )}
                 </button>
 
                 {showRejectAlert && (
@@ -164,6 +200,20 @@ const VolunteerViewFnd = () => {
                     </div>
                   </div>
                 )}
+                {showErrorAlert ||
+                  (errorFetch && (
+                    <div className="fixed left-0 right-0 z-50 flex items-center gap-4 p-4 mx-4 transition-all duration-300 ease-in-out rounded-lg bottom-36 bg-danger">
+                      <div>
+                        <HiOutlineXCircle className="w-6 h-6" />
+                      </div>
+                      <div className="flex flex-col items-center text-danger-content">
+                        <span className="text-base font-bold">
+                          Hubo problemas, intentelo mas tarde
+                        </span>
+                        <span className="text-xs">Disculpen las molestias</span>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </div>

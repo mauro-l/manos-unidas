@@ -8,7 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
 import MiniCardInscripFnd from "@/components/common/cards/MiniCardInscripFnd.jsx";
 import ModalMessage from "@/components/layout/ModalMessage.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardListSkt from "@/components/common/skeleton/CardListSkt.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import { ROUTES } from "@/routes/index.routes.js";
@@ -21,6 +21,12 @@ function ActivityDetailFnd() {
   const { id } = useParams();
   const { activity } = useActivityById(id);
   const { inscriptions, loading, error } = useActivityInscriptions();
+
+  useEffect(() => {
+    if (activity) {
+      localStorage.setItem("activity", JSON.stringify(activity));
+    }
+  }, [activity]);
 
   if (error) return error;
   !loading && console.log("DESDE EL COMPONENT", inscriptions);
@@ -64,8 +70,9 @@ function ActivityDetailFnd() {
               <CardListSkt />
             ) : inscriptions.length === 0 ? (
               <EmptyDashed>
-              <p  className="flex flex-col gap-2 lg:flex-row lg:w-full lg:flex-wrap lg:justify-center">¡No hay ninguna
-              actividad creada!</p>
+                <p className="flex flex-col gap-2 lg:flex-row lg:w-full lg:flex-wrap lg:justify-center">
+                  ¡No hay ninguna actividad creada!
+                </p>
               </EmptyDashed>
             ) : (
               inscriptions.map((ins) => {
