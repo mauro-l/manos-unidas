@@ -27,19 +27,22 @@ export const createFundacion = async (req, res) => {
 };
 
 // Obtener todas las fundaciones
+// Obtener todas las fundaciones con sus ubicaciones populadas
 export const getFundaciones = async (req, res) => {
   try {
-    const fundaciones = await Fundacion.find();
+    const fundaciones = await Fundacion.find().populate("ubicacion");
     res.status(200).json(fundaciones);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-// Obtener una fundación por ID
+// Obtener una fundación por ID con su ubicación populada
 export const getFundacionById = async (req, res) => {
   try {
-    const fundacion = await Fundacion.findById(req.params.id);
+    const fundacion = await Fundacion.findById(req.params.id).populate(
+      "ubicacion"
+    );
     if (!fundacion)
       return res.status(404).json({ message: "Fundación no encontrada" });
     res.status(200).json(fundacion);
