@@ -19,7 +19,6 @@ function ActivityDetailFnd() {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const { activity } = useActivityById(id);
-
   const { inscriptions, loading, error } = useActivityInscriptions();
 
   if (error) return error;

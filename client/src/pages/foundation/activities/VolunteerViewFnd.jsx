@@ -96,22 +96,15 @@ const VolunteerViewFnd = () => {
 
             <div className="divider text-base-300 lg:my-12 "></div>
             <div className="flex flex-col w-full gap-4 lg:flex-row ">
-
-
-
               <button className="btn btn-primary text-primary-content lg:w-1/2">
                 {" "}
                 <HiMiniCheck className="text-pri" />
                 Aprobar voluntario
               </button>
 
-
-
-              
-
               <div className="relative">
                 <button
-                  className="mb-10 btn btn-ghost w-full border-base-300 lg:w-1/2"
+                  className="w-full mb-10 btn btn-ghost border-base-300 lg:w-1/2"
                   onClick={handleClick}
                 >
                   <HiMiniXMark />
@@ -119,25 +112,26 @@ const VolunteerViewFnd = () => {
                 </button>
 
                 {showAlert && (
-        <div className="fixed bottom-36 left-0 right-0 z-50 flex p-4 mx-4 bg-info rounded-lg items-center gap-4 transition-all duration-300 ease-in-out"
-          style={{
-            opacity: showAlert ? 1 : 0,
-            transform: showAlert ? 'scale(1)' : 'scale(0.9)', // Escala ligeramente la alerta al desaparecer
-          }}
-        >
-          <div>
-            <HiOutlineXCircle className="h-6 w-6" />
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="font-bold text-base">
-              Se ha rechazado el perfil del voluntario
-            </span>
-            <span className="text-xs">
-              Lamentamos que no cumpla con el perfil que buscas
-            </span>
-          </div>
-        </div>
-      )}
+                  <div
+                    className="fixed left-0 right-0 z-50 flex items-center gap-4 p-4 mx-4 transition-all duration-300 ease-in-out rounded-lg bottom-36 bg-info"
+                    style={{
+                      opacity: showAlert ? 1 : 0,
+                      transform: showAlert ? "scale(1)" : "scale(0.9)", // Escala ligeramente la alerta al desaparecer
+                    }}
+                  >
+                    <div>
+                      <HiOutlineXCircle className="w-6 h-6" />
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-base font-bold">
+                        Se ha rechazado el perfil del voluntario
+                      </span>
+                      <span className="text-xs">
+                        Lamentamos que no cumpla con el perfil que buscas
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -149,3 +143,4 @@ const VolunteerViewFnd = () => {
 };
 
 export default VolunteerViewFnd;
+
