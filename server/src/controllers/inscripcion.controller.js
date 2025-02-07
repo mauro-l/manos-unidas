@@ -92,21 +92,42 @@ export const createInscripcion = async (req, res) => {
 // Actualizar una inscripción por id
 export const updateInscripcion = async (req, res) => {
   try {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    // Verificar si el valor de `estado` es válido
+    if (
+      updatedData.estado &&
+      !["Pendiente", "Aprobada", "Rechazada", "Cancelado"].includes(
+        updatedData.estado
+      )
+    ) {
+      return res
+        .status(400)
+        .json({
+          message:
+            "Valor de 'estado' no válido. Debe ser uno de los siguientes: Pendiente, Aprobada, Rechazada, Cancelado.",
+        });
+    }
+
     const updatedInscripcion = await Inscripcion.findByIdAndUpdate(
-      req.params.id,
-      req.body,
+      id,
+      updatedData,
       { new: true, runValidators: true }
-    ); // runValidators para validar las actualizaciones
+    );
+
     if (!updatedInscripcion) {
       return res.status(404).json({ message: "Inscripción no encontrada" });
     }
+
     res.status(200).json(updatedInscripcion);
   } catch (error) {
-    console.error("Error al actualizar inscripción:", error); // Log del error
-    res.status(500).json({
-      message: "Error al actualizar inscripción",
-      error: error.message,
-    }); // Respuesta con más detalle
+    res
+      .status(500)
+      .json({
+        message: "Error al actualizar inscripción",
+        error: error.message,
+      });
   }
 };
 
@@ -124,15 +145,17 @@ export const deleteInscripcion = async (req, res) => {
     // Obtener la actividad para actualizar su cupo
     const actividad = await Actividad.findById(deletedInscripcion.actividad_id);
     if (actividad) {
-      const inscriptosRestantes = await Inscripcion.countDocuments({
-        actividad_id: actividad._id,
-      });
+      // Reducir en 1 la cantidad de voluntarios inscritos
+      actividad.voluntarios_inscriptos = Math.max(
+        0,
+        actividad.voluntarios_inscriptos - 1
+      );
 
-      // Si hay cupos nuevamente, habilitar la inscripción
-      if (inscriptosRestantes < actividad.cupo_maximo) {
-        actividad.cupo_disponible = true;
-        await actividad.save();
-      }
+      // Si hay cupos disponibles nuevamente, actualizar el booleano
+      actividad.cupo_disponible =
+        actividad.voluntarios_inscriptos < actividad.cupo_maximo;
+
+      await actividad.save();
     }
 
     res.status(200).json({ message: "Inscripción eliminada correctamente" });
