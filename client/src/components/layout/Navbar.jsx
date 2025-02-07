@@ -10,7 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const role = user && user.role;
 
-  console.log(user);
+  
 
   const handleLogout = () => {
     logout();

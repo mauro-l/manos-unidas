@@ -12,14 +12,11 @@ const InscriptionsVol = () => {
   const { user } = useAuth();
   const { inscriptions, loading, error } = useInscriptions(user.id);
 
-  /*   if (loading) {
-    return <p className="py-32 mx-auto">Cargando...</p>;
-  } */
-
+ 
   if (error) {
     return <ErrorPage />;
   }
-  console.log(inscriptions);
+  
 
   return (
     <>

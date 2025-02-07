@@ -10,7 +10,7 @@ import useAuth from "../../../hooks/useAuth.js";
 
 function VolunteerProfile() {
   const { user } = useAuth();
-  console.log(user.id);
+ 
   const { loading, error, volunteer } = useVolunteer(user.id);
 
   if (loading) {
@@ -18,7 +18,7 @@ function VolunteerProfile() {
   }
 
   if (error) return error;
-  console.log(volunteer);
+  
 
   return (
     <div>
