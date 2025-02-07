@@ -4,7 +4,7 @@ import Categoria from "../models/categoria.model.js";
 import Ubicacion from "../models/ubicacion.model.js"; //redirigir la ubicacion
 import mongoose from "mongoose";
 import { response } from "express";
-/*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
+
 export const createActividad = async (req, res) => {
   try {
     const {
@@ -25,8 +25,6 @@ export const createActividad = async (req, res) => {
       imagen,
     } = req.body;
 
-    /*console.log("Fundacion ID recibido:", fundacion_id);*/
-
     //  Validación de datos de entrada
     if (!titulo || !descripcion || !fundacion_id || !categoria_id) {
       console.log(
@@ -39,11 +37,6 @@ export const createActividad = async (req, res) => {
       return res.status(400).json({ message: "Faltan campos obligatorios" });
     }
 
-    //  Convertir fundacion_id y categoria_id a ObjectId si es necesario
-    //const fundacionObjectId = new mongoose.Types.ObjectId(fundacion_id);
-    //const categoriaObjectId = new mongoose.Types.ObjectId(categoria_id);
-
-    //  Verifico  que la fundación y la categoría existen malditaseas//
     const [fundacion, categoria] = await Promise.all([
       Fundacion.findById(fundacion_id),
       Categoria.findOne({ categoria_id: categoria_id }),
@@ -56,18 +49,13 @@ export const createActividad = async (req, res) => {
     if (!fundacion) {
       return res.status(400).json({ message: "ID de fundación no válido" });
     }
-    //  agregue ubicacion
 
     let ubicacionDoc = await Ubicacion.findOne({ ciudad: ubicacion.ciudad });
     if (!ubicacionDoc) {
-      // Si no existe, se crea una nueva ubicación
-      console.log(ubicacion);
-
       ubicacionDoc = new Ubicacion(ubicacion);
       await ubicacionDoc.save();
     }
 
-    // Crear nueva actividad  la fundación y la categoría existen 😊
     const nuevaActividad = new Actividad({
       titulo,
       descripcion,
@@ -86,10 +74,8 @@ export const createActividad = async (req, res) => {
       imagen,
     });
 
-    //  Guardar en la base de datos la puta madre
     const actividadGuardada = await nuevaActividad.save();
 
-    //  Responder con la concha de la lora!!
     res.status(201).json({
       status: "success",
       actividadGuardada,
@@ -102,7 +88,6 @@ export const createActividad = async (req, res) => {
     });
   }
 };
-/*---------el problema es el create--------------------------------------------*/
 
 export const getActividadById = async (req, res) => {
   try {
@@ -110,12 +95,6 @@ export const getActividadById = async (req, res) => {
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
       .populate({ path: "fundacion_id", select: "fundacion_id nombre" })
       .populate("ubicacion");
-
-    //TRAER TODOS LOS INSCRIPTOS QUE COINCIDAN CON EL ID DE ESTA ACTIVIDAD (req.params.id)
-    //HACER CONTEO Y VERIFICAR QUE LOS INSCRIPTOS NO EXCEDA EL CUPO_MAXIMO
-    //SI LOS INSCTIPTOS IGUALAN AL CUPO_MAXIMO COLOCAR CUPO_DISPONIBLES A FALSE
-
-    //const incriptos = await
 
     if (!actividad)
       return res.status(404).json({ message: "Actividad no encontrada" });
