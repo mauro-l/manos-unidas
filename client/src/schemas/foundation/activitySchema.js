@@ -47,7 +47,7 @@ export const foundEditInfoSchema = Yup.object().shape({
   fundacion_id: Yup.string().required("El ID de fundación es obligatorio"),
 
   categoria_id: Yup.string()
-    .default("social-media") // Establece 'social-media' como valor por defecto
+    .default("animal") // Establece 'social-media' como valor por defecto
     .oneOf(["education", "social-help"], "Categoría no válida"),
 
   tareas: Yup.array()
