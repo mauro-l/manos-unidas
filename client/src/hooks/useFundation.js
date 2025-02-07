@@ -12,7 +12,7 @@ const useFoundation = (id) => {
         setLoading(true);
         setError(null); // Reiniciamos el error antes de hacer la solicitud
 
-        /* const response = await axios.get("/data/listado-fundaciones-db.json"); */
+        
 
         const foundations = await getFoundationById(foundationId);
 

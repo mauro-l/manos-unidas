@@ -6,7 +6,7 @@ const Card = ({ activity }) => {
     <div className="mx-auto border-2 card bg-base-100 lg:w-[342px] lg:h-[473px]">
       <figure>
         <img
-          className="w-full h-40 rounded- "
+          className="w-full h-40 rounded-lg "
           src={activity.imagen}
           alt={activity.titulo}
         />

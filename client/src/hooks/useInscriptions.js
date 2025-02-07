@@ -14,9 +14,9 @@ const useInscriptions = (userId) => {
           .filter((inscripcion) => inscripcion.voluntario_id === userId)
           .map((inscripcion) => ({
             actividad: inscripcion.actividad_id,
-            estado: inscripcion.estado, // Ahora incluimos el estado
+            estado: inscripcion.estado, 
           }));
-        console.log(userInscripciones, "RES");
+        
         setInscriptions(userInscripciones);
       } catch (error) {
         setError(error.response ? error.response.data.message : error.message);

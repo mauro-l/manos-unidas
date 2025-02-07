@@ -84,7 +84,7 @@ function ActivitiesFormHandle() {
 
   useEffect(() => {
     if (id && !activityLoading && activity) {
-      console.log(activity);
+    
       setInitialValues({
         titulo: activity.titulo || "",
         descripcion: activity.descripcion || "",
