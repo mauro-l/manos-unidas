@@ -175,13 +175,11 @@ export const deleteInscripcion = async (req, res) => {
 export const getInscripcionesByActividadId = async (req, res) => {
   try {
     // Validar que el ID sea un ObjectId válido
-    if (!mongoose.Types.ObjectId.isValid(req.params.actividadId)) {
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: "ID de actividad no válido" });
     }
 
-    const actividadObjectId = new mongoose.Types.ObjectId(
-      req.params.actividadId
-    );
+    const actividadObjectId = new mongoose.Types.ObjectId(req.params.id);
 
     // Buscar todas las inscripciones que coincidan con el ID de la actividad
     const inscripciones = await Inscripcion.find({
