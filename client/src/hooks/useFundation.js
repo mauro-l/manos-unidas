@@ -12,8 +12,6 @@ const useFoundation = (id) => {
         setLoading(true);
         setError(null); // Reiniciamos el error antes de hacer la solicitud
 
-        
-
         const foundations = await getFoundationById(foundationId);
 
         if (foundations) {

@@ -56,7 +56,7 @@ const ActivitiesDetailVol = () => {
             inscripcion.voluntario_id === user.id &&
             inscripcion.actividad_id._id === activityId
         );
-       
+
         setInscribed(isInscribed);
       } catch (error) {
         throw error.response ? error.response.data.message : error.message;
@@ -138,7 +138,12 @@ const ActivitiesDetailVol = () => {
               <p className="text-xs font-normal text-neutral-content ">
                 Organizado por
               </p>
-              <Link className="font-semibold link text-primary text-pretty">
+              <Link
+                to={ROUTES.VOLUNTEER.PERFIL_FOUNDATION(
+                  activity.fundacion_id._id
+                )}
+                className="font-semibold link text-primary text-pretty"
+              >
                 {activity.fundacion_id.nombre}
               </Link>
             </div>
@@ -231,7 +236,6 @@ const ActivitiesDetailVol = () => {
               <button
                 disabled={!activity.cupo_disponible && !inscribed}
                 className="hidden w-full shadow-2xl btn btn-primary text-primary-content lg:block lg:w-auto lg:max-w-[300px]"
-               
                 onClick={() => addInscription()}
               >
                 {isLoading ? (
