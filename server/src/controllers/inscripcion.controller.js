@@ -33,7 +33,9 @@ export const createInscripcion = async (req, res) => {
   session.startTransaction(); // Inicia la transacción
 
   try {
-    const voluntario = await Voluntario.findById(voluntario_id).session(session); // Usa la sesión
+    const voluntario = await Voluntario.findById(voluntario_id).session(
+      session
+    ); // Usa la sesión
     if (!voluntario) {
       throw new Error("El voluntario no existe"); // Lanza un error para la transacción
     }
@@ -47,7 +49,9 @@ export const createInscripcion = async (req, res) => {
       throw new Error("No hay cupos disponibles para esta actividad"); // Lanza un error
     }
 
-    const inscripcionesCount = await Inscripcion.countDocuments({ actividad_id }).session(session); // Usa la sesión
+    const inscripcionesCount = await Inscripcion.countDocuments({
+      actividad_id,
+    }).session(session); // Usa la sesión
 
     if (inscripcionesCount >= actividad.cupo_maximo) {
       actividad.cupo_disponible = false;
@@ -74,17 +78,16 @@ export const createInscripcion = async (req, res) => {
     session.endSession(); // Finaliza la sesión
 
     res.status(201).json(savedInscripcion);
-
   } catch (error) {
     await session.abortTransaction(); // Cancela la transacción en caso de error
     session.endSession(); // Finaliza la sesión
 
     console.error("Error al crear inscripción:", error);
-    res.status(500).json({ message: "Error al crear inscripción", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error al crear inscripción", error: error.message });
   }
 };
-
-
 
 // Actualizar una inscripción por id
 export const updateInscripcion = async (req, res) => {
@@ -110,7 +113,9 @@ export const updateInscripcion = async (req, res) => {
 // Eliminar una inscripción por ID
 export const deleteInscripcion = async (req, res) => {
   try {
-    const deletedInscripcion = await Inscripcion.findByIdAndDelete(req.params.id);
+    const deletedInscripcion = await Inscripcion.findByIdAndDelete(
+      req.params.id
+    );
 
     if (!deletedInscripcion) {
       return res.status(404).json({ message: "Inscripción no encontrada" });
@@ -119,7 +124,9 @@ export const deleteInscripcion = async (req, res) => {
     // Obtener la actividad para actualizar su cupo
     const actividad = await Actividad.findById(deletedInscripcion.actividad_id);
     if (actividad) {
-      const inscriptosRestantes = await Inscripcion.countDocuments({ actividad_id: actividad._id });
+      const inscriptosRestantes = await Inscripcion.countDocuments({
+        actividad_id: actividad._id,
+      });
 
       // Si hay cupos nuevamente, habilitar la inscripción
       if (inscriptosRestantes < actividad.cupo_maximo) {
@@ -131,7 +138,40 @@ export const deleteInscripcion = async (req, res) => {
     res.status(200).json({ message: "Inscripción eliminada correctamente" });
   } catch (error) {
     console.error("Error al eliminar inscripción:", error);
-    res.status(500).json({ message: "Error al eliminar inscripción", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error al eliminar inscripción", error: error.message });
+  }
+};
+
+export const getInscripcionesByActividadId = async (req, res) => {
+  try {
+    // Validar que el ID sea un ObjectId válido
+    if (!mongoose.Types.ObjectId.isValid(req.params.actividadId)) {
+      return res.status(400).json({ message: "ID de actividad no válido" });
+    }
+
+    const actividadObjectId = new mongoose.Types.ObjectId(
+      req.params.actividadId
+    );
+
+    // Buscar todas las inscripciones que coincidan con el ID de la actividad
+    const inscripciones = await Inscripcion.find({
+      actividad_id: actividadObjectId,
+    })
+      .populate("voluntario_id")
+      .populate("actividad_id");
+
+    if (!inscripciones.length) {
+      return res
+        .status(404)
+        .json({ message: "No hay inscripciones para esta actividad" });
+    }
+
+    res.status(200).json(inscripciones);
+  } catch (error) {
+    console.error("Error al obtener inscripciones por actividad:", error);
+    res.status(500).json({ message: error.message });
   }
 };
 
