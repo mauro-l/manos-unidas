@@ -85,25 +85,30 @@ export const createInscripcion = async (req, res) => {
 };
 
 
-
-// Actualizar una inscripción por id
+// Actualizar una inscripción por ID
 export const updateInscripcion = async (req, res) => {
   try {
+    const { id } = req.params;
+    const updatedData = req.body;
+
+    // Verificar si el valor de `estado` es válido
+    if (updatedData.estado && !['Pendiente', 'Aprobada', 'Rechazada', 'Cancelado'].includes(updatedData.estado)) {
+      return res.status(400).json({ message: "Valor de 'estado' no válido. Debe ser uno de los siguientes: Pendiente, Aprobada, Rechazada, Cancelado." });
+    }
+
     const updatedInscripcion = await Inscripcion.findByIdAndUpdate(
-      req.params.id,
-      req.body,
+      id,
+      updatedData,
       { new: true, runValidators: true }
-    ); // runValidators para validar las actualizaciones
+    );
+
     if (!updatedInscripcion) {
       return res.status(404).json({ message: "Inscripción no encontrada" });
     }
+
     res.status(200).json(updatedInscripcion);
   } catch (error) {
-    console.error("Error al actualizar inscripción:", error); // Log del error
-    res.status(500).json({
-      message: "Error al actualizar inscripción",
-      error: error.message,
-    }); // Respuesta con más detalle
+    res.status(500).json({ message: "Error al actualizar inscripción", error: error.message });
   }
 };
 

@@ -7,7 +7,9 @@ const router = express.Router();
 const validateInscripcionData = (req, res, next) => {
     const schema = Joi.object({
         voluntario_id: Joi.string().required(),
-        actividad_id: Joi.string().required()
+        actividad_id: Joi.string().required(),
+        estado: Joi.string().valid('Pendiente', 'Aprobada', 'Rechazada', 'Cancelado') // Agregar validación para estado
+
     });
 
     const { error } = schema.validate(req.body);
