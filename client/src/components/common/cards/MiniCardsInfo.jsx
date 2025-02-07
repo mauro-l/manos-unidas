@@ -12,7 +12,9 @@ function MiniCardsInfo({ activity }) {
           <HiOutlineClipboardDocumentCheck className="w-6 h-6 text-secondary" />
           <div className="text-sm text-neutral">
             <h4 className="text-nowrap">Inscripcion abierta hasta</h4>
-            <p className="font-bold">{activity.inscripcion || "--/--/--"}</p>
+            <p className="font-bold">
+              {activity.fecha_limite?.slice(0, 10) || "--/--/--"}
+            </p>
           </div>
         </div>
         <div className="flex items-center justify-center h-16 gap-2 px-4 py-3 border rounded-lg lg:justify-start lg:p-4 lg:h-20 bg-neutral-content grow-0 lg:flex-1 border-base-300">
@@ -20,8 +22,8 @@ function MiniCardsInfo({ activity }) {
           <div className="text-sm text-neutral">
             <h4 className="text-nowrap">Voluntarios</h4>
             <p className="font-bold">
-              {activity.voluntarios_inscritos || "-"}/
-              {activity.cupos_disponibles || "--"}
+              {activity.voluntarios_inscriptos || "-"}/
+              {activity.cupo_maximo || "--"}
             </p>
           </div>
         </div>
@@ -31,14 +33,18 @@ function MiniCardsInfo({ activity }) {
           <HiCalendarDays className="w-6 h-6 text-secondary" />
           <div className="text-sm text-neutral">
             <h4 className="text-nowrap">Inicio de actividad</h4>
-            <p className="font-bold">{activity.fecha_inicio || "--/--/--"}</p>
+            <p className="font-bold">
+              {activity.fecha_inicio?.slice(0, 10) || "--/--/--"}
+            </p>
           </div>
         </div>
         <div className="flex items-center justify-center h-16 gap-2 border rounded-lg lg:p-4 lg:justify-start lg:h-20 bg-neutral-content grow border-base-300 lg:flex-1">
           <HiCalendarDays className="w-6 h-6 text-secondary" />
           <div className="text-sm text-neutral ">
             <h4 className="text-nowrap">Fin de actividad</h4>
-            <p className="font-bold">{activity.fecha_fin || "--/--/--"}</p>
+            <p className="font-bold">
+              {activity.fecha_fin?.slice(0, 10) || "--/--/--"}
+            </p>
           </div>
         </div>
       </div>

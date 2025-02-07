@@ -59,7 +59,7 @@ function EditProfileFnd() {
         </h2>
       </Banner>
       <div className="px-4 py-10">
-        <div>
+        <div id="sobrefundacion">
           {loading ? (
             <div className="flex items-center justify-center w-full mx-auto">
               <span className="loading loading-bars loading-lg"></span>
@@ -84,15 +84,15 @@ function EditProfileFnd() {
                 ></TextArea>
 
                 <div className="mt-2 mb-6 divider"></div>
-
+            <div className="space-y-4" id="actividades" >
                 <TitleDoubleXL className={"mb-4"}>
                   Área de actividades
                 </TitleDoubleXL>
                 <RadioSelect name="activityArea" />
-
+                </div>
                 <div className="my-6 divider"></div>
 
-                <div className="space-y-4">
+                <div className="space-y-4" id="contactos">
                   <TitleDoubleXL className={"mb-4"}>
                     Datos de contacto
                   </TitleDoubleXL>
@@ -120,7 +120,7 @@ function EditProfileFnd() {
 
                 <div className="my-6 divider"></div>
 
-                <div className="space-y-4">
+                <div className="space-y-4" id="donaciones">
                   <TitleDoubleXL className={"mb-4"}>
                     Datos para donaciones
                   </TitleDoubleXL>

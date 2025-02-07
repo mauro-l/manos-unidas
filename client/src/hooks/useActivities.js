@@ -1,5 +1,6 @@
-import axios from "axios";
+//import axios from "axios";
 import { useEffect, useState } from "react";
+import { getActivity } from "../services/actividadesService.js";
 
 const useActivities = () => {
   const [activities, setActivities] = useState([]);
@@ -10,8 +11,8 @@ const useActivities = () => {
     const fetchActivities = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("/data/actividades-voluntariado-db.json");
-        setActivities(res.data);
+        const res = await getActivity();
+        setActivities(res);
       } catch (error) {
         setError("Error fetching activities:", error);
       } finally {

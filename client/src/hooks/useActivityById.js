@@ -1,20 +1,21 @@
-import axios from "axios";
+//import axios from "axios";
 import { useEffect, useState } from "react";
+import { getActivityById } from "../services/actividadesService.js";
 
 const useActivityById = (id) => {
   const [loading, setLoading] = useState(true);
   const [activity, setActivity] = useState([]);
   const [error, setError] = useState();
 
-  console.log(typeof id, id);
-
   useEffect(() => {
     const fetchDetail = async (id) => {
       try {
         setLoading(true);
-        const res = await axios.get(`/data/actividades-voluntariado-db.json`);
+        const actividad = await getActivityById(id);
 
-        const actividad = res.data.find((item) => item.id === Number(id));
+        /* const res = await axios.get(`/data/actividades-voluntariado-db.json`); */
+
+        /* const actividad = res.data.find((item) => item.id === Number(id)); */
 
         if (!actividad) {
           throw new Error("Actividad no encontrada");

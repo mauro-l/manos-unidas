@@ -5,9 +5,20 @@ import ActivitiesListFnd from "../../components/modules/activities/ActivitiesLis
 import Footer from "../../components/layout/Footer.jsx";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../routes/index.routes.js";
+//import useFoundation from "../../hooks/useFundation.js";
+import useAuth from "../../hooks/useAuth.js";
+import useActivitiesByFndId from "../../hooks/useActivitiesByFndId.js";
 /* import IncompleteDashboard from "../../components/modules/dashboard/IncompleteDashboard.jsx"; */
 
 function DashboardFnd() {
+  const { user } = useAuth();
+
+  /* const { foundation, loading, error } = useFoundation(user.id); */
+
+  const { loading, activities } = useActivitiesByFndId(user.id);
+  if (!loading) {
+    console.log(activities);
+  }
   return (
     <div>
       <Banner>
@@ -32,7 +43,9 @@ function DashboardFnd() {
             </p>
           </div>
         </div>
-        <ActivitiesListFnd />
+        {!loading && (
+          <ActivitiesListFnd loading={loading} activity={activities} />
+        )}
       </div>
       <Footer />
     </div>

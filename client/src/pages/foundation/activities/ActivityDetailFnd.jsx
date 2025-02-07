@@ -9,18 +9,21 @@ import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
 import MiniCardInscripFnd from "@/components/common/cards/MiniCardInscripFnd.jsx";
 import ModalMessage from "@/components/layout/ModalMessage.jsx";
 import { useState } from "react";
-import useInscription from "@/hooks/useInscription.js";
 import CardListSkt from "@/components/common/skeleton/CardListSkt.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import { ROUTES } from "@/routes/index.routes.js";
+import useActivityInscriptions from "../../../hooks/useActivityInscriptions.js";
+import MiniCardSkt from "../../../components/common/skeleton/MiniCardSkt.jsx";
 
 function ActivityDetailFnd() {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const { activity } = useActivityById(id);
-  const { loading, error, inscriptions } = useInscription(id, "actividad_id");
+
+  const { inscriptions, loading, error } = useActivityInscriptions();
 
   if (error) return error;
+  !loading && console.log("DESDE EL COMPONENT", inscriptions);
 
   return (
     <>
@@ -54,20 +57,26 @@ function ActivityDetailFnd() {
           </div>
         </Banner>
         <div className="px-4 pb-20 space-y-6 lg:container lg:px-0 lg:mx-auto">
-          <MiniCardsInfo activity={activity} />
+          {loading ? <MiniCardSkt /> : <MiniCardsInfo activity={activity} />}
           <TitleDoubleXL>Voluntarios inscriptos</TitleDoubleXL>
           <div className="flex flex-col gap-2 lg:flex-row lg:w-full lg:flex-wrap">
             {loading ? (
               <CardListSkt />
+            ) : inscriptions.length === 0 ? (
+              <p className="text-5xl text-red-500">No hay plata</p>
             ) : (
-              inscriptions.map((ins) => (
-                <MiniCardInscripFnd
-                  key={ins.inscripcion_id}
-                  volId={ins.voluntario_id}
-                  status={ins.estado}
-                  expectedSkills={activity.habilidades}
-                />
-              ))
+              inscriptions.map((ins) => {
+                console.log("Datos de inscripción individual:", ins);
+                return (
+                  <MiniCardInscripFnd
+                    key={ins._id}
+                    volId={ins.voluntario_id}
+                    status={ins.estado}
+                    expectedSkills={activity.habilidades}
+                    inscription={ins}
+                  />
+                );
+              })
             )}
           </div>
         </div>

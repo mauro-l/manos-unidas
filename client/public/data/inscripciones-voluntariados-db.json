@@ -1,170 +1,107 @@
 [
   {
-    "inscripcion_id": "INS001",
-    "voluntario_id": "VOL001",
-    "actividad_id": "1",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "aprobado"
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS011",
-    "voluntario_id": "VOL002",
-    "actividad_id": "1",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "pendiente"
+    "voluntario_id": "67a58127a0491ba98bec2aff",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS021",
-    "voluntario_id": "VOL003",
-    "actividad_id": "1",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "aprobado"
+    "voluntario_id": "67a581eea0491ba98bec2b27",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS031",
-    "voluntario_id": "VOL004",
-    "actividad_id": "1",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "rechazado"
+    "voluntario_id": "67a58195a0491ba98bec2b0e",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS041",
-    "voluntario_id": "VOL005",
-    "actividad_id": "1",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "aprobado"
+    "voluntario_id": "67a4d6b873479f2288d4f76b",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS002",
-    "voluntario_id": "VOL001",
-    "actividad_id": "2",
-    "fecha_inscripcion": "2025-01-21",
-    "estado": "pendiente"
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS012",
-    "voluntario_id": "VOL002",
-    "actividad_id": "2",
-    "fecha_inscripcion": "2025-01-21",
-    "estado": "aprobado"
+    "voluntario_id": "67a58127a0491ba98bec2aff",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS022",
-    "voluntario_id": "VOL003",
-    "actividad_id": "2",
-    "fecha_inscripcion": "2025-01-21",
-    "estado": "rechazado"
+    "voluntario_id": "67a581eea0491ba98bec2b27",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS032",
-    "voluntario_id": "VOL004",
-    "actividad_id": "2",
-    "fecha_inscripcion": "2025-01-21",
-    "estado": "aprobado"
+    "voluntario_id": "67a58195a0491ba98bec2b0e",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS042",
-    "voluntario_id": "VOL005",
-    "actividad_id": "2",
-    "fecha_inscripcion": "2025-01-21",
-    "estado": "pendiente"
+    "voluntario_id": "67a4d6b873479f2288d4f76b",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS003",
-    "voluntario_id": "VOL001",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "aprobado"
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS013",
-    "voluntario_id": "VOL002",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "rechazado"
+    "voluntario_id": "67a58127a0491ba98bec2aff",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS023",
-    "voluntario_id": "VOL003",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "rechazado"
+    "voluntario_id": "67a581eea0491ba98bec2b27",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS033",
-    "voluntario_id": "VOL004",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "pendiente"
+    "voluntario_id": "67a58195a0491ba98bec2b0e",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS043",
-    "voluntario_id": "VOL005",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "pendiente"
+    "voluntario_id": "67a4d6b873479f2288d4f76b",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS053",
-    "voluntario_id": "VOL006",
-    "actividad_id": "3",
-    "fecha_inscripcion": "2025-01-22",
-    "estado": "aprobado"
+    "voluntario_id": "67a58213a0491ba98bec2b36",
+    "actividad_id": "67a57a26164aa073ffae4a0f"
   },
   {
-    "inscripcion_id": "INS004",
-    "voluntario_id": "VOL001",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "pendiente"
+    "voluntario_id": "67a58213a0491ba98bec2b36",
+    "actividad_id": "67a540f8f7eacb18f467500e"
   },
   {
-    "inscripcion_id": "INS014",
-    "voluntario_id": "VOL002",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "pendiente"
+    "voluntario_id": "67a58213a0491ba98bec2b36",
+    "actividad_id": "67a4ff952fddd22e064e3895"
   },
   {
-    "inscripcion_id": "INS024",
-    "voluntario_id": "VOL003",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "aprobado"
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
   },
   {
-    "inscripcion_id": "INS034",
-    "voluntario_id": "VOL004",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "rechazado"
+    "voluntario_id": "67a58127a0491ba98bec2aff",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
   },
   {
-    "inscripcion_id": "INS044",
-    "voluntario_id": "VOL005",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "pendiente"
+    "voluntario_id": "67a581eea0491ba98bec2b27",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
   },
   {
-    "inscripcion_id": "INS054",
-    "voluntario_id": "VOL006",
-    "actividad_id": "4",
-    "fecha_inscripcion": "2025-01-23",
-    "estado": "aprobado"
+    "voluntario_id": "67a58195a0491ba98bec2b0e",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
   },
   {
-    "inscripcion_id": "INS005",
-    "voluntario_id": "VOL001",
-    "actividad_id": "6",
-    "fecha_inscripcion": "2025-01-24",
-    "estado": "rechazado"
+    "voluntario_id": "67a4d6b873479f2288d4f76b",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
   },
   {
-    "inscripcion_id": "INS006",
-    "voluntario_id": "VOL001",
-    "actividad_id": "5",
-    "fecha_inscripcion": "2025-01-20",
-    "estado": "finalizado"
+    "voluntario_id": "67a58213a0491ba98bec2b36",
+    "actividad_id": "67a586b9a0491ba98bec2b49"
+  },
+  {
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a588b5a0491ba98bec2b4f"
+  },
+  {
+    "voluntario_id": "67a581c8a0491ba98bec2b1d",
+    "actividad_id": "67a588b5a0491ba98bec2b4f"
   }
 ]
+
