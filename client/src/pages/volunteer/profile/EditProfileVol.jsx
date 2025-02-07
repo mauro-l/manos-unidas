@@ -13,18 +13,19 @@ function EditProfileVol() {
         <BtnBack>Volver al perfil</BtnBack>
         <h3>Completa o edita tus datos personales</h3>
       </Banner>
-      <div className="px-4 py-10">
+      <div className="px-4 py-10" id="sobremi">
         <Formik>
-          <Form>
-            <div className="flex flex-col gap-4">
-              <TitleDoubleXL>Sobre mi</TitleDoubleXL>
+          <Form >
+            <div  className="flex flex-col gap-4"  >
+              <TitleDoubleXL >Sobre mi</TitleDoubleXL>
               <TextArea
                 name="aboutme"
                 placeholder="Cuéntanos un poco sobre ti..."
               />
             </div>
             <div className="divider"></div>
-            <div className="flex flex-col gap-4">
+
+            <div className="flex flex-col gap-4" id="experiencia">
               <TitleDoubleXL>Experiencia laboral</TitleDoubleXL>
               <TextArea
                 name="experience"
@@ -32,7 +33,7 @@ function EditProfileVol() {
               />
             </div>
             <div className="divider"></div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4" id="estudios">
               <TitleDoubleXL>Estudios</TitleDoubleXL>
               <TextArea
                 name="estudies"
@@ -40,7 +41,7 @@ function EditProfileVol() {
               />
             </div>
             <div className="divider"></div>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4" id="habilidades">
               <TitleDoubleXL>Habilidades</TitleDoubleXL>
               <SelectInput
                 name="habilities"

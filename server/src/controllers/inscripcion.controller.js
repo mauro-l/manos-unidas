@@ -2,7 +2,7 @@ import Actividad from "../models/Actividad.model.js";
 import Inscripcion from "../models/inscripcion.model.js";
 import Voluntario from "../models/voluntario.model.js";
 import mongoose from "mongoose";
-// Obtener todas las inscripciones
+
 export const getAllInscripciones = async (req, res) => {
   try {
     const inscripciones = await Inscripcion.find().populate(
@@ -16,7 +16,6 @@ export const getAllInscripciones = async (req, res) => {
   }
 };
 
-// Obtener una inscripción por ID con datos de la actividad
 export const getInscripcionById = async (req, res) => {
   try {
     const inscripcion = await Inscripcion.findById(req.params.id).populate(
@@ -34,38 +33,36 @@ export const getInscripcionById = async (req, res) => {
   }
 };
 
-// Crear una nueva inscripción
-
 export const createInscripcion = async (req, res) => {
   const { voluntario_id, actividad_id } = req.body;
-  const session = await mongoose.startSession(); // Inicia la sesión para la transacción
-  session.startTransaction(); // Inicia la transacción
+  const session = await mongoose.startSession();
+  session.startTransaction();
 
   try {
     const voluntario = await Voluntario.findById(voluntario_id).session(
       session
-    ); // Usa la sesión
+    );
     if (!voluntario) {
-      throw new Error("El voluntario no existe"); // Lanza un error para la transacción
+      throw new Error("El voluntario no existe");
     }
 
-    const actividad = await Actividad.findById(actividad_id).session(session); // Usa la sesión
+    const actividad = await Actividad.findById(actividad_id).session(session);
     if (!actividad) {
-      throw new Error("La actividad no existe"); // Lanza un error para la transacción
+      throw new Error("La actividad no existe");
     }
 
     if (!actividad.cupo_disponible) {
-      throw new Error("No hay cupos disponibles para esta actividad"); // Lanza un error
+      throw new Error("No hay cupos disponibles para esta actividad");
     }
 
     const inscripcionesCount = await Inscripcion.countDocuments({
       actividad_id,
-    }).session(session); // Usa la sesión
+    }).session(session);
 
     if (inscripcionesCount >= actividad.cupo_maximo) {
       actividad.cupo_disponible = false;
-      await actividad.save({ session }); // Guarda con la sesión
-      throw new Error("No hay cupos disponibles para esta actividad"); // Lanza un error
+      await actividad.save({ session });
+      throw new Error("No hay cupos disponibles para esta actividad");
     }
 
     const newInscripcion = new Inscripcion({
@@ -74,22 +71,21 @@ export const createInscripcion = async (req, res) => {
       fecha_inscripcion: new Date(),
     });
 
-    const savedInscripcion = await newInscripcion.save({ session }); // Guarda con la sesión
+    const savedInscripcion = await newInscripcion.save({ session });
 
-    // Actualizar el campo 'voluntarios_inscriptos' y 'cupo_disponible'
     actividad.voluntarios_inscriptos++;
     if (actividad.voluntarios_inscriptos >= actividad.cupo_maximo) {
       actividad.cupo_disponible = false;
     }
-    await actividad.save({ session }); // Guarda con la sesión
+    await actividad.save({ session });
 
-    await session.commitTransaction(); // Confirma la transacción
-    session.endSession(); // Finaliza la sesión
+    await session.commitTransaction();
+    session.endSession();
 
     res.status(201).json(savedInscripcion);
   } catch (error) {
-    await session.abortTransaction(); // Cancela la transacción en caso de error
-    session.endSession(); // Finaliza la sesión
+    await session.abortTransaction();
+    session.endSession();
 
     console.error("Error al crear inscripción:", error);
     res
@@ -98,13 +94,11 @@ export const createInscripcion = async (req, res) => {
   }
 };
 
-// Actualizar una inscripción por id
 export const updateInscripcion = async (req, res) => {
   try {
     const { id } = req.params;
     const updatedData = req.body;
 
-    // Verificar si el valor de `estado` es válido
     if (
       updatedData.estado &&
       !["Pendiente", "Aprobada", "Rechazada", "Cancelado"].includes(
@@ -136,7 +130,6 @@ export const updateInscripcion = async (req, res) => {
   }
 };
 
-// Eliminar una inscripción por ID
 export const deleteInscripcion = async (req, res) => {
   try {
     const deletedInscripcion = await Inscripcion.findByIdAndDelete(
@@ -147,16 +140,13 @@ export const deleteInscripcion = async (req, res) => {
       return res.status(404).json({ message: "Inscripción no encontrada" });
     }
 
-    // Obtener la actividad para actualizar su cupo
     const actividad = await Actividad.findById(deletedInscripcion.actividad_id);
     if (actividad) {
-      // Reducir en 1 la cantidad de voluntarios inscritos
       actividad.voluntarios_inscriptos = Math.max(
         0,
         actividad.voluntarios_inscriptos - 1
       );
 
-      // Si hay cupos disponibles nuevamente, actualizar el booleano
       actividad.cupo_disponible =
         actividad.voluntarios_inscriptos < actividad.cupo_maximo;
 
@@ -174,14 +164,12 @@ export const deleteInscripcion = async (req, res) => {
 
 export const getInscripcionesByActividadId = async (req, res) => {
   try {
-    // Validar que el ID sea un ObjectId válido
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
       return res.status(400).json({ message: "ID de actividad no válido" });
     }
 
     const actividadObjectId = new mongoose.Types.ObjectId(req.params.id);
 
-    // Buscar todas las inscripciones que coincidan con el ID de la actividad
     const inscripciones = await Inscripcion.find({
       actividad_id: actividadObjectId,
     })

@@ -64,7 +64,7 @@ function Home() {
             </div>
             <div className="hidden lg:flex lg:gap-6">
               {currentActivities.map((activity) => (
-                <Card key={activity.id} activity={activity} />
+                <Card key={activity._id} activity={activity} />
               ))}
             </div>
           </div>

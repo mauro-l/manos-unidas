@@ -39,7 +39,7 @@ const navItems = {
     },
     {
       path: ROUTES.FOUNDATION.PERFIL,
-      label: "Perfil de fundacioón",
+      label: "Perfil de fundación",
       icon: HiOutlineUserCircle,
     },
     {

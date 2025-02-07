@@ -161,5 +161,26 @@
     },
     "profesion": "Constructor",
     "foto_perfil": "https://i.pravatar.cc/150?u=a04258114e09036731d"
+  },
+  {
+    "voluntario_id": "VOL007",
+    "nombre": "Ana",
+    "apellido": "Gomez",
+    "email": "ana@email.com",
+    "contrasena": "voluntario",
+    "sexo": "",
+    "telefono": "",
+    "intereses": "",
+    "descripcion": "",
+    "estudios": "",
+    "habilidades": [],
+    "ubicacion": {
+      "pais": "",
+      "provincia": "",
+      "ciudad": "",
+      "direccion": ""
+    },
+    "profesion": "",
+    "foto_perfil": ""
   }
 ]

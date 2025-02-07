@@ -6,28 +6,23 @@ export const createVoluntario = async (req, res) => {
   try {
     const { habilidades, ubicacion, ...voluntarioData } = req.body;
 
-    // Comprobar y crear habilidades
     const habilidadesDocs = [];
     for (const habilidad of habilidades) {
       let habilidadExistente = await Habilidad.findOne({ nombre: habilidad });
       if (!habilidadExistente) {
-        // Si no existe, se crea una nueva habilidad
         habilidadExistente = await Habilidad.create({ nombre: habilidad });
       }
       habilidadesDocs.push(habilidadExistente);
     }
 
-    // Comprobar y crear ubicación
     let ubicacionDoc = await Ubicacion.findOne({ ciudad: ubicacion.ciudad });
     if (!ubicacionDoc) {
-      // Si no existe, se crea una nueva ubicación
       console.log(ubicacion);
 
       ubicacionDoc = new Ubicacion(ubicacion);
       await ubicacionDoc.save();
     }
 
-    // Crear voluntario
     const newVoluntario = new Voluntario({
       ...voluntarioData,
       habilidades: habilidadesDocs.map((habilidad) => habilidad._id),

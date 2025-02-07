@@ -60,9 +60,9 @@ const ActivitiesListVol = () => {
               Categorías
             </h2>
             <div className="flex flex-wrap gap-3">
-              {options.map((opt) => (
+              {options.map((opt, index) => (
                 <div
-                  key={opt.value}
+                  key={index}
                   className="cursor-pointer badge badge-ghost badge-outline text-base-400"
                 >
                   {opt.label}
@@ -91,9 +91,9 @@ const ActivitiesListVol = () => {
               Habilidades requeridas
             </h2>
             <div className="flex flex-wrap gap-3">
-              {skills.map((skill) => (
+              {skills.map((skill, index) => (
                 <div
-                  key={skill.id}
+                  key={index}
                   className="cursor-pointer badge badge-ghost badge-outline text-base-400"
                 >
                   {skill.name}
@@ -124,11 +124,12 @@ const ActivitiesListVol = () => {
                     id="filter"
                     className="w-full bg-white border-base-300 select select-bordered min-w-20"
                     placeholder="Fecha de publicación"
+                    defaultValue={"no hay"}
                   >
-                    <option disabled selected>
+                    <option disabled value={"no hay"}>
                       Fecha de publicación
                     </option>
-                    <option>Fecha de Eso</option>
+                    <option value={"eso"}>Fecha de Eso</option>
                   </select>
                 </div>
 
@@ -144,7 +145,7 @@ const ActivitiesListVol = () => {
             {/* <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(250px,1fr))]"> */}
             <div className="flex flex-wrap w-full gap-6">
               {currentActivities.map((activity) => (
-                <Card key={activity.id} activity={activity} />
+                <Card key={activity._id} activity={activity} />
               ))}
             </div>
 

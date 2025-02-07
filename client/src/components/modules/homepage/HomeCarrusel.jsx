@@ -26,7 +26,7 @@ function HomeCarrusel({ loading, activities }) {
       >
         {currentActivities &&
           currentActivities.map((activity) => (
-            <SwiperSlide key={activity.id}>
+            <SwiperSlide key={activity._id}>
               <Card activity={activity} />
             </SwiperSlide>
           ))}
