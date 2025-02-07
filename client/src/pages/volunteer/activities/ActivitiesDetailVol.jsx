@@ -8,7 +8,7 @@ import { Link, useParams } from "react-router-dom";
 import Banner from "@/components/layout/Banner.jsx";
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
 import MiniCard from "@/components/common/cards/MiniCard.jsx";
-import imgActivity from "@/assets/imagen-actividad.png";
+/* import imgActivity from "@/assets/imagen-actividad.png"; */
 import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import useActivityById from "@/hooks/useActivityById.js";
@@ -17,11 +17,12 @@ import { ROUTES } from "@/routes/index.routes.js";
 const ActivitiesDetailVol = () => {
   const { id } = useParams();
   const { loading, activity, error } = useActivityById(id);
+  console.log(activity);
 
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
 
-  const tareasList = activity.tareas ? activity.tareas.split("\n") : [];
+  /* const tareasList = activity.tareas ? activity.tareas.split("\n") : []; */
 
   return (
     <div className="w-full ">
@@ -30,7 +31,7 @@ const ActivitiesDetailVol = () => {
           <div className="flex flex-col">
             <BtnBack> Volver </BtnBack>
             <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
-              {activity.categoria.name || "Cargando..."}
+              {activity.categoria_id.nombre || "Cargando..."}
             </div>
           </div>
           <h2 className="text-2xl font-bold leading-6 card-title lg:text-6xl  ">
@@ -47,7 +48,7 @@ const ActivitiesDetailVol = () => {
                 Organizado por
               </p>
               <Link className="font-semibold link text-primary text-pretty">
-                {activity.fundacion_id}
+                {activity.fundacion_id.nombre}
               </Link>
             </div>
 
@@ -68,9 +69,9 @@ const ActivitiesDetailVol = () => {
 
       <div className="p-4 pb-10 ">
         <div className="-mt-8 ">
-          <img
-            className="h-48 mx-auto"
-            src={imgActivity}
+          <img 
+            className="h-48 mx-auto rounded-lg border-2 border-neutral-content w-full"
+            src={activity.imagen}
             alt="Imagen de actividad"
           />
         </div>
@@ -80,7 +81,7 @@ const ActivitiesDetailVol = () => {
               className="w-2/3 text-xs"
               icon={HiOutlineClipboardDocumentCheck}
               title={"Inscripción abierta hasta"}
-              text={activity.inscripcion}
+              text={activity.fecha_limite.slice(0, 10)}
             />
             <MiniCard
               className="w-2/5"
@@ -95,13 +96,13 @@ const ActivitiesDetailVol = () => {
               className="w-3/5"
               icon={HiCalendarDays}
               title={"Inicio de actividad"}
-              text={activity.fecha_inicio}
+              text={activity.fecha_inicio.slice(0, 10)}
             />
             <MiniCard
               className="w-3/5 "
               icon={HiCalendarDays}
               title={"Fin de actividad"}
-              text={activity.fecha_fin}
+              text={activity.fecha_fin.slice(0, 10)}
             />
           </div>
         </div>
@@ -111,8 +112,8 @@ const ActivitiesDetailVol = () => {
             Tareas a realizar:
           </TitleDoubleXL>
           <ul className="mt-4 text-gray-700 list-disc list-inside">
-            {tareasList.length > 0 ? (
-              tareasList.map((tar, index) => <li key={index}>{tar}</li>)
+            {activity.tareas.length > 0 ? (
+              activity.tareas.map((tar, index) => <li key={index}>{tar}</li>)
             ) : (
               <li>No hay tareas especificadas.</li>
             )}
@@ -129,10 +130,9 @@ const ActivitiesDetailVol = () => {
         <div className="my-6 divider"></div>
 
         <div>
-          <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>
-
-          {activity.habilidades.map((skill) => (
-            <p key={skill.id}>{skill.name}</p>
+           <TitleDoubleXL className="pb-4">Habilidades</TitleDoubleXL>{" "}
+          {activity.habilidades.map((skill, index) => (
+            <p className="badge bg-base-10 me-2" key={index}>{skill}</p>
           ))}
         </div>
 
@@ -144,9 +144,6 @@ const ActivitiesDetailVol = () => {
         </div>
         <div className="my-6 divider "></div>
 
-
-
-        
         <div>
           <button
             className="w-full shadow-2xl btn bg-primary text-primary-content"
