@@ -1,5 +1,4 @@
 import Fundacion from "../models/fundacion.model.js";
-import Fundacion from "../models/fundacion.model.js";
 import Ubicacion from "../models/ubicacion.model.js";
 
 // Crear una nueva fundación
@@ -10,8 +9,6 @@ export const createFundacion = async (req, res) => {
     let ubicacionDoc = await Ubicacion.findOne({ ciudad: ubicacion.ciudad });
     if (!ubicacionDoc) {
       // Si no existe, se crea una nueva ubicación
-      console.log(ubicacion);
-
       ubicacionDoc = new Ubicacion(ubicacion);
       await ubicacionDoc.save();
     }
@@ -20,6 +17,7 @@ export const createFundacion = async (req, res) => {
       ...fundacionData,
       ubicacion: ubicacionDoc._id,
     });
+
     await newFundacion.save();
     res.status(201).json(newFundacion);
   } catch (error) {
@@ -27,7 +25,6 @@ export const createFundacion = async (req, res) => {
   }
 };
 
-// Obtener todas las fundaciones
 // Obtener todas las fundaciones con sus ubicaciones populadas
 export const getFundaciones = async (req, res) => {
   try {
@@ -46,6 +43,7 @@ export const getFundacionById = async (req, res) => {
     );
     if (!fundacion)
       return res.status(404).json({ message: "Fundación no encontrada" });
+
     res.status(200).json(fundacion);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -60,20 +58,10 @@ export const updateFundacion = async (req, res) => {
       req.body,
       { new: true }
     );
+
     if (!updatedFundacion)
       return res.status(404).json({ message: "Fundación no encontrada" });
-    res.status(200).json(updatedFundacion);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-  try {
-    const updatedFundacion = await Fundacion.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    if (!updatedFundacion)
-      return res.status(404).json({ message: "Fundación no encontrada" });
+
     res.status(200).json(updatedFundacion);
   } catch (error) {
     res.status(400).json({ message: error.message });
@@ -86,14 +74,7 @@ export const deleteFundacion = async (req, res) => {
     const deletedFundacion = await Fundacion.findByIdAndDelete(req.params.id);
     if (!deletedFundacion)
       return res.status(404).json({ message: "Fundación no encontrada" });
-    res.status(200).json({ message: "Fundación eliminada" });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-  try {
-    const deletedFundacion = await Fundacion.findByIdAndDelete(req.params.id);
-    if (!deletedFundacion)
-      return res.status(404).json({ message: "Fundación no encontrada" });
+
     res.status(200).json({ message: "Fundación eliminada" });
   } catch (error) {
     res.status(500).json({ message: error.message });
