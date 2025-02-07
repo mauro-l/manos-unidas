@@ -7,26 +7,120 @@ import {
 import { Link, useParams } from "react-router-dom";
 import Banner from "@/components/layout/Banner.jsx";
 import BtnBack from "@/components/common/buttons/BtnBack.jsx";
-/* import imgActivity from "@/assets/imagen-actividad.png"; */
 import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import useActivityById from "@/hooks/useActivityById.js";
 import { ROUTES } from "@/routes/index.routes.js";
+import useAuth from "../../../hooks/useAuth.js";
+import { useEffect, useState } from "react";
+import {
+  deleteInscribtion,
+  getAllInscripciones,
+  postAddInscription,
+} from "../../../services/inscriptionsService.js";
+
+const ALERT_TYPES = {
+  SUCCESS: "success",
+  ERROR: "error",
+  WARNING: "warning",
+  INFO: "info",
+};
+
+const ALERT_COLORS = {
+  success: "alert-success",
+  error: "alert-error",
+  warning: "alert-warning",
+  info: "alert-info",
+};
 
 const ActivitiesDetailVol = () => {
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertType, setAlertType] = useState(ALERT_TYPES.INFO);
+  const [isLoading, setIsLoading] = useState();
+  const [inscribed, setInscribed] = useState();
+
+  const { user } = useAuth();
+  const role = user && user.role;
+
   const { id } = useParams();
   const { loading, activity, error } = useActivityById(id);
-  console.log(activity);
+  const activityId = id;
+  console.log(activityId);
+
+  useEffect(() => {
+    const checkInscription = async (activityId) => {
+      try {
+        const inscripciones = await getAllInscripciones();
+        console.log(user.id, activityId, inscripciones);
+        const isInscribed = inscripciones.some(
+          (inscripcion) =>
+            inscripcion.voluntario_id === user.id &&
+            inscripcion.actividad_id === activityId
+        );
+        console.log(isInscribed, "Incripto?");
+        setInscribed(isInscribed);
+      } catch (error) {
+        throw error.response ? error.response.data.message : error.message;
+      }
+    };
+    checkInscription(activityId);
+  }, [user.id, activityId]);
+
+  const showAlertMessage = (message, type = ALERT_TYPES.INFO) => {
+    setAlertMessage(message);
+    setAlertType(type);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000);
+  };
+
+  const addInscription = async () => {
+    if (!user) {
+      showAlertMessage(
+        "Debes iniciar sesión para inscribirse",
+        ALERT_TYPES.WARNING
+      );
+    } else if (!role === "voluntario") {
+      showAlertMessage(
+        "Solo voluntarios inscriptos pueden inscribirse",
+        ALERT_TYPES.ERROR
+      );
+    } else {
+      try {
+        setIsLoading(true); // Agregar estado de carga si lo necesitas
+
+        await postAddInscription(user.id, id);
+
+        showAlertMessage("¡Te has inscrito exitosamente!", ALERT_TYPES.SUCCESS);
+      } catch (error) {
+        showAlertMessage(
+          error.message || "Error al realizar la inscripción",
+          ALERT_TYPES.ERROR
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  };
+
+  const cancelInscription = async (inscriptionId) => {
+    try {
+      await deleteInscribtion(inscriptionId);
+      showAlertMessage("Haz cancelado tu participación", ALERT_TYPES.ERROR);
+    } catch (error) {
+      showAlertMessage(error.message || "Error", ALERT_TYPES.ERROR);
+    }
+  };
 
   if (loading) return <p>Cargando datos...</p>;
   if (error) return <p>{error}</p>;
 
-  /* const tareasList = activity.tareas ? activity.tareas.split("\n") : []; */
-
   return (
     <div className="w-full ">
       <Banner>
-        <div className="flex flex-col space-y-4 ">
+        <div className="container flex flex-col space-y-4 lg:mx-auto">
           <div className="flex flex-col">
             <BtnBack> Volver </BtnBack>
             <div className="badge  badge-primary text-sm text-primary-content px-3 py-2.5 m-0 ">
@@ -66,7 +160,7 @@ const ActivitiesDetailVol = () => {
         </div>
       </Banner>
 
-      <div className="container p-4 pb-10 lg:mx-auto">
+      <div className="container p-4 pb-10 lg:mx-auto lg:p-0">
         <div className="-mt-8 ">
           <img
             className="w-full h-48 mx-auto border-2 rounded-lg border-neutral-content lg:object-cover lg:h-[500px]"
@@ -90,10 +184,14 @@ const ActivitiesDetailVol = () => {
                 <div className="flex items-center justify-center h-16 gap-2 px-4 py-3 border rounded-lg lg:justify-start lg:p-4 lg:h-20 bg-neutral-content grow-0 lg:flex-1 border-base-300">
                   <HiOutlineUsers className="w-6 h-6 text-secondary" />
                   <div className="text-sm text-neutral">
-                    <h4 className="text-nowrap">Quedan</h4>
+                    <h4 className="text-nowrap">
+                      {activity.cupo_disponible ? "Quedan" : "Cerrado"}
+                    </h4>
                     <p className="font-bold">
-                      {activity.cupo_maximo - activity.voluntarios_inscriptos ||
-                        "-"}{" "}
+                      {activity.cupo_maximo - activity.voluntarios_inscriptos >
+                      0
+                        ? activity.cupo_maximo - activity.voluntarios_inscriptos
+                        : "No hay"}{" "}
                       vacantes
                     </p>
                   </div>
@@ -120,12 +218,31 @@ const ActivitiesDetailVol = () => {
                 </div>
               </div>
             </section>
-            <button
-              className="hidden w-full shadow-2xl btn bg-primary text-primary-content lg:block lg:w-auto lg:max-w-[300px]"
-              onClick={() => document.getElementById("my_modal_1").showModal()}
-            >
-              Quiero inscribirme
-            </button>
+            {inscribed ? (
+              <button
+                className="hidden w-full shadow-2xl btn btn-accent text-accent-content lg:block lg:max-w-[300px]"
+                onClick={() => cancelInscription(inscribed.id)}
+              >
+                {isLoading ? (
+                  <span className="loading loading-ring loading-md"></span>
+                ) : (
+                  "Cancelar inscripción"
+                )}
+              </button>
+            ) : (
+              <button
+                disabled={!activity.cupo_disponible && !inscribed}
+                className="hidden w-full shadow-2xl btn btn-primary text-primary-content lg:block lg:w-auto lg:max-w-[300px]"
+                /* onClick={() => document.getElementById("my_modal_1").showModal()} */
+                onClick={() => addInscription()}
+              >
+                {isLoading ? (
+                  <span className="loading loading-ring loading-md"></span>
+                ) : (
+                  "Quiero inscribirme"
+                )}
+              </button>
+            )}
           </div>
           <div className="lg:w-5/6">
             <div>
@@ -170,14 +287,31 @@ const ActivitiesDetailVol = () => {
             <div className="my-6 divider "></div>
 
             <div>
-              <button
-                className="w-full shadow-2xl btn bg-primary text-primary-content lg:hidden"
-                onClick={() =>
-                  document.getElementById("my_modal_1").showModal()
-                }
-              >
-                Quiero inscribirme
-              </button>
+              {inscribed ? (
+                <button
+                  disabled={!activity.cupo_disponible}
+                  className="w-full shadow-2xl btn bg-primary text-primary-content lg:hidden"
+                  onClick={() => cancelInscription(inscribed.id)}
+                >
+                  {isLoading ? (
+                    <span className="loading loading-ring loading-md"></span>
+                  ) : (
+                    "Quiero inscribirme"
+                  )}
+                </button>
+              ) : (
+                <button
+                  disabled={!activity.cupo_disponible}
+                  className="w-full shadow-2xl btn bg-primary text-primary-content lg:hidden"
+                  onClick={() => addInscription()}
+                >
+                  {isLoading ? (
+                    <span className="loading loading-ring loading-md"></span>
+                  ) : (
+                    "Quiero inscribirme"
+                  )}
+                </button>
+              )}
               <dialog id="my_modal_1" className="modal">
                 <div className="modal-box">
                   <h3 className="text-3xl font-bold ">
@@ -210,6 +344,17 @@ const ActivitiesDetailVol = () => {
           </div>
         </div>
       </div>
+      {showAlert && (
+        <div
+          className={`toast toast-top toast-start top-10  transition-opacity ${
+            !showAlert ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <div className={`alert ${ALERT_COLORS[alertType]} `}>
+            <span>{alertMessage}</span>
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );
