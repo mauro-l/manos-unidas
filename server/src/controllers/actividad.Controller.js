@@ -6,9 +6,6 @@ import mongoose from "mongoose";
 import { response } from "express";
 /*--------creacion de esta cosa MARAVILLOSA----💖----------------------*/
 export const createActividad = async (req, res) => {
-  console.log("Datos recibidos en req.body:", req.body);
-  console.log("find de datos");
-
   try {
     const {
       titulo,
@@ -130,18 +127,17 @@ export const getActividadById = async (req, res) => {
 
 export const getActividadesByFundacionId = async (req, res) => {
   try {
-    console.log(req.params.id);
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.status(400).json({ message: "ID de fundación no válido" });
+    }
+    const fundacionObjectId = new mongoose.Types.ObjectId(req.params.id);
+
     const actividades = await Actividad.find({
-      fundacion_id: req.params.fundacionId,
+      fundacion_id: fundacionObjectId,
     })
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
       .populate({ path: "fundacion_id", select: "id nombre" })
-      .populate({
-        path: "ubicacion",
-        select: "direccion ciudad provincia pais",
-      });
-
-    console.log(actividades);
+      .populate("ubicacion");
 
     if (!actividades.length) {
       return res
