@@ -7,16 +7,13 @@ const useActivityById = (id) => {
   const [activity, setActivity] = useState([]);
   const [error, setError] = useState();
 
-  console.log(typeof id, id);
-
   useEffect(() => {
     const fetchDetail = async (id) => {
       try {
         setLoading(true);
         const actividad = await getActivityById(id);
-        
-        /* const res = await axios.get(`/data/actividades-voluntariado-db.json`); */
 
+        /* const res = await axios.get(`/data/actividades-voluntariado-db.json`); */
 
         /* const actividad = res.data.find((item) => item.id === Number(id)); */
 

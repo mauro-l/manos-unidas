@@ -6,15 +6,19 @@ import { ROUTES } from "../../../routes/index.routes.js";
 import Footer from "../../../components/layout/Footer.jsx";
 import useVolunteer from "../../../hooks/useVolunteer.js";
 import { HashLink } from "react-router-hash-link";
+import useAuth from "../../../hooks/useAuth.js";
 
 function VolunteerProfile() {
-  const { loading, error, volunteer } = useVolunteer("VOL001");
+  const { user } = useAuth();
+  console.log(user.id);
+  const { loading, error, volunteer } = useVolunteer(user.id);
 
   if (loading) {
     return <p>Cargando</p>;
   }
 
   if (error) return error;
+  console.log(volunteer);
 
   return (
     <div>
@@ -23,7 +27,7 @@ function VolunteerProfile() {
           <div className="flex items-center gap-6">
             <div className="avatar">
               <div className="w-24 rounded-xl ring-base-10 ring ">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                <img src={volunteer.foto_perfil} alt={volunteer.nombre} />
               </div>
             </div>
             <h2 className="">
@@ -45,8 +49,12 @@ function VolunteerProfile() {
             <li>
               Ubicación:
               <span className="font-normal ms-2 text-base-200">
-                {volunteer.ubicacion.ciudad}, {volunteer.ubicacion.provincia},
-                {volunteer.ubicacion.pais}
+                {!loading && !volunteer.ubicacion && (
+                  <p>¡Aún no la completaste!</p>
+                )}
+                {volunteer && volunteer.ubicacion.ciudad},{" "}
+                {volunteer && volunteer.ubicacion.provincia},
+                {volunteer && volunteer.ubicacion.pais}
               </span>
             </li>
           </ul>
@@ -67,16 +75,16 @@ function VolunteerProfile() {
 
               <div className="mt-4 overflow-x-auto">
                 <table className="table table-sm">
-                  <tbody className="text-sm font-bold text-neutral  ">
+                  <tbody className="text-sm font-bold text-neutral ">
                     <tr>
                       <th className="p-0">Nombre y apellido</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         <HiCheck className="text-xl text-secondary" />
                       </td>
                     </tr>
                     <tr>
                       <th className="p-0">Foto de perfil</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         {volunteer.foto_perfil ? (
                           <HiCheck className="text-xl text-secondary" />
                         ) : (
@@ -86,7 +94,7 @@ function VolunteerProfile() {
                     </tr>
                     <tr>
                       <th className="p-0">Ubicación</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         {volunteer.ubicacion?.pais &&
                         volunteer.ubicacion?.provincia &&
                         volunteer.ubicacion?.ciudad &&
@@ -99,7 +107,7 @@ function VolunteerProfile() {
                     </tr>
                     <tr>
                       <th className="p-0">Experiencia Laboral</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         {volunteer.profesion ? (
                           <HiCheck className="text-xl text-secondary" />
                         ) : (
@@ -109,7 +117,7 @@ function VolunteerProfile() {
                     </tr>
                     <tr>
                       <th className="p-0">Estudios</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         {volunteer.estudios ? (
                           <HiCheck className="text-xl text-secondary" />
                         ) : (
@@ -119,7 +127,7 @@ function VolunteerProfile() {
                     </tr>
                     <tr>
                       <th className="p-0">Habilidades</th>
-                      <td className="flex justify-end text-xs text-base-400 font-normal">
+                      <td className="flex justify-end text-xs font-normal text-base-400">
                         {volunteer?.habilidades?.length > 0 ? (
                           <HiCheck className="text-xl text-secondary" />
                         ) : (
@@ -136,7 +144,7 @@ function VolunteerProfile() {
               <div className="flex items-center justify-between mt-4">
                 <h3 className="text-xl font-bold">Sobre mi</h3>
                 <HashLink smooth to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#sobremi`}>
-                  <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                  <button className="text-sm font-bold btn btn-sm lg:bg-base-10">
                     {" "}
                     <HiOutlinePencil className="text-lg" /> Editar
                   </button>
@@ -148,10 +156,13 @@ function VolunteerProfile() {
             <div className="divider"></div>
 
             <div>
-            <div className="flex items-center justify-between mt-4">
+              <div className="flex items-center justify-between mt-4">
                 <h3 className="text-xl font-bold">Experiencia laboral</h3>
-                <HashLink smooth to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#experiencia`}>
-                  <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                <HashLink
+                  smooth
+                  to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#experiencia`}
+                >
+                  <button className="text-sm font-bold btn btn-sm lg:bg-base-10">
                     {" "}
                     <HiOutlinePencil className="text-lg" /> Editar
                   </button>
@@ -163,10 +174,13 @@ function VolunteerProfile() {
             <div className="divider"></div>
 
             <div>
-            <div className="flex items-center justify-between mt-4">
+              <div className="flex items-center justify-between mt-4">
                 <h3 className="text-xl font-bold">Estudios</h3>
-                <HashLink smooth to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#estudios`}>
-                  <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                <HashLink
+                  smooth
+                  to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#estudios`}
+                >
+                  <button className="text-sm font-bold btn btn-sm lg:bg-base-10">
                     {" "}
                     <HiOutlinePencil className="text-lg" /> Editar
                   </button>
@@ -175,33 +189,33 @@ function VolunteerProfile() {
               <p>{volunteer.estudios}</p>
             </div>
 
-
             <div className="divider"></div>
 
             <div>
-            <div className="flex items-center justify-between mt-4">
+              <div className="flex items-center justify-between mt-4">
                 <h3 className="text-xl font-bold">Habilidades</h3>
-                <HashLink smooth to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#habilidades`}>
-                  <button className=" text-sm font-bold   btn  btn-sm  lg:bg-base-10 ">
+                <HashLink
+                  smooth
+                  to={`${ROUTES.VOLUNTEER.EDIT_PERFIL}#habilidades`}
+                >
+                  <button className="text-sm font-bold btn btn-sm lg:bg-base-10">
                     {" "}
                     <HiOutlinePencil className="text-lg" /> Editar
                   </button>
                 </HashLink>
               </div>
               <p className="flex flex-wrap gap-2">
-                  {!loading &&
-                    volunteer.habilidades.map((skill) => (
-                      <div
-                        className="badge bg-base-100 lg:badge-ghost lg:badge-lg text-base-content"
-                        key={skill.id}
-                      >
-                        {skill.name}
-                      </div>
-                    ))}
-                </p>
+                {!loading &&
+                  volunteer.habilidades.map((skill) => (
+                    <div
+                      className="badge bg-base-100 lg:badge-ghost lg:badge-lg text-base-content"
+                      key={skill.id}
+                    >
+                      {skill.nombre}
+                    </div>
+                  ))}
+              </p>
             </div>
-
-            
           </div>
         </div>
         <Footer />

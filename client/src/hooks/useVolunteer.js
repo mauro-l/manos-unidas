@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { getVolunteerById } from "../services/volunterService.js";
 
 function useVolunteer(volunteer_id) {
   const [loading, setLoading] = useState(true);
@@ -10,11 +10,8 @@ function useVolunteer(volunteer_id) {
     const fetchDetail = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(`/data/lista-voluntarios-db.json`);
-        const volunteering = res.data.find(
-          (vol) => vol.voluntario_id == volunteer_id
-        );
 
+        const volunteering = await getVolunteerById(volunteer_id);
         setVolunteer(volunteering);
       } catch (err) {
         console.error("Error al cargar los datos:", err);

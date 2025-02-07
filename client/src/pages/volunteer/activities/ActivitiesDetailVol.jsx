@@ -46,17 +46,15 @@ const ActivitiesDetailVol = () => {
   const { id } = useParams();
   const { loading, activity, error } = useActivityById(id);
   const activityId = id;
-  console.log(activityId);
 
   useEffect(() => {
     const checkInscription = async (activityId) => {
       try {
         const inscripciones = await getAllInscripciones();
-        console.log(user.id, activityId, inscripciones);
         const isInscribed = inscripciones.some(
           (inscripcion) =>
             inscripcion.voluntario_id === user.id &&
-            inscripcion.actividad_id === activityId
+            inscripcion.actividad_id._id === activityId
         );
         console.log(isInscribed, "Incripto?");
         setInscribed(isInscribed);

@@ -9,9 +9,9 @@ export const getAllInscripciones = async () => {
   }
 };
 
-export const getActivityById = async (id) => {
+export const getByActivityId = async (id) => {
   try {
-    const response = await api.get("/actividades/" + id);
+    const response = await api.get("/inscripciones/activity/" + id);
 
     return response.data;
   } catch (error) {
@@ -19,14 +19,17 @@ export const getActivityById = async (id) => {
   }
 };
 
-/* export const getActivityByFundationId = async (id) => {
+export const getInscriptionByActivityId = async (id) => {
   try {
-    const response = await api.get("/actividades/fundacion/" + id);
+    const response = await api.get("/inscripciones/activity/" + id);
+    if (!response) {
+      return [];
+    }
     return response.data;
   } catch (error) {
     throw error.response ? error.response.data.message : error.message;
   }
-}; */
+};
 
 export const deleteInscribtion = async (id) => {
   try {

@@ -20,7 +20,7 @@ import EditDataVol from "../pages/volunteer/profile/EditDataVol.jsx";
 import EditProfileVol from "../pages/volunteer/profile/EditProfileVol.jsx";
 import Notification from "../pages/notifications/Notification.jsx";
 import VolunteerViewFnd from "../pages/foundation/activities/VolunteerViewFnd.jsx";
-import ErrorPage from "../pages/notifications/errorPage.jsx";
+import ErrorPage from "../pages/notifications/ErrorPage.jsx";
 
 const routes = createBrowserRouter([
   {
@@ -88,7 +88,6 @@ const routes = createBrowserRouter([
           { path: ROUTES.VOLUNTEER.PERFIL, element: <VolunteerProfile /> },
           { path: ROUTES.VOLUNTEER.EDIT_DATOS, element: <EditDataVol /> },
           { path: ROUTES.VOLUNTEER.EDIT_PERFIL, element: <EditProfileVol /> },
-          
         ],
       },
       { path: "*", element: <ErrorPage /> },
