@@ -130,17 +130,18 @@ export const getActividadById = async (req, res) => {
 
 export const getActividadesByFundacionId = async (req, res) => {
   try {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      return res.status(400).json({ message: "ID de fundación no válido" });
-    }
-    const fundacionObjectId = new mongoose.Types.ObjectId(req.params.id);
-
+    console.log(req.params.id);
     const actividades = await Actividad.find({
-      fundacion_id: fundacionObjectId,
+      fundacion_id: req.params.fundacionId,
     })
       .populate({ path: "categoria_id", select: "categoria_id nombre" })
       .populate({ path: "fundacion_id", select: "id nombre" })
-      .populate("ubicacion");
+      .populate({
+        path: "ubicacion",
+        select: "direccion ciudad provincia pais",
+      });
+
+    console.log(actividades);
 
     if (!actividades.length) {
       return res

@@ -13,6 +13,7 @@ const actividadSchema = new mongoose.Schema({
     required: true,
   },
   cupo_maximo: { type: Number, required: true },
+  voluntarios_inscriptos: { type: Number, default: 0 },
   cupo_disponible: { type: Boolean, required: true },
   fundacion_id: {
     type: mongoose.Schema.Types.ObjectId,
