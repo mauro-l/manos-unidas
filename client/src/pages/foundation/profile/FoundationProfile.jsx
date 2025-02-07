@@ -15,9 +15,10 @@ function FoundationProfile() {
     return <p>Cargando</p>;
   }
 
+
   if (error) return error;
 
-  console.log(foundation);
+ 
 
   return (
     <>

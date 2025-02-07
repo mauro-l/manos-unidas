@@ -8,19 +8,25 @@ import { Link, useParams } from "react-router-dom";
 import TitleDoubleXL from "@/components/common/headers/TitleDoubleXL.jsx";
 import MiniCardInscripFnd from "@/components/common/cards/MiniCardInscripFnd.jsx";
 import ModalMessage from "@/components/layout/ModalMessage.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CardListSkt from "@/components/common/skeleton/CardListSkt.jsx";
 import Footer from "@/components/layout/Footer.jsx";
 import { ROUTES } from "@/routes/index.routes.js";
 import useActivityInscriptions from "../../../hooks/useActivityInscriptions.js";
 import MiniCardSkt from "../../../components/common/skeleton/MiniCardSkt.jsx";
+import EmptyDashed from "../../../components/layout/EmptyDashed.jsx";
 
 function ActivityDetailFnd() {
   const [isOpen, setIsOpen] = useState(false);
   const { id } = useParams();
   const { activity } = useActivityById(id);
-
   const { inscriptions, loading, error } = useActivityInscriptions();
+
+  useEffect(() => {
+    if (activity) {
+      localStorage.setItem("activity", JSON.stringify(activity));
+    }
+  }, [activity]);
 
   if (error) return error;
   !loading && console.log("DESDE EL COMPONENT", inscriptions);
@@ -63,7 +69,11 @@ function ActivityDetailFnd() {
             {loading ? (
               <CardListSkt />
             ) : inscriptions.length === 0 ? (
-              <p className="text-5xl text-red-500">No hay plata</p>
+              <EmptyDashed>
+                <p className="flex flex-col gap-2 lg:flex-row lg:w-full lg:flex-wrap lg:justify-center">
+                  ¡No hay ninguna actividad creada!
+                </p>
+              </EmptyDashed>
             ) : (
               inscriptions.map((ins) => {
                 console.log("Datos de inscripción individual:", ins);

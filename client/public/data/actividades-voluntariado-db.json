@@ -296,6 +296,36 @@
     ],
     "perfil_buscado": "Personas con interés en la promoción de la salud, preferentemente con conocimientos básicos en el área médica.",
     "disponibilidad": "Las actividades se realizarán los jueves y sábados, de 9 a 13 horas."
+  },
+  {
+    "id": 11,
+    "titulo": "Campaña de Concientización sobre Incendios Forestales",
+    "descripcion": "Organización de eventos para educar sobre prevención y manejo de incendios forestales, así como la conservación del medio ambiente.",
+    "inscripcion": "2025-02-15",
+    "fecha_inicio": "2025-03-01",
+    "fecha_fin": "2025-09-30",
+    "ubicacion": {
+      "pais": "Brasil",
+      "provincia": "Amazonas",
+      "ciudad": "Manaos",
+      "direccion": "Reserva Natural EcoVida"
+    },
+    "cupos_disponibles": 20,
+    "voluntarios_inscritos": 5,
+    "fundacion_id": "FND003",
+    "categoria": {
+      "categoria_id": "environment",
+      "name": "Medio Ambiente"
+    },
+    "tareas": "1. Diseño de material informativo sobre prevención de incendios\n2. Organización de talleres y charlas educativas\n3. Apoyo en actividades de reforestación\n4. Monitorización de áreas forestales y reporte de riesgos\n5. Orientación a los participantes sobre prácticas seguras",
+    "habilidades": [
+      { "id": "teamwork", "name": "Trabajo en equipo" },
+      { "id": "Comunicación", "name": "communication" },
+      { "id": "Resiliencia", "name": "resilience" },
+      { "id": "emergency-response", "name": "Respuesta a emergencias" }
+    ],
+    "perfil_buscado": "Personas con interés en la conservación del medio ambiente, preferentemente con conocimientos básicos en manejo de emergencias y prevención de incendios.",
+    "disponibilidad": "Las actividades se realizarán los martes y sábados, de 10 a 14 horas."
   }
 ]
 

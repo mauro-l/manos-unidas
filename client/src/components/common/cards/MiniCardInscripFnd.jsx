@@ -57,7 +57,7 @@ function MiniCardInscripFnd({ volId, status, expectedSkills, inscription }) {
         </p>
         <div className="flex items-center justify-between">
           <Link
-            to={ROUTES.FOUNDATION.PERFIL_VOLUNT(volId)}
+            to={ROUTES.FOUNDATION.PERFIL_VOLUNT(volId._id)}
             className="bg-white btn btn-ghost btn-sm lg:btn-md border-base-300"
           >
             Ver perfil

@@ -12,5 +12,14 @@
   { "id": "ingles", "skill": "Inglés" },
   { "id": "musica", "skill": "Música" },
   { "id": "pintura", "skill": "Pintura" },
-  { "id": "teatro", "skill": "Teatro" }
+  { "id": "teatro", "skill": "Teatro" },
+  { "id": "first-aid", "skill": "Primeros auxilios" },
+  { "id": "event-planning", "skill": "Organización de eventos" },
+  { "id": "communication", "skill": "Comunicación" },
+  { "id": "teamwork", "skill": "Trabajo en equipo" },
+  { "id": "problem-solving", "skill": "Resolución de problemas" },
+  { "id": "social-support", "skill": "Apoyo social" },
+  { "id": "public-speaking", "skill": "Oratoria" },
+  { "id": "creativity", "skill": "Creatividad" },
+  { "id": "manual-work", "skill": "Trabajo manual" }
 ]
