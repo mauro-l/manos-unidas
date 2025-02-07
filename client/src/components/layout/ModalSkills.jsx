@@ -5,7 +5,7 @@ const SkillsModal = ({ isOpen, onClose, skills, loading, error }) => {
   const { values, setFieldValue } = useFormikContext();
 
   const handleSkillToggle = (habilidadId) => {
-    console.log(habilidadId);
+   
     const currentSkills = values.skills || [];
     const updatedSkills = currentSkills.includes(habilidadId)
       ? currentSkills.filter((id) => id !== habilidadId)

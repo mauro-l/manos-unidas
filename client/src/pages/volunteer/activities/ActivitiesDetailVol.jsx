@@ -56,7 +56,7 @@ const ActivitiesDetailVol = () => {
             inscripcion.voluntario_id === user.id &&
             inscripcion.actividad_id._id === activityId
         );
-        console.log(isInscribed, "Incripto?");
+       
         setInscribed(isInscribed);
       } catch (error) {
         throw error.response ? error.response.data.message : error.message;
@@ -231,7 +231,7 @@ const ActivitiesDetailVol = () => {
               <button
                 disabled={!activity.cupo_disponible && !inscribed}
                 className="hidden w-full shadow-2xl btn btn-primary text-primary-content lg:block lg:w-auto lg:max-w-[300px]"
-                /* onClick={() => document.getElementById("my_modal_1").showModal()} */
+               
                 onClick={() => addInscription()}
               >
                 {isLoading ? (

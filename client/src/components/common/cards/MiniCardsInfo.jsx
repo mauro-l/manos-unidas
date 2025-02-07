@@ -22,7 +22,7 @@ function MiniCardsInfo({ activity }) {
           <div className="text-sm text-neutral">
             <h4 className="text-nowrap">Voluntarios</h4>
             <p className="font-bold">
-              {activity.voluntarios_inscriptos || "-"}/
+              {activity.voluntarios_inscriptos || "0"}/
               {activity.cupo_maximo || "--"}
             </p>
           </div>
