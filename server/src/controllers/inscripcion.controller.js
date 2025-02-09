@@ -28,6 +28,15 @@ export const getInscripcionById = async (req, res) => {
           { path: "ubicacion", select: "ciudad provincia pais" },
         ],
       })
+      .populate({
+        path: "actividad_id",
+        select:
+          "titulo fecha_inicio fecha_fin voluntarios_inscriptos habilidades cupo_maximo",
+        populate: [
+          { path: "habilidades", select: "nombre" },
+          { path: "ubicacion", select: "ciudad provincia pais" },
+        ],
+      })
       .populate(
         "actividad_id",
         "titulo fecha_inicio fecha_fin voluntarios_inscriptos cupo_maximo"
@@ -183,8 +192,24 @@ export const getInscripcionesByActividadId = async (req, res) => {
     const inscripciones = await Inscripcion.find({
       actividad_id: actividadObjectId,
     })
-      .populate("voluntario_id")
-      .populate("actividad_id");
+      .populate({
+        path: "voluntario_id",
+        select:
+          "nombre apellido estudios habilidades ubicacion profesion foto_perfil",
+        populate: [
+          { path: "habilidades", select: "nombre" },
+          { path: "ubicacion", select: "ciudad provincia pais" },
+        ],
+      })
+      .populate({
+        path: "actividad_id",
+        select:
+          "titulo fecha_inicio fecha_fin fecha_limite voluntarios_inscriptos habilidades cupo_maximo",
+        populate: [
+          { path: "habilidades", select: "nombre" },
+          { path: "ubicacion", select: "ciudad provincia pais" },
+        ],
+      });
 
     if (!inscripciones.length) {
       return res
