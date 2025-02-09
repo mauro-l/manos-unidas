@@ -18,10 +18,20 @@ export const getAllInscripciones = async (req, res) => {
 
 export const getInscripcionById = async (req, res) => {
   try {
-    const inscripcion = await Inscripcion.findById(req.params.id).populate(
-      "actividad_id",
-      "titulo fecha_inicio fecha_fin voluntarios_inscriptos cupo_maximo"
-    );
+    const inscripcion = await Inscripcion.findById(req.params.id)
+      .populate({
+        path: "voluntario_id",
+        select:
+          "nombre apellido estudios habilidades ubicacion profesion foto_perfil",
+        populate: [
+          { path: "habilidades", select: "nombre" },
+          { path: "ubicacion", select: "ciudad provincia pais" },
+        ],
+      })
+      .populate(
+        "actividad_id",
+        "titulo fecha_inicio fecha_fin voluntarios_inscriptos cupo_maximo"
+      );
 
     if (!inscripcion) {
       return res.status(404).json({ message: "Inscripción no encontrada" });
