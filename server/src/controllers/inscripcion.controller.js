@@ -204,7 +204,7 @@ export const getInscripcionesByActividadId = async (req, res) => {
       .populate({
         path: "actividad_id",
         select:
-          "titulo fecha_inicio fecha_fin fecha_limite voluntarios_inscriptos habilidades cupo_maximo",
+          "titulo fecha_inicio fecha_fin fecha_limite voluntarios_inscriptos habilidades cupo_maximo descripcion",
         populate: [
           { path: "habilidades", select: "nombre" },
           { path: "ubicacion", select: "ciudad provincia pais" },
