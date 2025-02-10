@@ -19,6 +19,16 @@ export const getByActivityId = async (id) => {
   }
 };
 
+export const getInscriptionsById = async (id) => {
+  try {
+    const response = await api.get("/inscripciones/" + id);
+
+    return response.data;
+  } catch (error) {
+    throw error.response ? error.response.data.message : error.message;
+  }
+};
+
 export const getInscriptionByActivityId = async (id) => {
   try {
     const response = await api.get("/inscripciones/activity/" + id);
@@ -53,7 +63,12 @@ export const postAddInscription = async (voluntario_id, activity_id) => {
   }
 };
 
-export const putAprobate = async (voluntarioId, actividadId, estado) => {
+export const putAprobate = async (
+  inscripcionId,
+  voluntarioId,
+  actividadId,
+  estado
+) => {
   try {
     const token = localStorage.getItem("token");
 
@@ -61,7 +76,7 @@ export const putAprobate = async (voluntarioId, actividadId, estado) => {
       throw new Error("Token no encontrado en localStorage");
     }
     const response = await api.put(
-      "/inscripciones",
+      `/inscripciones/${inscripcionId}`,
       {
         voluntario_id: voluntarioId,
         actividad_id: actividadId,

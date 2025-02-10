@@ -5,12 +5,22 @@ export const useAprobacion = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const aprobarInscripcion = async (voluntarioId, actividadId, estado) => {
+  const aprobarInscripcion = async (
+    inscripcionId,
+    voluntarioId,
+    actividadId,
+    estado
+  ) => {
     try {
       setLoading(true);
       setError(null);
 
-      const respuesta = await putAprobate(voluntarioId, actividadId, estado);
+      const respuesta = await putAprobate(
+        inscripcionId,
+        voluntarioId,
+        actividadId,
+        estado
+      );
       return respuesta;
     } catch (error) {
       setError(error);

@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "@/routes/index.routes.js";
 
 function MiniCardFnd({ activity }) {
-  console.log("ACAAAAAAA", activity);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

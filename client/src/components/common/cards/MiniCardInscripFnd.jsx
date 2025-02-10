@@ -1,29 +1,19 @@
 import { Link } from "react-router-dom";
-import useVolunteer from "../../../hooks/useVolunteer.js";
 import BadgeStatus from "../buttons/BadgeStatus.jsx";
 import MiniCardSkt from "../skeleton/MiniCardSkt.jsx";
 import { ROUTES } from "../../../routes/index.routes.js";
 
-function MiniCardInscripFnd({ volId, status, expectedSkills, inscription }) {
-  console.log("Datos en MiniCardInscripFnd:", {
-    volId,
-    status,
-    expectedSkills,
-    inscription,
-  });
-  const { loading, error, volunteer } = useVolunteer(volId._id);
-  !loading && console.log(volunteer);
-
+function MiniCardInscripFnd({ loading, error, inscription }) {
   if (error) return error;
 
   if (loading) {
     return <MiniCardSkt />;
   }
 
-  const skillsMatch =
-    expectedSkills &&
-    volunteer.habilidades.filter((volSkill) =>
-      expectedSkills.some((expectedSkill) => expectedSkill.id === volSkill.id)
+  const matchingSkills =
+    inscription.actividad_id.habilidades &&
+    inscription.voluntario_id.habilidades.filter((volSkill) =>
+      inscription.actividad_id.habilidades.includes(volSkill.nombre)
     );
 
   return (
@@ -33,36 +23,39 @@ function MiniCardInscripFnd({ volId, status, expectedSkills, inscription }) {
           <div className="avatar">
             <div className="w-12 lg:w-16 rounded-2xl">
               <img
-                src={volunteer.foto_perfil}
+                src={inscription.voluntario_id.foto_perfil}
                 alt="Tailwind-CSS-Avatar-component"
               />
             </div>
           </div>
           <div>
             <h4 className="text-lg font-bold lg:text-2xl text-neutral">
-              {volunteer.nombre} {volunteer.apellido}
+              {inscription.voluntario_id.nombre}{" "}
+              {inscription.voluntario_id.apellido}
             </h4>
             <p className="text-sm lg:text-base text-base-400">
-              {volunteer.ubicacion?.ciudad}, {volunteer.ubicacion?.provincia},{" "}
-              {volunteer.ubicacion?.pais}
+              {inscription.voluntario_id.ubicacion?.ciudad},{" "}
+              {inscription.voluntario_id.ubicacion?.provincia},{" "}
+              {inscription.voluntario_id.ubicacion?.pais}
             </p>
           </div>
         </div>
         <p className="text-sm lg:text-base">
           Cumple con{" "}
           <span className="font-bold">
-            {skillsMatch.length}/{expectedSkills.length}
+            {matchingSkills.length}/
+            {inscription.actividad_id.habilidades.length}
           </span>{" "}
           de las habilidades que buscas
         </p>
         <div className="flex items-center justify-between">
           <Link
-            to={ROUTES.FOUNDATION.PERFIL_VOLUNT(volId._id)}
+            to={ROUTES.FOUNDATION.PERFIL_VOLUNT(inscription._id)}
             className="bg-white btn btn-ghost btn-sm lg:btn-md border-base-300"
           >
             Ver perfil
           </Link>
-          <BadgeStatus estado={status} role="fundacion" />
+          <BadgeStatus estado={inscription.estado} role="fundacion" />
         </div>
       </section>
     </>

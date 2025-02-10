@@ -1,28 +1,28 @@
 function BadgeStatus({ estado, role }) {
   const estadoClases = {
-    aprobado: "bg-secondary text-secondary-content ",
-    pendiente: "bg-base-10 text-base-content",
-    rechazado: "bg-accent  text-warning",
-    finalizado: "border border-base-400 text-base-400",
+    Aprobada: "bg-secondary text-secondary-content ",
+    Pendiente: "bg-base-10 text-base-content",
+    Rechazada: "bg-accent  text-warning",
+    Finalizado: "border border-base-400 text-base-400",
   };
 
   const getStatusText = (estado, role) => {
     if (role === "fundacion") {
-      return estado === "Aprobado"
+      return estado === "Aprobada"
         ? "Aprobado"
         : estado === "Pendiente"
         ? "Revisión pendiente"
-        : estado === "Rechazado"
+        : estado === "Rechazada"
         ? "Rechazado"
         : estado === "Finalizado"
         ? "Finalizado"
         : "Desconocido";
     } else {
-      return estado === "Aprobado"
+      return estado === "Aprobada"
         ? "Aprobado para participar"
         : estado === "Pendiente"
         ? "Aprobación pendiente"
-        : estado === "Rechazado"
+        : estado === "Rechazada"
         ? "No apto"
         : estado === "Finalizado"
         ? "Actividad finalizada"
